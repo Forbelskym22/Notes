@@ -15,7 +15,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.VPS_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -p 2222 -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts
+          echo "StrictHostKeyChecking no" >> ~/.ssh/config
 
       - name: Sync files to VPS
         run: |
