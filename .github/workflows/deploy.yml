@@ -13,11 +13,10 @@ jobs:
       - name: Sync files to VPS
         uses: burnett01/rsync-deployments@7.0.1
         with:
-          switches: -avz --delete --exclude='node_modules' --exclude='.git' --exclude='.claude'
+          switches: -avz --delete --exclude='node_modules' --exclude='.git' --exclude='.claude' -e "ssh -p 2222 -o StrictHostKeyChecking=no"
           path: ./
           remote_path: /var/www/notes/
           remote_host: ${{ secrets.VPS_HOST }}
-          remote_port: ${{ secrets.VPS_PORT }}
           remote_user: ${{ secrets.VPS_USER }}
           remote_key: ${{ secrets.VPS_KEY }}
 
@@ -25,7 +24,7 @@ jobs:
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.VPS_HOST }}
-          port: ${{ secrets.VPS_PORT }}
+          port: 2222
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_KEY }}
           script: |
