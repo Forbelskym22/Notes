@@ -26,10 +26,11 @@
 
   <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
     <div class="lg:hidden flex items-center gap-3 px-4 py-3 border-b border-gray-200">
-      <button id="btn-open-sidebar" class="p-1 text-gray-500 hover:text-gray-700">
+      <button id="btn-open-sidebar" class="p-1 shrink-0 text-gray-500 hover:text-gray-700">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
-      <span id="mobile-title" class="text-sm font-medium text-gray-600">Vyber zápisek</span>
+      <span id="mobile-title" class="text-sm font-medium text-gray-700 truncate flex-1">Vyber zápisek</span>
+      <button id="btn-pdf-mobile" class="hidden shrink-0 text-xs px-2.5 py-1 rounded-md bg-amber-400 text-gray-900 font-medium">PDF</button>
     </div>
 
     <main class="flex-1 overflow-y-auto">
@@ -37,12 +38,13 @@
         Vyber zápisek ze seznamu.
       </div>
       <div id="note-view" class="hidden">
-        <div id="note-toolbar" class="sticky top-0 bg-white border-b border-gray-200 px-4 py-2 sm:px-6 sm:py-4 z-10">
-          <div class="flex items-center justify-end mb-1 gap-1.5">
-            <button id="btn-download" class="hidden sm:block text-sm px-3 py-1.5 rounded-md border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors">Stáhnout .md</button>
-            <button id="btn-pdf" class="text-xs sm:text-sm px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-md bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium">PDF</button>
+        <div id="note-toolbar" class="hidden sm:flex items-center gap-4 sticky top-0 bg-white border-b border-gray-200 px-6 py-4 z-10">
+          <div class="w-32 shrink-0"></div>
+          <h1 id="note-title" class="flex-1 text-2xl font-bold text-gray-900 text-center leading-tight"></h1>
+          <div class="w-32 shrink-0 flex items-center justify-end gap-1.5">
+            <button id="btn-download" class="text-sm px-3 py-1.5 rounded-md border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors">Stáhnout .md</button>
+            <button id="btn-pdf" class="text-sm px-3 py-1.5 rounded-md bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium">PDF</button>
           </div>
-          <h1 id="note-title" class="text-lg sm:text-2xl font-bold text-gray-900 text-center leading-tight"></h1>
         </div>
         <article id="note-content" class="prose prose-sm sm:prose-base prose-gray max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full"></article>
       </div>

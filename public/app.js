@@ -83,6 +83,7 @@ async function showNote(subject, file, title, fetchUrl, skipHash) {
   document.getElementById('note-view').classList.remove('hidden')
   document.getElementById('mobile-title').textContent = title
   document.getElementById('note-title').textContent = title
+  document.getElementById('btn-pdf-mobile').classList.remove('hidden')
   document.getElementById('note-content').innerHTML = marked.parse(data.content || '_Tento zápisek je zatím prázdný._')
   wireInternalLinks()
   currentSubject = subject
@@ -229,7 +230,7 @@ document.getElementById('btn-download').addEventListener('click', () => {
   a.click()
 })
 
-document.getElementById('btn-pdf').addEventListener('click', async () => {
+async function downloadPdf() {
   if (!currentFile) return
   const url = currentSubject
     ? `/api/pdf/${encodeURIComponent(currentSubject)}/${encodeURIComponent(currentFile)}`
@@ -240,6 +241,10 @@ document.getElementById('btn-pdf').addEventListener('click', async () => {
   a.href = URL.createObjectURL(blob)
   a.download = currentFile.replace('.md', '.pdf')
   a.click()
-})
+}
+
+document.getElementById('btn-pdf-mobile').addEventListener('click', downloadPdf)
+
+document.getElementById('btn-pdf').addEventListener('click', downloadPdf)
 
 loadNav()
