@@ -17,6 +17,7 @@ jobs:
           path: ./
           remote_path: /var/www/notes/
           remote_host: ${{ secrets.VPS_HOST }}
+          remote_port: ${{ secrets.VPS_PORT }}
           remote_user: ${{ secrets.VPS_USER }}
           remote_key: ${{ secrets.VPS_KEY }}
 
@@ -24,6 +25,7 @@ jobs:
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.VPS_HOST }}
+          port: ${{ secrets.VPS_PORT }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_KEY }}
           script: |

@@ -1,0 +1,236 @@
+{
+  "main": {
+    "id": "ad59de11f43a01f9",
+    "type": "split",
+    "children": [
+      {
+        "id": "9db219f14f03cb87",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "89850e55fa9bace9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "VYS/MVC.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "MVC"
+            }
+          },
+          {
+            "id": "23bc7c25eb1e0c7a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Škola/SPŠTrutnov/VYS/Javascript.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Javascript"
+            }
+          },
+          {
+            "id": "4464500fe86e1b5c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Škola/SPŠTrutnov/VYS/Základy programování.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Základy programování"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b9267c83bc9dbe35",
+    "type": "split",
+    "children": [
+      {
+        "id": "b6b2cd445e88d6d5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0f89b594f9b772fb",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Průzkumník souborů"
+            }
+          },
+          {
+            "id": "feff183c73b93232",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "35c8e7b286b84cfe",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "19f0381bb1a4e968",
+    "type": "split",
+    "children": [
+      {
+        "id": "7f5fefa97aa388b4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f622de66a9efb019",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Škola/SPŠTrutnov/VYS/Datová analýza.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Datová analýza"
+            }
+          },
+          {
+            "id": "0b7200a225ae822e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "APS/Komprese dat.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Komprese dat"
+            }
+          },
+          {
+            "id": "d617de8318a32393",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "b333adadb50f781d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Škola/SPŠTrutnov/VYS/Datová analýza.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Datová analýza"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Otevřít rychlé přepínání": false,
+      "graph:Otevřít graf": false,
+      "canvas:Vytvořit nový canvas": false,
+      "daily-notes:Otevřít dnešní poznámku": false,
+      "templates:Vložit šablonu": false,
+      "command-palette:Otevřít paletu příkazů": false,
+      "bases:Vytvořit novou základnu": false
+    }
+  },
+  "active": "4464500fe86e1b5c",
+  "lastOpenFiles": [
+    "Škola/SPŠTrutnov/VYS/Algoritmy.md",
+    "MaturitaFormalita/Untitled",
+    "MaturitaFormalita/Algoritmy.md",
+    "MaturitaFormalita",
+    "Untitled",
+    "Škola/SPŠTrutnov/VYS/Základy programování.md",
+    "Škola/SPŠTrutnov/POS/Bezpečnost.md",
+    "Škola/SPŠTrutnov/VYS/Javascript.md",
+    "Škola/SPŠTrutnov/VYS/Strojové učení.md",
+    "Škola/SPŠTrutnov/VYS/Programovací jazyky.md",
+    "Škola/SPŠTrutnov/VYS/Datová analýza.md",
+    "Škola/SPŠTrutnov/VYS/MVC.md",
+    "Škola/SPŠTrutnov/OPS/Aktivní síťové prvky.md",
+    "Škola/SPŠTrutnov/OPS/Protokoly aplikační vrstvy.md",
+    "Škola/SPŠTrutnov/OPS/Monitory.md",
+    "Škola/SPŠTrutnov/OPS/OSPF-IOS.md",
+    "Škola/SPŠTrutnov/OPS/RouterOS.md",
+    "Škola/SPŠTrutnov/APS/Elektronická pošta.md",
+    "Škola/SPŠTrutnov/APS/Komprese dat.md",
+    "Škola/SPŠTrutnov/APS/Archivace a Zálohování.md",
+    "Škola/SPŠTrutnov/OPS/Tiskárny.md",
+    "Škola/SPŠTrutnov/POS/OSPF.md",
+    "Škola/SPŠTrutnov/POS/Etherchanel.md",
+    "Škola/SPŠTrutnov/POS/WAN.md",
+    "Škola/SPŠTrutnov/POS/Dynamic ARP inspection.md",
+    "Škola/SPŠTrutnov/POS/DHCP SNOOPING.md",
+    "Untitled.md",
+    "Škola/SPŠTrutnov",
+    "Škola",
+    "MVC.md",
+    "Škola/SPŠTrutnov/VYS"
+  ]
+}
