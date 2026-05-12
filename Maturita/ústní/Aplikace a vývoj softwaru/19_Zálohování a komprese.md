@@ -1,5 +1,3 @@
-# Zálohování, komprese dat, programové vybavení PC a cloudové služby
-
 ## Zálohování (Backup)
 
 ### Co je záloha
@@ -89,19 +87,31 @@ Technologie pro propojení více disků — **není náhrada zálohy**, ale zvy�
 
 ## Programové vybavení PC (Software)
 
-### Rozdělení SW podle způsobu distribuce
-- **Komerční** — za úplatu, uzavřený kód (WinRAR, Acronis)
-- **Freeware** — zdarma, uzavřený kód (7-Zip)
+### Dělení softwaru
+
+**Podle účelu:**
+- **Systémový software** — OS, ovladače, firmware
+- **Aplikační software** — kancelářské balíky, hry, prohlížeče
+- **Vývojový software** — IDE, kompilátory, debuggery
+
+**Podle způsobu distribuce:**
+- **Komerční** — za úplatu, uzavřený kód (Microsoft Office, Adobe CC)
+- **Freeware** — zdarma, uzavřený kód (VLC, 7-Zip)
 - **Shareware** — zkušební verze zdarma, plná verze placená
-- **Open-source** — volně dostupný zdrojový kód (PeaZip, Veeam Community)
+- **Open-source** — volně dostupný zdrojový kód (Linux, Firefox, GIMP)
 - **Public domain** — bez autorských práv, volně použitelné
 
-### Příklady SW
+### Příklady softwaru
 
-| Kategorie | Příklady |
-|---|---|
-| Archivační SW | 7-Zip, WinRAR, PeaZip |
-| Zálohovací SW | Macrium Reflect, Veeam, Acronis |
+| Kategorie         | Příklady                                        |
+| ----------------- | ----------------------------------------------- |
+| Kancelářský balík | Microsoft Office, LibreOffice, Google Workspace |
+| Webový prohlížeč  | Brave, Chrome, Firefox, Edge, Safari            |
+| Přehrávač médií   | VLC, foobar2000                                 |
+| Antivirový SW     | Avast, Windows Defender, ESET, Kaspersky        |
+| Archivační SW     | 7-Zip, WinRAR                                   |
+| Zálohovací SW     | Macrium Reflect, Veeam, Acronis                 |
+| Virtualizace      | VirtualBox, VMware, Hyper-V                     |
 
 ---
 
@@ -122,11 +132,11 @@ Technologie pro propojení více disků — **není náhrada zálohy**, ale zvy�
 
 ### Modely služeb
 
-| Model | Co poskytuje | Příklad |
-|---|---|---|
-| **IaaS** (Infrastructure as a Service) | virtuální servery, síť, úložiště | AWS EC2, Azure VMs |
-| **PaaS** (Platform as a Service) | prostředí pro vývoj a nasazení | Heroku, Google App Engine |
-| **SaaS** (Software as a Service) | hotové aplikace přes prohlížeč | Gmail, Office 365 |
+| Model                           | Co poskytuje                     | Příklad                   |
+| ------------------------------- | -------------------------------- | ------------------------- |
+| **Infrastructure as a Service** | virtuální servery, síť, úložiště | AWS EC2, Azure VMs        |
+| **Platform as a Service**       | prostředí pro vývoj a nasazení   | Heroku, Google App Engine |
+| **Software as a Service**       | hotové aplikace přes prohlížeč   | Gmail, Office 365         |
 
 ### Cloudové úložiště
 - **Google Drive** — 15 GB zdarma, integrace s Google Workspace
