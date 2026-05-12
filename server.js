@@ -31,10 +31,13 @@ app.get('/api/notes/:subject', (req, res) => {
 
   const files = fs.readdirSync(dir)
     .filter(f => f.endsWith('.md'))
-    .map(f => ({
-      name: f,
-      title: f.replace(/^\d+_/, '').replace(/\.md$/, '')
-    }))
+    .map(f => {
+      const match = f.match(/^(\d+)_(.+)\.md$/)
+      return match
+        ? { name: f, num: parseInt(match[1]), title: `${match[1]}. ${match[2]}` }
+        : { name: f, num: Infinity, title: f.replace(/\.md$/, '') }
+    })
+    .sort((a, b) => a.num - b.num)
 
   res.json(files)
 })
