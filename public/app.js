@@ -36,7 +36,12 @@ function setActive(btn) {
   btn.classList.remove('text-gray-600')
 }
 
-async function showNote(subject, file, title, fetchUrl) {
+function setHash(subject, file) {
+  const hash = subject ? `${encodeURIComponent(subject)}/${encodeURIComponent(file)}` : `_root/${encodeURIComponent(file)}`
+  history.replaceState(null, '', `#${hash}`)
+}
+
+async function showNote(subject, file, title, fetchUrl, skipHash) {
   const data = await fetchJSON(fetchUrl)
   document.getElementById('welcome').classList.add('hidden')
   document.getElementById('note-view').classList.remove('hidden')
@@ -45,12 +50,12 @@ async function showNote(subject, file, title, fetchUrl) {
   document.getElementById('note-content').innerHTML = marked.parse(data.content || '_Tento zápisek je zatím prázdný._')
   currentSubject = subject
   currentFile = file
+  if (!skipHash) setHash(subject, file)
 }
 
 async function loadNav() {
   const nav = document.getElementById('nav')
 
-  // Root files (Témata, dotazy)
   const rootNotes = await fetchJSON('/api/root-notes')
   if (rootNotes.length > 0) {
     const section = document.createElement('div')
@@ -58,6 +63,7 @@ async function loadNav() {
     for (const note of rootNotes) {
       const btn = document.createElement('button')
       btn.className = 'w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-amber-50 hover:text-amber-900 transition-colors flex items-center gap-2'
+      btn.dataset.rootFile = note.name
       const icon = note.title === 'Témata'
         ? `<svg class="w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>`
         : `<svg class="w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`
@@ -72,11 +78,11 @@ async function loadNav() {
     nav.appendChild(section)
   }
 
-  // Subject folders
   const subjects = await fetchJSON('/api/subjects')
   for (const subject of subjects) {
     const section = document.createElement('div')
     section.className = 'border-b border-amber-100'
+    section.dataset.subject = subject
 
     const header = document.createElement('button')
     header.className = 'w-full text-left px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-gray-500 hover:bg-amber-50 transition-colors flex items-center justify-between'
@@ -90,35 +96,38 @@ async function loadNav() {
     section.appendChild(list)
     nav.appendChild(section)
   }
+
+  restoreFromHash()
 }
 
-async function toggleSubject(section, subject) {
+async function toggleSubject(section, subject, expand) {
   const list = section.querySelector('ul')
-  const icon = section.querySelector('svg')
+  const icon = section.querySelector('svg:last-of-type')
   const isOpen = !list.classList.contains('hidden')
 
-  if (isOpen) {
+  if (isOpen && !expand) {
     list.classList.add('hidden')
     icon.classList.remove('rotate-180')
     return
   }
 
-  list.classList.remove('hidden')
-  icon.classList.add('rotate-180')
+  if (!isOpen) {
+    list.classList.remove('hidden')
+    icon.classList.add('rotate-180')
+  }
 
-  if (list.children.length > 0) return
+  if (list.children.length > 0) return list
 
   const notes = await fetchJSON(`/api/notes/${encodeURIComponent(subject)}`)
   for (const note of notes) {
     const li = document.createElement('li')
     const btn = document.createElement('button')
     btn.className = 'w-full text-left px-3 py-1.5 text-sm text-gray-600 hover:bg-amber-50 hover:text-amber-900 transition-colors flex items-center gap-2.5'
+    btn.dataset.file = note.name
 
     const match = note.title.match(/^(\d+)\.\s(.+)$/)
     if (match) {
-      btn.innerHTML = `
-        <span class="shrink-0 w-6 h-6 rounded-full bg-amber-100 text-amber-700 text-xs font-semibold flex items-center justify-center">${match[1]}</span>
-        <span class="truncate">${match[2]}</span>`
+      btn.innerHTML = `<span class="shrink-0 w-6 h-6 rounded-full bg-amber-100 text-amber-700 text-xs font-semibold flex items-center justify-center">${match[1]}</span><span class="truncate">${match[2]}</span>`
     } else {
       btn.innerHTML = `<span class="truncate pl-8">${note.title}</span>`
     }
@@ -131,6 +140,41 @@ async function toggleSubject(section, subject) {
     li.appendChild(btn)
     list.appendChild(li)
   }
+
+  return list
+}
+
+async function restoreFromHash() {
+  const hash = decodeURIComponent(location.hash.slice(1))
+  if (!hash) return
+
+  const [part1, part2] = hash.split('/')
+
+  if (part1 === '_root') {
+    const btn = document.querySelector(`nav [data-root-file="${part2}"]`)
+    if (btn) {
+      setActive(btn)
+      const title = part2.replace(/\.md$/, '')
+      showNote(null, part2, title, `/api/note/_root/${encodeURIComponent(part2)}`, true)
+    }
+    return
+  }
+
+  const subject = part1
+  const file = part2
+  const section = document.querySelector(`nav [data-subject="${subject}"]`)
+  if (!section) return
+
+  await toggleSubject(section, subject, true)
+
+  const btn = section.querySelector(`[data-file="${file}"]`)
+  if (!btn) return
+
+  setActive(btn)
+  const title = btn.querySelector('span:last-child')?.textContent || file
+  const numBadge = btn.querySelector('span:first-child')?.textContent
+  const fullTitle = numBadge && !isNaN(numBadge) ? `${numBadge}. ${title}` : title
+  showNote(subject, file, fullTitle, `/api/note/${encodeURIComponent(subject)}/${encodeURIComponent(file)}`, true)
 }
 
 document.getElementById('btn-download').addEventListener('click', () => {
