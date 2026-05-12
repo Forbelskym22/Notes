@@ -176,7 +176,11 @@ async function toggleSubject(section, subject, expand) {
 
 async function restoreFromHash() {
   const hash = decodeURIComponent(location.hash.slice(1))
-  if (!hash) return
+  if (!hash) {
+    const temaBtn = document.querySelector('nav [data-root-file="Témata.md"]')
+    if (temaBtn) { setActive(temaBtn); showNote(null, 'Témata.md', 'Témata', '/api/note/_root/T%C3%A9mata.md', true) }
+    return
+  }
 
   const [part1, part2] = hash.split('/')
 
