@@ -41,6 +41,35 @@ function setHash(subject, file) {
   history.replaceState(null, '', `#${hash}`)
 }
 
+function wireInternalLinks() {
+  document.querySelectorAll('#note-content a').forEach(a => {
+    const href = decodeURIComponent(a.getAttribute('href') || '')
+    const match = href.match(/^([^/]+)\/([^/]+\.md)$/)
+    if (!match) return
+    a.removeAttribute('href')
+    a.style.cursor = 'pointer'
+    a.addEventListener('click', e => {
+      e.preventDefault()
+      navigateTo(match[1], match[2])
+    })
+  })
+}
+
+async function navigateTo(subject, file) {
+  const section = document.querySelector(`nav [data-subject="${subject}"]`)
+  if (section) await toggleSubject(section, subject, true)
+  const btn = document.querySelector(`nav [data-file="${file}"]`)
+  if (btn) {
+    setActive(btn)
+    const titleEl = btn.querySelector('span:last-child')
+    const numEl = btn.querySelector('span:first-child')
+    const title = numEl?.textContent && !isNaN(numEl.textContent)
+      ? `${numEl.textContent}. ${titleEl?.textContent}`
+      : titleEl?.textContent || file
+    showNote(subject, file, title, `/api/note/${encodeURIComponent(subject)}/${encodeURIComponent(file)}`)
+  }
+}
+
 async function showNote(subject, file, title, fetchUrl, skipHash) {
   const data = await fetchJSON(fetchUrl)
   document.getElementById('welcome').classList.add('hidden')
@@ -48,6 +77,7 @@ async function showNote(subject, file, title, fetchUrl, skipHash) {
   document.getElementById('note-breadcrumb').textContent = subject ? `${subject} / ${title}` : title
   document.getElementById('mobile-title').textContent = title
   document.getElementById('note-content').innerHTML = marked.parse(data.content || '_Tento zápisek je zatím prázdný._')
+  wireInternalLinks()
   currentSubject = subject
   currentFile = file
   if (!skipHash) setHash(subject, file)
