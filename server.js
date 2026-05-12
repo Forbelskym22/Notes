@@ -36,12 +36,6 @@ function buildPdfHtml(title, markdown) {
   th, td { border: 1px solid #d1d5db; padding: 8px 12px; text-align: left; }
   th { background: #f9fafb; font-weight: 600; }
   blockquote { border-left: 3px solid #d1d5db; margin: 0; padding-left: 1em; color: #6b7280; }
-  h2, h3 { break-after: avoid; }
-  pre, table, figure { break-inside: avoid; }
-  ul, ol { break-inside: avoid; }
-  li { break-inside: avoid; }
-  p:has(+ pre) { break-after: avoid; }
-  pre { break-before: avoid; }
   @page { margin: 20mm; }
   @page { @bottom-center { content: counter(page) " / " counter(pages); font-size: 12px; color: #9ca3af; } }
 </style></head><body>
