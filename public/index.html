@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maturitní zápisky</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="sidebar-header">
+        <h1>Maturitní zápisky</h1>
+      </div>
+      <nav id="nav"></nav>
+    </aside>
+    <main id="main">
+      <div id="welcome">
+        <p>Vyber zápisek ze seznamu vlevo.</p>
+      </div>
+      <div id="note-view" hidden>
+        <div id="note-toolbar">
+          <span id="note-breadcrumb"></span>
+          <div id="btn-group">
+            <button id="btn-download">Stáhnout .md</button>
+            <button id="btn-pdf">Stáhnout PDF</button>
+          </div>
+        </div>
+        <article id="note-content"></article>
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
