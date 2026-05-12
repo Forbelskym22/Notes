@@ -25,7 +25,7 @@ app.get('/api/subjects', (_req, res) => {
 
 app.get('/api/root-notes', (_req, res) => {
   const files = fs.readdirSync(NOTES_ROOT, { withFileTypes: true })
-    .filter(e => e.isFile() && e.name.endsWith('.md'))
+    .filter(e => e.isFile() && e.name.endsWith('.md') && e.name !== 'dotazy.md')
     .map(e => ({ name: e.name, title: e.name.replace(/\.md$/, '') }))
   res.json(files)
 })
