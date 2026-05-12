@@ -24,7 +24,7 @@
 SELECT * FROM <název tabulky>;
 SELECT * FROM zamestnanci;
 
-SELECT sl1, sl2 FROM <název tabulky>;
+SELECT sloupec1, sloupec2 FROM <název tabulky>;
 SELECT jmeno, prijmeni FROM zamestnanci;
 -- * = výběr všech sloupců
 ```

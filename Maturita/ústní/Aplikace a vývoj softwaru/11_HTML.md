@@ -1,6 +1,7 @@
 # Značkovací jazyk HTML
 
 **Typ jazyka:** Značkovací (HyperText Markup Language) — popisuje strukturu a obsah webové stránky
+
 > značkovací - text obklopuji značkami (tagy), které říkají jak ten text má vypadat
 
 **Využití:** základ každé webové stránky — struktura textu, obrázků, odkazů, formulářů
