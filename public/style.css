@@ -1,8 +1,7 @@
-#note-content pre {
-  overflow-x: auto;
+* {
   scrollbar-width: none;
 }
-#note-content pre::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
 }
 

@@ -1,0 +1,242 @@
+{
+  "main": {
+    "id": "ad59de11f43a01f9",
+    "type": "split",
+    "children": [
+      {
+        "id": "856a11bad16f9d95",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "956bd1fc0e98de48",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b9267c83bc9dbe35",
+    "type": "split",
+    "children": [
+      {
+        "id": "b6b2cd445e88d6d5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0f89b594f9b772fb",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "feff183c73b93232",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "35c8e7b286b84cfe",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "19f0381bb1a4e968",
+    "type": "split",
+    "children": [
+      {
+        "id": "7f5fefa97aa388b4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f622de66a9efb019",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "APS/Komprese dat.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Komprese dat"
+            }
+          },
+          {
+            "id": "0b7200a225ae822e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "APS/Komprese dat.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Komprese dat"
+            }
+          },
+          {
+            "id": "d617de8318a32393",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "b333adadb50f781d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "APS/Komprese dat.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Komprese dat"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "floating": {
+    "id": "c8d0ad211ffd6306",
+    "type": "floating",
+    "children": [
+      {
+        "id": "d70fd953253c3364",
+        "type": "window",
+        "children": [
+          {
+            "id": "7929e1e54eb30f81",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "9ce623f61b38982a",
+                "type": "leaf",
+                "state": {
+                  "type": "empty",
+                  "state": {},
+                  "icon": "lucide-file",
+                  "title": "New tab"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": -1920,
+        "y": 120,
+        "width": 960,
+        "height": 1032,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "9ce623f61b38982a",
+  "lastOpenFiles": [
+    "MaturitaFormalita/ústní/Témata.md",
+    "MaturitaFormalita/ústní/Aplikace a vývoj softwaru/11_HTML.md",
+    "MaturitaFormalita/ústní/Aplikace a vývoj softwaru/13_SQL.md",
+    "MaturitaFormalita/ústní/Aplikace a vývoj softwaru/14_Informační systémy.md",
+    "MaturitaFormalita/ústní/Aplikace a vývoj softwaru/15_Relační databáze.md",
+    "MaturitaFormalita/ústní/Aplikace a vývoj softwaru/16_Počítačová grafika.md",
+    "MaturitaFormalita/ústní/Aplikace a vývoj softwaru/17_Prezentace.md",
+    "MaturitaFormalita/ústní/Aplikace a vývoj softwaru/18_Audio video.md",
+    "MaturitaFormalita/ústní/Aplikace a vývoj softwaru/19_Zálohování a komprese.md",
+    "MaturitaFormalita/ústní/Aplikace a vývoj softwaru/20_Licencování SW.md",
+    "MaturitaFormalita/ústní/dotazy.md",
+    "Škola/SPŠTrutnov/APS/Autorská práva.md",
+    "MaturitaFormalita/ústní/Aplikace a vývoj softwaru/1_Algoritmizace.md",
+    "Škola/SPŠTrutnov/APS/Grafika.md",
+    "MaturitaFormalita/ústní/Počítačové systémy/15_Přepínané sítě – VLAN.md",
+    "MaturitaFormalita/ústní/Počítačové systémy/16_Bezdrátové sítě.md",
+    "MaturitaFormalita/ústní/Počítačové systémy/21_Bezpečnost počítačových sítí.md",
+    "MaturitaFormalita/ústní/Počítačové systémy/19_OS Microsoft.md",
+    "MaturitaFormalita/ústní/Počítačové systémy/01_Paměti pro PC.md",
+    "MaturitaFormalita/Deadline.md",
+    "MaturitaFormalita/Praktická/Závěrečná zpráva.md",
+    "MaturitaFormalita/ústní/Počítačové systémy/00_Otázky.md",
+    "MaturitaFormalita/ústní/VYS/00_Otázky.md",
+    "MaturitaFormalita/ústní/Počítačové systémy/20_OS Microsoft Server.md",
+    "MaturitaFormalita/ústní/Počítačové systémy/17_OS Linux.md",
+    "MaturitaFormalita/ústní/Počítačové systémy/18_Routery a switche Cisco, Mikrotik.md",
+    "MaturitaFormalita/ústní/Počítačové systémy",
+    "Škola/SPŠTrutnov/CZ/autoři",
+    "Škola/SPŠTrutnov/CZ/pojmy",
+    "Škola/SPŠTrutnov/CZ/díla",
+    "Škola/SPŠTrutnov/CZ",
+    "Škola/SPŠTrutnov/New folder",
+    "MaturitaFormalita/ústní",
+    "MaturitaFormalita/Praktická",
+    "Bez názvu.base",
+    "Škola/OPS-POS"
+  ]
+}

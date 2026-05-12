@@ -1,3 +1,10 @@
+marked.setOptions({
+  highlight: (code, lang) => {
+    if (lang && hljs.getLanguage(lang)) return hljs.highlight(code, { language: lang }).value
+    return hljs.highlightAuto(code).value
+  }
+})
+
 let currentSubject = null
 let currentFile = null
 
@@ -222,9 +229,17 @@ document.getElementById('btn-download').addEventListener('click', () => {
   a.click()
 })
 
-document.getElementById('btn-pdf').addEventListener('click', () => {
+document.getElementById('btn-pdf').addEventListener('click', async () => {
   if (!currentFile) return
-  window.print()
+  const url = currentSubject
+    ? `/api/pdf/${encodeURIComponent(currentSubject)}/${encodeURIComponent(currentFile)}`
+    : `/api/pdf/_root/${encodeURIComponent(currentFile)}`
+  const res = await fetch(url)
+  const blob = await res.blob()
+  const a = document.createElement('a')
+  a.href = URL.createObjectURL(blob)
+  a.download = currentFile.replace('.md', '.pdf')
+  a.click()
 })
 
 loadNav()
