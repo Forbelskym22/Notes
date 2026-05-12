@@ -23,6 +23,21 @@ app.get('/api/subjects', (_req, res) => {
   res.json(subjects)
 })
 
+app.get('/api/root-notes', (_req, res) => {
+  const files = fs.readdirSync(NOTES_ROOT, { withFileTypes: true })
+    .filter(e => e.isFile() && e.name.endsWith('.md'))
+    .map(e => ({ name: e.name, title: e.name.replace(/\.md$/, '') }))
+  res.json(files)
+})
+
+app.get('/api/note/_root/:file', (req, res) => {
+  const filePath = path.join(NOTES_ROOT, req.params.file)
+  if (!filePath.startsWith(NOTES_ROOT)) return res.status(400).json({ error: 'Invalid path' })
+  if (!filePath.endsWith('.md')) return res.status(400).json({ error: 'Only .md files allowed' })
+  if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'Note not found' })
+  res.json({ content: fs.readFileSync(filePath, 'utf8') })
+})
+
 app.get('/api/notes/:subject', (req, res) => {
   const dir = safePath(req.params.subject)
   if (!dir) return res.status(400).json({ error: 'Invalid path' })
