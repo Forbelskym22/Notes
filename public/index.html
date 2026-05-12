@@ -4,33 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maturitní zápisky</title>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div id="app">
-    <aside id="sidebar">
-      <div class="sidebar-header">
-        <h1>Maturitní zápisky</h1>
+<body class="bg-white text-gray-900 h-dvh flex overflow-hidden">
+
+  <div id="overlay" class="fixed inset-0 bg-black/30 z-20 hidden lg:hidden"></div>
+
+  <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-30 w-64 shrink-0 bg-gray-50 border-r border-gray-200 flex flex-col -translate-x-full lg:translate-x-0 transition-transform duration-200">
+    <div class="px-4 py-4 border-b border-gray-200 flex items-center justify-between">
+      <h1 class="font-semibold text-gray-900 text-sm">Maturitní zápisky</h1>
+      <button id="btn-close-sidebar" class="lg:hidden p-1 text-gray-400 hover:text-gray-600">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <nav id="nav" class="overflow-y-auto flex-1"></nav>
+  </aside>
+
+  <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+    <div class="lg:hidden flex items-center gap-3 px-4 py-3 border-b border-gray-200">
+      <button id="btn-open-sidebar" class="p-1 text-gray-500 hover:text-gray-700">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <span id="mobile-title" class="text-sm font-medium text-gray-600">Vyber zápisek</span>
+    </div>
+
+    <main class="flex-1 overflow-y-auto">
+      <div id="welcome" class="flex items-center justify-center h-full text-gray-400 text-sm">
+        Vyber zápisek ze seznamu.
       </div>
-      <nav id="nav"></nav>
-    </aside>
-    <main id="main">
-      <div id="welcome">
-        <p>Vyber zápisek ze seznamu vlevo.</p>
-      </div>
-      <div id="note-view" hidden>
-        <div id="note-toolbar">
-          <span id="note-breadcrumb"></span>
-          <div id="btn-group">
-            <button id="btn-download">Stáhnout .md</button>
-            <button id="btn-pdf">Stáhnout PDF</button>
+      <div id="note-view" class="hidden">
+        <div id="note-toolbar" class="sticky top-0 bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between z-10">
+          <span id="note-breadcrumb" class="text-sm text-gray-400 truncate mr-4"></span>
+          <div class="flex gap-2 shrink-0">
+            <button id="btn-download" class="text-sm px-3 py-1.5 rounded-md border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors">Stáhnout .md</button>
+            <button id="btn-pdf" class="text-sm px-3 py-1.5 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors">Stáhnout PDF</button>
           </div>
         </div>
-        <article id="note-content"></article>
+        <article id="note-content" class="prose prose-gray max-w-3xl mx-auto px-6 py-10 w-full"></article>
       </div>
     </main>
   </div>
+
   <script src="app.js"></script>
 </body>
 </html>
