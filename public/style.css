@@ -5,6 +5,12 @@
   display: none;
 }
 
+@media (max-width: 640px) {
+  #note-content pre, #note-content code {
+    font-size: 0.75rem;
+  }
+}
+
 @media print {
   #sidebar, #note-toolbar, #btn-open-sidebar, #overlay { display: none !important; }
   #note-content { padding: 0; max-width: 100%; }

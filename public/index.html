@@ -37,16 +37,14 @@
         Vyber zápisek ze seznamu.
       </div>
       <div id="note-view" class="hidden">
-        <div id="note-toolbar" class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 z-10">
-          <div class="flex items-center justify-end mb-1">
-            <div class="flex gap-2 shrink-0">
-              <button id="btn-download" class="text-sm px-3 py-1.5 rounded-md border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors">Stáhnout .md</button>
-              <button id="btn-pdf" class="text-sm px-3 py-1.5 rounded-md bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium">Stáhnout PDF</button>
-            </div>
+        <div id="note-toolbar" class="sticky top-0 bg-white border-b border-gray-200 px-4 py-2 sm:px-6 sm:py-4 z-10">
+          <div class="flex items-center justify-end mb-1 gap-1.5">
+            <button id="btn-download" class="hidden sm:block text-sm px-3 py-1.5 rounded-md border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors">Stáhnout .md</button>
+            <button id="btn-pdf" class="text-xs sm:text-sm px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-md bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium">PDF</button>
           </div>
-          <h1 id="note-title" class="text-2xl font-bold text-gray-900 text-center"></h1>
+          <h1 id="note-title" class="text-lg sm:text-2xl font-bold text-gray-900 text-center leading-tight"></h1>
         </div>
-        <article id="note-content" class="prose prose-gray max-w-3xl mx-auto px-6 py-10 w-full"></article>
+        <article id="note-content" class="prose prose-sm sm:prose-base prose-gray max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full"></article>
       </div>
     </main>
   </div>
