@@ -1,6 +1,6 @@
 # Témata ústní maturitní zkoušky 2025/2026
 
-## [[Aplikace a vývoj softwaru]]
+## Aplikace a vývoj softwaru
 
 1. [Základy algoritmizace](Aplikace%20a%20vývoj%20softwaru/1_Algoritmizace.md)
    definice algoritmu, způsoby zápisu algoritmu, dekompozice, prostorová a časová složitost algoritmů
@@ -62,7 +62,7 @@
 20. [Licencování SW a autorský zákon](Aplikace%20a%20vývoj%20softwaru/20_Licencování%20SW.md)
     autorský zákon, citování, volné licence, možnosti získání autorského díla pro užití, licence SW
 
-## [[Počítačové systémy]]
+## Počítačové systémy
 
 1. [Paměti pro PC](Počítačové%20systémy/01_Paměti%20pro%20PC.md)
    paměti pro dočasné ukládání dat – principy ROM, RAM, SRAM, DRAM; typy a parametry pamětí pro PC
