@@ -1,8 +1,4 @@
-Tady jsou předělané zápisky se všemi opravami:
 
----
-
-## Objektově orientované programování (OOP)
 
 **Definice:** Programovací paradigma kde kód skládáme z objektů. **Třída** je šablona která definuje atributy a metody. **Objekt** je instance třídy — uchovává konkrétní hodnoty atributů, metody sdílí ze třídy.
 
