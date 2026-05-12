@@ -74,7 +74,6 @@ async function showNote(subject, file, title, fetchUrl, skipHash) {
   const data = await fetchJSON(fetchUrl)
   document.getElementById('welcome').classList.add('hidden')
   document.getElementById('note-view').classList.remove('hidden')
-  document.getElementById('note-breadcrumb').textContent = subject ? `${subject} / ${title}` : title
   document.getElementById('mobile-title').textContent = title
   document.getElementById('note-title').textContent = title
   document.getElementById('note-content').innerHTML = marked.parse(data.content || '_Tento zápisek je zatím prázdný._')
