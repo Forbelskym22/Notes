@@ -1,5 +1,3 @@
-# Paměti pro PC
-
 ## Paměti pro dočasné ukládání dat
 
 ### Princip a rozdělení

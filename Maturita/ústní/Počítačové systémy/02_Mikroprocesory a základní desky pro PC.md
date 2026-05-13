@@ -1,5 +1,3 @@
-# Mikroprocesory a základní desky pro PC
-
 ## Mikroprocesory pro PC
 
 ### Co je mikroprocesor
