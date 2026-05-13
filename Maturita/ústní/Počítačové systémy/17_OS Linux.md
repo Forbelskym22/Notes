@@ -69,6 +69,8 @@ Doporučeně navíc:
 
 ### Souborové systémy
 
+**Souborový systém** – způsob, jakým OS organizuje a ukládá data na disku. Určuje strukturu adresářů, pojmenování souborů, alokaci bloků, metadata (vlastník, datum, velikost) a oprávnění. Bez souborového systému je disk jen sled nečitelných bloků.
+
 | FS        | Použití           | Poznámka                         |
 | --------- | ----------------- | -------------------------------- |
 | **ext4**  | Výchozí pro Linux | Žurnálování, spolehlivý, rychlý  |
