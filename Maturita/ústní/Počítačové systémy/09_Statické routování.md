@@ -1,6 +1,3 @@
-
-## Co je routování
-
 Routování je proces výběru cesty pro pakety mezi různými sítěmi. Router rozhoduje na základě **směrovací tabulky** – hledá nejdelší shodu (longest prefix match) s cílovou IP adresou paketu.
 
 ---
