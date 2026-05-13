@@ -6,21 +6,18 @@
 
 Mikroprocesor (CPU – Central Processing Unit) je integrovaný obvod, který vykonává instrukce programu. Provádí aritmetické, logické a řídicí operace. Je hlavní výpočetní jednotkou počítače.
 
-### Historie
+### Historie a vývoj
 
-| Rok  | Procesor        | Výrobce | Poznámka                                          |
-| ---- | --------------- | ------- | ------------------------------------------------- |
-| 1971 | Intel 4004      | Intel   | První komerční mikroprocesor, 4bitový, 740 kHz    |
-| 1974 | Intel 8080      | Intel   | 8bitový, základ prvních osobních počítačů         |
-| 1978 | Intel 8086      | Intel   | 16bitový, základ architektury x86                 |
-| 1982 | Intel 80286     | Intel   | Chráněný režim, adresace 16 MB RAM                |
-| 1985 | Intel 80386     | Intel   | 32bitový, multitasking                            |
-| 1989 | Intel 80486     | Intel   | Integrovaná FPU a cache L1                        |
-| 1993 | Intel Pentium   | Intel   | 64bitová datová sběrnice, superskalar              |
-| 2003 | AMD Athlon 64   | AMD     | První 64bitový procesor pro spotřebitelský trh    |
-| 2006 | Intel Core 2    | Intel   | Dual-core, architektura Core                      |
-| 2017 | AMD Ryzen       | AMD     | Architektura Zen, návrat AMD do vysoké výkonnosti |
-| 2019+| Intel Core i9 / AMD Ryzen 9 | — | Mnoho jader, vysoké frekvence, vlákna          |
+Dominantní hráči na trhu CPU pro PC jsou **Intel** a **AMD** – oba vlastní křížové licence na architekturu **x86**, takže ji mohou oba vyrábět (Intel ji původně navrhl, AMD získal licenci).
+
+**Moorův zákon** (pozorování Gordona Moorea, 1965):
+- počet tranzistorů na čipu se zdvojnásobuje přibližně každých 18–24 měsíců
+- v praxi to znamenalo i přibližné zdvojnásobování výkonu/frekvence
+- platilo po většinu 20. století a začátek 21. století
+- postupně přestává platit – fyzikální limity (velikost atomů, teplo, spotřeba) zpomalují zmenšování tranzistorů
+- výkon se dnes zvyšuje hlavně přidáváním jader a vylepšováním architektury, ne frekvencí
+
+Milník: v roce **2000** byl poprvé překonán 1 GHz (AMD Athlon a Intel Pentium III závodily o prvenství).
 
 ### Architektura
 
