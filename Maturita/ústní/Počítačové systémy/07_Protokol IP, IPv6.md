@@ -1,5 +1,3 @@
-# Protokol IP, IPv6
-
 ## Fyzické adresy – MAC
 
 - **MAC adresa** (Media Access Control) – fyzická adresa síťového rozhraní
