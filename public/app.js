@@ -256,29 +256,51 @@ function flipCard() {
   document.getElementById('card-inner').classList.toggle('flipped', cardFlipped)
 }
 
-function showCard(i) {
+function shuffleDeck() {
+  flashcards = [...flashcardsOriginal]
+  for (let i = flashcards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]]
+  }
+}
+
+function showCard(i, newRound = false) {
   cardFlipped = false
   document.getElementById('card-inner').classList.remove('flipped')
   const c = flashcards[i]
   document.getElementById('card-q').textContent = cardReversed ? c.a : c.q
   document.getElementById('card-a').textContent = cardReversed ? c.q : c.a
   document.getElementById('card-counter').textContent = `${i + 1} / ${flashcards.length}`
-  document.getElementById('card-prev').disabled = i === 0
-  document.getElementById('card-next').disabled = i === flashcards.length - 1
+  document.getElementById('card-prev').disabled = cardShuffled ? i === 0 : i === 0
+  document.getElementById('card-next').disabled = false
+
+  if (newRound) {
+    const badge = document.getElementById('card-mode-badge')
+    badge.textContent = 'Nové kolo 🔄'
+    badge.classList.remove('hidden')
+    setTimeout(() => {
+      badge.textContent = cardReversed ? 'Obrácený mód' : ''
+      if (!cardReversed) badge.classList.add('hidden')
+      else badge.classList.remove('hidden')
+    }, 1500)
+  }
 }
 
 function prevCard() { if (cardIndex > 0) showCard(--cardIndex) }
-function nextCard() { if (cardIndex < flashcards.length - 1) showCard(++cardIndex) }
+function nextCard() {
+  if (cardShuffled && cardIndex === flashcards.length - 1) {
+    shuffleDeck()
+    cardIndex = 0
+    showCard(0, true)
+  } else if (cardIndex < flashcards.length - 1) {
+    showCard(++cardIndex)
+  }
+}
 
 function toggleShuffle() {
   cardShuffled = !cardShuffled
   if (cardShuffled) {
-    // Fisher-Yates shuffle on a copy
-    flashcards = [...flashcardsOriginal]
-    for (let i = flashcards.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]]
-    }
+    shuffleDeck()
   } else {
     flashcards = [...flashcardsOriginal]
   }
@@ -300,6 +322,7 @@ function toggleShuffle() {
 function toggleReversed() {
   cardReversed = !cardReversed
   const badge = document.getElementById('card-mode-badge')
+  badge.textContent = 'Obrácený mód'
   badge.classList.toggle('hidden', !cardReversed)
   const btns = [document.getElementById('btn-reverse-cards'), document.getElementById('btn-reverse-cards-mobile')]
   btns.forEach(btn => {
