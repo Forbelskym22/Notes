@@ -37,7 +37,8 @@ function buildSubtopicsMap() {
   }
   return map
 }
-const subtopicsMap = buildSubtopicsMap()
+let subtopicsMap = {}
+try { subtopicsMap = buildSubtopicsMap() } catch (e) { console.error('buildSubtopicsMap failed:', e) }
 
 const CHROMIUM_PATH = process.env.CHROMIUM_PATH || (process.platform === 'win32'
   ? 'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe'
