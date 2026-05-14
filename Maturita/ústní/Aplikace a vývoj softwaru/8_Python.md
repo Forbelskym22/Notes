@@ -72,9 +72,19 @@ print(pozdrav("Martin"))
 
 ```python
 s = [1, 2, 3, 4, 5]
-s[1:3]    # [2, 3] — od indexu 1 do 3 (bez 3)
-s[:2]     # [1, 2] — od začátku do 2
-s[2:]     # [3, 4, 5] — od 2 do konce
-s[::2]    # [1, 3, 5] — každý druhý
-s[::-1]   # [5, 4, 3, 2, 1] — obrácení
+
+print(s[1:3])   # od indexu 1 do 3 (3 se nezahrne)
+# [2, 3]
+
+print(s[:2])    # od začátku do indexu 2
+# [1, 2]
+
+print(s[2:])    # od indexu 2 do konce
+# [3, 4, 5]
+
+print(s[::2])   # každý druhý prvek (krok 2)
+# [1, 3, 5]
+
+print(s[::-1])  # obrácení (krok -1 = pozpátku)
+# [5, 4, 3, 2, 1]
 ```
