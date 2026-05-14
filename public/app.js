@@ -94,18 +94,13 @@ async function showNote(subject, file, title, fetchUrl, skipHash) {
   document.getElementById('mobile-title').textContent = title
   document.getElementById('note-title').textContent = title
   document.getElementById('btn-pdf-mobile').classList.remove('hidden')
-  if (data.subtopics) {
-    const items = data.subtopics.split(',').map(s => s.trim()).filter(Boolean)
-    document.getElementById('note-subtopics-list').innerHTML = items.map(t =>
-      `<li class="flex gap-2 py-2 border-b border-amber-50 text-sm text-gray-700 leading-snug"><span class="text-amber-400 shrink-0">–</span>${t}</li>`
-    ).join('')
-    document.getElementById('btn-subtopics').classList.remove('hidden')
-    document.getElementById('btn-subtopics-mobile').classList.remove('hidden')
-  } else {
-    document.getElementById('btn-subtopics').classList.add('hidden')
-    document.getElementById('btn-subtopics-mobile').classList.add('hidden')
-    closeSubtopics()
-  }
+  const items = data.subtopics ? data.subtopics.split(',').map(s => s.trim()).filter(Boolean) : []
+  document.getElementById('note-subtopics-list').innerHTML = items.map(t =>
+    `<li class="flex gap-2 py-1.5 border-b border-gray-50 text-xs text-gray-700 leading-snug last:border-0"><span class="text-amber-400 shrink-0 mt-0.5">–</span>${t}</li>`
+  ).join('')
+  document.getElementById('subtopics-empty').classList.toggle('hidden', items.length > 0)
+  document.getElementById('btn-subtopics').classList.toggle('hidden', items.length === 0)
+  document.getElementById('btn-subtopics-mobile').classList.toggle('hidden', items.length === 0)
   document.getElementById('note-content').innerHTML = marked.parse(data.content || '_Tento zápisek je zatím prázdný._')
   document.querySelectorAll('#note-content pre code').forEach(el => hljs.highlightElement(el))
   wireInternalLinks()
@@ -446,15 +441,48 @@ async function downloadPdf() {
 document.getElementById('btn-pdf-mobile').addEventListener('click', downloadPdf)
 document.getElementById('btn-pdf').addEventListener('click', downloadPdf)
 
-// ── Subtopics panel ────────────────────────────────────────
+// ── Draggable subtopics widget ─────────────────────────────
 function openSubtopics() {
-  document.getElementById('subtopics-panel').classList.remove('translate-x-full')
-  document.getElementById('subtopics-backdrop').classList.remove('hidden')
+  document.getElementById('subtopics-panel').classList.remove('hidden')
 }
 function closeSubtopics() {
-  document.getElementById('subtopics-panel').classList.add('translate-x-full')
-  document.getElementById('subtopics-backdrop').classList.add('hidden')
+  document.getElementById('subtopics-panel').classList.add('hidden')
 }
+
 document.getElementById('btn-subtopics').addEventListener('click', openSubtopics)
+document.getElementById('btn-subtopics-mobile').addEventListener('click', openSubtopics)
+document.getElementById('btn-subtopics-close').addEventListener('click', closeSubtopics)
+
+// Drag logic
+;(function () {
+  const panel = document.getElementById('subtopics-panel')
+  const handle = document.getElementById('subtopics-drag-handle')
+  let dragging = false, ox = 0, oy = 0
+
+  function startDrag(cx, cy) {
+    dragging = true
+    const r = panel.getBoundingClientRect()
+    ox = cx - r.left
+    oy = cy - r.top
+    panel.style.right = 'auto'
+    panel.style.transition = 'none'
+  }
+  function moveDrag(cx, cy) {
+    if (!dragging) return
+    const x = Math.min(Math.max(0, cx - ox), window.innerWidth - panel.offsetWidth)
+    const y = Math.min(Math.max(0, cy - oy), window.innerHeight - panel.offsetHeight)
+    panel.style.left = x + 'px'
+    panel.style.top = y + 'px'
+  }
+  function endDrag() { dragging = false }
+
+  handle.addEventListener('mousedown', e => { e.preventDefault(); startDrag(e.clientX, e.clientY) })
+  document.addEventListener('mousemove', e => moveDrag(e.clientX, e.clientY))
+  document.addEventListener('mouseup', endDrag)
+
+  handle.addEventListener('touchstart', e => { const t = e.touches[0]; startDrag(t.clientX, t.clientY) }, { passive: true })
+  document.addEventListener('touchmove', e => { const t = e.touches[0]; moveDrag(t.clientX, t.clientY) }, { passive: true })
+  document.addEventListener('touchend', endDrag)
+})()
 
 loadNav()
