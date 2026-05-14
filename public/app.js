@@ -97,7 +97,7 @@ async function showNote(subject, file, title, fetchUrl, skipHash) {
   document.getElementById('subtopics-title').textContent = title
   const items = data.subtopics ? data.subtopics.split(',').map(s => s.trim()).filter(Boolean) : []
   document.getElementById('note-subtopics-list').innerHTML = items.map(t =>
-    `<li class="flex gap-2 py-1.5 border-b border-gray-50 text-xs text-gray-700 leading-snug last:border-0"><span class="text-amber-400 shrink-0 mt-0.5">–</span>${t}</li>`
+    `<li class="flex gap-2 py-1.5 border-b border-gray-50 text-gray-700 leading-snug last:border-0"><span class="text-amber-400 shrink-0">–</span>${t}</li>`
   ).join('')
   document.getElementById('subtopics-empty').classList.toggle('hidden', items.length > 0)
   document.getElementById('btn-subtopics-mobile').classList.toggle('hidden', items.length === 0)
