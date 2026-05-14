@@ -523,7 +523,7 @@ document.getElementById('btn-subtopics-close').addEventListener('click', closeSu
     const h = Math.min(Math.max(120, startH + e.clientY - startY), window.innerHeight - 20)
     panel.style.width = w + 'px'
     panel.style.height = h + 'px'
-    const fontSize = Math.min(16, Math.round(11 + ((w - 180) / 340) * 5))
+    const fontSize = Math.min(18, Math.round(13 + ((w - 180) / 340) * 5))
     panel.style.fontSize = fontSize + 'px'
   })
 
