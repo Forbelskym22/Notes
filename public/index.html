@@ -57,7 +57,7 @@
       </button>
 
       <!-- draggable floating subtopics widget -->
-      <div id="subtopics-panel" class="hidden fixed z-50 w-64 bg-white rounded-xl shadow-2xl border border-amber-200 flex flex-col select-none" style="top:80px;right:20px">
+      <div id="subtopics-panel" class="hidden fixed z-50 w-64 bg-white rounded-xl shadow-2xl border border-amber-200 flex flex-col select-none overflow-hidden" style="top:80px;right:20px;min-width:180px;min-height:120px">
         <div id="subtopics-drag-handle" class="flex items-center justify-between px-3 py-2.5 bg-amber-50 rounded-t-xl border-b border-amber-100 cursor-grab active:cursor-grabbing">
           <div class="flex items-center gap-2">
             <svg class="w-3 h-3 text-amber-400 shrink-0" fill="currentColor" viewBox="0 0 24 24"><circle cx="9" cy="5" r="1.5"/><circle cx="15" cy="5" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="19" r="1.5"/><circle cx="15" cy="19" r="1.5"/></svg>
@@ -68,7 +68,11 @@
           </button>
         </div>
         <div id="subtopics-empty" class="hidden px-4 py-4 text-xs text-gray-400 italic">Tato otázka nemá specifikovaná témata.</div>
-        <ul id="note-subtopics-list" class="flex flex-col overflow-y-auto max-h-72 px-3 py-2"></ul>
+        <ul id="note-subtopics-list" class="flex flex-col overflow-y-auto flex-1 px-3 py-2"></ul>
+        <!-- resize handle -->
+        <div id="subtopics-resize" class="hidden lg:block absolute bottom-0 right-0 w-4 h-4 cursor-nwse-resize" style="touch-action:none">
+          <svg viewBox="0 0 10 10" width="10" height="10" style="position:absolute;bottom:3px;right:3px;opacity:0.3"><path d="M0 10 L10 0 M5 10 L10 5" stroke="#92400e" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
       </div>
 
       <div id="flashcard-view" class="hidden h-full flex flex-col">

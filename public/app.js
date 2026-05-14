@@ -498,4 +498,34 @@ document.getElementById('btn-subtopics-close').addEventListener('click', closeSu
   document.addEventListener('touchend', endDrag)
 })()
 
+// Resize handle
+;(function () {
+  const panel = document.getElementById('subtopics-panel')
+  const handle = document.getElementById('subtopics-resize')
+  let resizing = false, startX, startY, startW, startH
+
+  function isDesktop() { return window.matchMedia('(min-width: 1024px)').matches }
+
+  handle.addEventListener('mousedown', e => {
+    if (!isDesktop()) return
+    e.preventDefault()
+    e.stopPropagation()
+    resizing = true
+    startX = e.clientX
+    startY = e.clientY
+    startW = panel.offsetWidth
+    startH = panel.offsetHeight
+  })
+
+  document.addEventListener('mousemove', e => {
+    if (!resizing) return
+    const w = Math.min(Math.max(180, startW + e.clientX - startX), 520)
+    const h = Math.min(Math.max(120, startH + e.clientY - startY), window.innerHeight - 40)
+    panel.style.width = w + 'px'
+    panel.style.height = h + 'px'
+  })
+
+  document.addEventListener('mouseup', () => { resizing = false })
+})()
+
 loadNav()
