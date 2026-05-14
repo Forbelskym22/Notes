@@ -26,18 +26,27 @@
 - Příklady: JetBrains (PyCharm → Python, IntelliJ → Java), Visual Studio, Xcode
 
 ---
-### **ANALÝZA**
+### **ANALÝZA KÓDU**
 
-Fáze před psaním kódu — zjišťujeme od zadavatele co chce.
+Zkoumání kódu bez nutnosti ho spustit — hledáme chyby, problémy s výkonem nebo špatný styl.
 
-- **Funkční** — co má aplikace dělat (funkce, vstupy, výstupy)
-- **Nefunkční** — výkon, bezpečnost, škálovatelnost
+**Statická analýza** — prochází kód bez spuštění, hledá:
+- Syntaktické chyby, nepoužité proměnné, nebezpečné vzory
+- Nástroje: **ESLint** (JavaScript), **Pylint** (Python), **Roslyn** (C#)
 
-Nástroje: Flowchart, ER diagram (návrh DB), UML (Use Case, třídní diagram), Wireframe
+**Linting** — podmnožina statické analýzy zaměřená na styl a čitelnost kódu:
+- Konzistentní odsazení, délka řádků, pojmenování proměnných
+- Obvykle integrován přímo v editoru (podtrhává problémy v reálném čase)
 
-**Metodiky:**
-- **Waterfall** — analýza → návrh → implementace → testování → nasazení
-- **Agile/Scrum** — iterativní vývoj v krátkých sprintech, analýza probíhá průběžně
+**Profilování (Profiling)** — analýza za běhu, hledá výkonnostní bottlenecky:
+- Která funkce trvá nejdéle? Kde se plýtvá pamětí?
+- Nástroje: Chrome DevTools (JS), cProfile (Python), Diagnostics Tools (Visual Studio)
+
+**Code coverage** — kolik procent kódu pokrývají testy:
+- 0 % = žádné testy, 100 % = každý řádek je otestován
+- Cíl není 100 %, ale pokrýt kritické části
+
+**Code review** — ruční kontrola kódu jiným vývojářem před sloučením (Pull Request)
 
 ---
 ### **LADĚNÍ (DEBUGGING)**
