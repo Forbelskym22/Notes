@@ -16,28 +16,6 @@ renderer.code = ({ text, lang }) => {
 }
 marked.use({ renderer })
 
-const OLLAMA_URL = process.env.OLLAMA_URL   // e.g. http://localhost:11434
-const OLLAMA_MODEL = process.env.OLLAMA_MODEL || 'qwen2.5:14b'
-let examBusy = false
-
-async function callOllama(messages) {
-  const controller = new AbortController()
-  const timer = setTimeout(() => controller.abort(), 30000)
-  try {
-    const r = await fetch(`${OLLAMA_URL}/api/chat`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      signal: controller.signal,
-      body: JSON.stringify({ model: OLLAMA_MODEL, messages, stream: false })
-    })
-    if (!r.ok) throw new Error(`ollama ${r.status}`)
-    const d = await r.json()
-    return d.message.content.trim()
-  } finally {
-    clearTimeout(timer)
-  }
-}
-
 const CHROMIUM_PATH = process.env.CHROMIUM_PATH || (process.platform === 'win32'
   ? 'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe'
   : '/usr/bin/chromium')
@@ -188,51 +166,6 @@ app.get('/api/download/:subject/:file', (req, res) => {
   if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'Note not found' })
 
   res.download(filePath)
-})
-
-app.use(express.json())
-
-app.post('/api/exam/ask', async (req, res) => {
-  if (!OLLAMA_URL) return res.status(503).json({ error: 'AI není nakonfigurována (chybí OLLAMA_URL)' })
-  if (examBusy) return res.status(429).json({ error: 'AI je momentálně zaneprázdněna, zkus za chvíli' })
-  const { noteContent, subject } = req.body
-  if (!noteContent) return res.status(400).json({ error: 'Chybí obsah zápisku' })
-  examBusy = true
-  try {
-    const question = await callOllama([
-      { role: 'system', content: `Jsi přísný ale spravedlivý zkoušející pro maturitní zkoušku z informatiky${subject ? ` — téma: ${subject}` : ''}. Na základě zápisků vygeneruj JEDNU konkrétní zkušební otázku, která ověřuje pochopení látky (ne jen definici). Otázka musí být česky. Vrať POUZE samotnou otázku, nic jiného.` },
-      { role: 'user', content: `Zápisky:\n${noteContent.slice(0, 4000)}` }
-    ])
-    res.json({ question })
-  } catch {
-    res.status(503).json({ error: 'AI momentálně nedostupná' })
-  } finally {
-    examBusy = false
-  }
-})
-
-app.post('/api/exam/evaluate', async (req, res) => {
-  if (!OLLAMA_URL) return res.status(503).json({ error: 'AI není nakonfigurována (chybí OLLAMA_URL)' })
-  if (examBusy) return res.status(429).json({ error: 'AI je momentálně zaneprázdněna, zkus za chvíli' })
-  const { question, answer, noteContent, subject } = req.body
-  if (!question || answer === undefined) return res.status(400).json({ error: 'Chybí otázka nebo odpověď' })
-  examBusy = true
-  try {
-    const raw = await callOllama([
-      { role: 'system', content: `Jsi přísný ale spravedlivý zkoušející pro maturitní zkoušku z informatiky${subject ? ` — téma: ${subject}` : ''}. Ohodnoť odpověď studenta na základě zápisků. Odpověz PŘESNĚ v tomto formátu, nic víc:\nBODY: X/10\nZPĚTNÁ VAZBA: [2–3 věty česky — co bylo správně, co chybělo nebo bylo špatně]` },
-      { role: 'user', content: `Zápisky:\n${noteContent.slice(0, 3000)}\n\nOtázka: ${question}\n\nOdpověď studenta: ${answer || '(bez odpovědi)'}` }
-    ])
-    const scoreMatch = raw.match(/BODY[YE]?:\s*(\d+)\s*\/\s*10/i)
-    const feedbackMatch = raw.match(/ZPĚTNÁ VAZBA:\s*([\s\S]+)/i)
-    res.json({
-      score: scoreMatch ? Math.min(10, Math.max(0, parseInt(scoreMatch[1]))) : null,
-      feedback: feedbackMatch ? feedbackMatch[1].trim() : raw
-    })
-  } catch {
-    res.status(503).json({ error: 'AI momentálně nedostupná' })
-  } finally {
-    examBusy = false
-  }
 })
 
 app.listen(PORT, () => {
