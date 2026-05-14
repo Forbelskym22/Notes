@@ -11,15 +11,13 @@
 - **Metoda** — funkce definovaná uvnitř třídy, pracuje s atributy objektu
 - **Konstruktor** — speciální metoda volaná při vytváření objektu, nastavuje počáteční hodnoty atributů
 
-csharp
-
 ```csharp
 class Auto
 {
     public string Barva { get; set; }
     public string Znacka { get; set; }
 
-    public Auto(string barva, string znacka, int rok = 2024) // konstruktor
+    public Auto(string barva, string znacka) // konstruktor
     {
         Barva = barva;
         Znacka = znacka;
@@ -35,8 +33,6 @@ Auto a = new Auto("červená", "Škoda"); // objekt = instance třídy
 
 - **Instanční** — patří konkrétnímu objektu, každý objekt má svou hodnotu
 - **Statické (`static`)** — patří třídě, sdílené všemi objekty
-
-csharp
 
 ```csharp
 class Auto
@@ -59,8 +55,6 @@ Data objektu jsou ideálně skrytá (`private`/`protected`), přistupuje se k ni
 - `private` — přístupné pouze ve třídě
 - `protected` — přístupné ve třídě a jejích dětech
 - `public` — přístupné odkudkoliv
-
-csharp
 
 ```csharp
 class Osoba
@@ -85,17 +79,30 @@ class Osoba
 
 Třída (dítě) přebírá atributy a metody jiné třídy (rodiče). V C# lze dědit pouze od **jedné** třídy. Dítě může metody rodiče přepsat pomocí `override`. Rodič musí metodu označit jako `virtual`.
 
-csharp
+**Konstruktor se nedědí** — dítě musí definovat vlastní konstruktor a explicitně zavolat konstruktor rodiče přes `base()`.
 
 ```csharp
-class Zvire
+class Zvíře
 {
-    public string Jmeno { get; set; }
-    public virtual void Zvuk() { Console.WriteLine("..."); } // virtual = může být přepsáno
+    public string Jméno { get; set; }
+
+    public Zvíře(string jméno)
+    {
+        Jméno = jméno;
+    }
+
+    public virtual void Zvuk() { Console.WriteLine("..."); }
 }
 
-class Pes : Zvire
+class Pes : Zvíře
 {
+    public string Plemeno { get; set; }
+
+    public Pes(string jméno, string plemeno) : base(jméno) // volá konstruktor rodiče
+    {
+        Plemeno = plemeno;
+    }
+
     public override void Zvuk() { Console.WriteLine("Haf!"); }
 }
 ```
@@ -106,8 +113,6 @@ class Pes : Zvire
 
 **Statický (overloading)** — stejný název metody, různé parametry → řeší se při **kompilaci**
 
-csharp
-
 ```csharp
 void Secti(int a, int b) { }
 void Secti(string a, string b) { }
@@ -115,11 +120,9 @@ void Secti(string a, string b) { }
 
 **Dynamický (override)** — děti přepisují metodu rodiče, přistupujeme k nim přes rodičovský typ → řeší se za **běhu**
 
-csharp
-
 ```csharp
-List<Tvar> tvary = new List<Tvar> { new Kruh(), new Ctverec() };
-foreach (Tvar t in tvary) { t.Obsah(); } // za běhu se rozhodne která metoda
+List<Zvíře> zvířata = new List<Zvíře> { new Pes("Rex", "Labrador"), new Kočka("Micka") };
+foreach (Zvíře z in zvířata) { z.Zvuk(); } // za běhu se rozhodne která metoda
 ```
 
 ---
@@ -129,8 +132,6 @@ foreach (Tvar t in tvary) { t.Obsah(); } // za běhu se rozhodne která metoda
 Třída definuje **co** objekt umí, ne jak to dělá. Implementaci si řeší každá podtřída sama. Realizuje se pomocí **abstraktních tříd** nebo **rozhraní (interface)**.
 
 Abstraktní třídu **nelze instanciovat** — nelze z ní přímo vytvořit objekt.
-
-csharp
 
 ```csharp
 abstract class Tvar
@@ -156,23 +157,114 @@ class Kruh : Tvar
 |Dědičnost|pouze jedna|více najednou|
 |Použití|třídy sdílí kód|třídy sdílí chování|
 
-csharp
-
 ```csharp
-interface ILetajici { void Letej(); }
-interface IZpivajici { void Zpivej(); }
+interface ILetající { void Letej(); }
+interface IZpívající { void Zpívej(); }
 
-class Ptak : Zvire, ILetajici, IZpivajici { } // jedna třída + více interfaců
+class Pták : Zvíře, ILetající, IZpívající { } // jedna třída + více interfaců
 ```
 
 ---
 
 ### SOLID principy
 
-|Písmeno|Princip|Jednoduše|
-|---|---|---|
-|**S**|Single Responsibility|Třída má jen jednu zodpovědnost|
-|**O**|Open/Closed|Rozšiřuj, neupravuj|
-|**L**|Liskov Substitution|Dítě funguje všude kde funguje rodič|
-|**I**|Interface Segregation|Více malých interfaců > jeden velký|
-|**D**|Dependency Inversion|Záviset na abstrakci, ne na konkrétní třídě|
+#### S — Single Responsibility
+Každá třída má **jednu zodpovědnost**. Pokud ji změníš, máš jen jeden důvod proč.
+
+Špatně — třída `Zvíře` ukládá data, posílá emaily i generuje report:
+```csharp
+class Zvíře
+{
+    public string Jméno { get; set; }
+    public void UložDodatabáze() { /* ... */ }
+    public void PošliEmail() { /* ... */ }
+    public string GenerujReport() { /* ... */ }
+}
+```
+Dobře — každá třída dělá jednu věc:
+```csharp
+class Zvíře { public string Jméno { get; set; } }
+class ZvířeRepository { public void Ulož(Zvíře z) { /* ... */ } }
+class EmailService { public void Pošli(string zpráva) { /* ... */ } }
+```
+
+---
+
+#### O — Open/Closed
+Třída je **otevřená pro rozšíření, uzavřená pro úpravu**. Přidáváš nové třídy, ne upravuješ stávající kód.
+
+Špatně — při přidání nového zvířete musíš upravit metodu:
+```csharp
+void VydejZvuk(string typ)
+{
+    if (typ == "pes") Console.WriteLine("Haf");
+    else if (typ == "kočka") Console.WriteLine("Mňau");
+    // při každém novém zvířeti sem musíš sahat
+}
+```
+Dobře — přidáš novou třídu, stávající kód se nedotýkáš:
+```csharp
+abstract class Zvíře { public abstract void Zvuk(); }
+class Pes : Zvíře { public override void Zvuk() => Console.WriteLine("Haf"); }
+class Kočka : Zvíře { public override void Zvuk() => Console.WriteLine("Mňau"); }
+```
+
+---
+
+#### L — Liskov Substitution
+**Dítě musí fungovat všude kde funguje rodič** — nesmí rozbít chování.
+
+```csharp
+// funguje s Zvíře...
+void NakrmZvíře(Zvíře z) { Console.WriteLine($"Krmím {z.Jméno}"); }
+
+// ...a musí fungovat i s Pes (dítětem)
+Pes pes = new Pes("Rex", "Labrador");
+NakrmZvíře(pes); // OK — Pes je stále Zvíře
+```
+
+---
+
+#### I — Interface Segregation
+**Více malých interfaců > jeden velký**. Třída nemá implementovat metody které nepotřebuje.
+
+Špatně — Ryba musí implementovat `Letej()` i když neumí létat:
+```csharp
+interface IZvíře { void Běž(); void Plav(); void Letej(); }
+class Ryba : IZvíře
+{
+    public void Letej() { throw new Exception("Ryba neumí létat!"); }
+}
+```
+Dobře — implementuje jen to co umí:
+```csharp
+interface IBěžec { void Běž(); }
+interface IPlavec { void Plav(); }
+interface ILetec { void Letej(); }
+
+class Ryba : IPlavec { public void Plav() { /* ... */ } }
+class Pták : IBěžec, ILetec { /* ... */ }
+```
+
+---
+
+#### D — Dependency Inversion
+**Záviset na abstrakci (interface), ne na konkrétní třídě**. Snadno vyměníš implementaci.
+
+Špatně — `Výcvikář` je pevně svázán s `Pes`:
+```csharp
+class Výcvikář
+{
+    private Pes _zvíře = new Pes("Rex", "Lab"); // nelze vyměnit za jiné zvíře
+    public void Trénuj() { _zvíře.Zvuk(); }
+}
+```
+Dobře — závisí na abstrakci, konkrétní zvíře se předá zvenku:
+```csharp
+class Výcvikář
+{
+    private Zvíře _zvíře;
+    public Výcvikář(Zvíře zvíře) { _zvíře = zvíře; } // lze předat Pes, Kočka, cokoliv
+    public void Trénuj() { _zvíře.Zvuk(); }
+}
+```
