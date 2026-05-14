@@ -1,3 +1,4 @@
+
 **Definice:** Proces při kterém se snažíme z dat vytvořit informace, které pak prezentujeme.
 
 ---

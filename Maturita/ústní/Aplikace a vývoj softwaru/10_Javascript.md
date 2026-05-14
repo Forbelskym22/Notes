@@ -1,3 +1,4 @@
+
 **JAVASCRIPT**
 
 **Typ jazyka:** Vysokoúrovňový — vyšší míra abstrakce, nemusíme řešit logiku na úrovni hardware.

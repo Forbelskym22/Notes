@@ -1,3 +1,4 @@
+
 **Využití:** vývoj Windows aplikací, webové aplikace (.NET), hry (Unity), enterprise software
 
 **Typ jazyka:** Vysokoúrovňový — vyšší míra abstrakce, nemusíme řešit logiku na úrovni hardware (paměť, registry). Kód je přenositelný mezi různým hardwarem.

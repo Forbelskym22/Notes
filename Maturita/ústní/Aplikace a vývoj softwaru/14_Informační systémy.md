@@ -1,6 +1,3 @@
-# Informační systémy
-
----
 
 ## Data
 

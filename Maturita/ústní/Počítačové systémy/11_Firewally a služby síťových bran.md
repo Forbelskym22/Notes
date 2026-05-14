@@ -1,4 +1,3 @@
-# Firewally a služby síťových bran
 
 ## Firewall
 

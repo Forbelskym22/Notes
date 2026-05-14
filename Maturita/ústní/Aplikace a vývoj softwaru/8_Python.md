@@ -1,3 +1,4 @@
+
 **Využití:** datová analýza, trénování AI, scripty, webové aplikace
 
 **Typ jazyka:** Vysokoúrovňový — vyšší míra abstrakce, nemusíme řešit logiku na úrovni hardware (paměť, registry). Kód je přenositelný mezi různým hardwarem.

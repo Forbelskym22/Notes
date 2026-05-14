@@ -1,4 +1,3 @@
-# Licencování SW a autorský zákon
 
 ## Autorský zákon
 

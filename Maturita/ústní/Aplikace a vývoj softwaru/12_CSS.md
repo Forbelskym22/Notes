@@ -1,4 +1,3 @@
-# Kaskádové styly CSS
 
 - **Box model** — každý element je obdélník
 - Pokud více pravidel cílí na stejný element, vyhraje to s nejvyšší **specificitou**

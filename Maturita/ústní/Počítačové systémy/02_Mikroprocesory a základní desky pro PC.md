@@ -1,4 +1,3 @@
-## Mikroprocesory pro PC
 
 ### Co je mikroprocesor
 

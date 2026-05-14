@@ -1,4 +1,3 @@
-# Protokoly aplikační vrstvy
 
 Aplikační vrstva je nejvyšší vrstva síťového modelu (OSI vrstva 7, TCP/IP vrstva 4). Protokoly aplikační vrstvy definují formát a způsob komunikace mezi aplikacemi.
 

@@ -1,4 +1,3 @@
-# Structured Query Language
 
 **Typ jazyka:** Deklarativní — říkáme *co* chceme, ne *jak* to získat
 

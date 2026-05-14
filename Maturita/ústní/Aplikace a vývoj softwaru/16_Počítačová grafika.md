@@ -1,5 +1,3 @@
-
-
 ## Typy počítačové grafiky
 
 ### Rastrová (bitmapová) grafika

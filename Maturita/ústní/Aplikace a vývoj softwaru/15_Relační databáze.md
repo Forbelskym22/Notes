@@ -1,8 +1,3 @@
-# Pojmy relačních databází a jejich návrh
-
----
-
-## Relační databáze
 
 Data jsou uložena v **tabulkách** (relacích) — každá tabulka má řádky (záznamy) a sloupce (atributy).
 

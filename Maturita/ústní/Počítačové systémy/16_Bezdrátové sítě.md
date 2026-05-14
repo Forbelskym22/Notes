@@ -1,3 +1,4 @@
+
 Bezdrátové sítě přenášejí data pomocí **elektromagnetických vln** (rádiové frekvence). Signál se šíří vzduchem a může být rušen fyzickými překážkami, jinými zařízeními nebo interferencí na stejném kanálu.
 
 ---

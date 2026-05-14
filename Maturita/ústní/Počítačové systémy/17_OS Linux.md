@@ -1,4 +1,3 @@
-# OS Linux
 
 ## Co je Linux
 

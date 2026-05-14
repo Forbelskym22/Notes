@@ -1,4 +1,3 @@
-# Prezentace – zásady, písmo, typografie a technika
 
 ## Příprava prezentace
 

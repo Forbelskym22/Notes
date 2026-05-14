@@ -1,4 +1,3 @@
-# Značkovací jazyk HTML
 
 **Typ jazyka:** Značkovací (HyperText Markup Language) — popisuje strukturu a obsah webové stránky
 

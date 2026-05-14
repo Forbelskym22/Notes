@@ -1,4 +1,3 @@
-# Algoritmizace
 
 **Algoritmizace** = proces návrhu a tvorby algoritmu — postup, jak ze zadaného problému sestavit přesný návod k jeho řešení.
 

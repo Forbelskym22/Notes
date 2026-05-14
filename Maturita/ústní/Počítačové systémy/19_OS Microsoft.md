@@ -1,4 +1,3 @@
-# OS Microsoft Windows
 
 ## Historie a verze
 

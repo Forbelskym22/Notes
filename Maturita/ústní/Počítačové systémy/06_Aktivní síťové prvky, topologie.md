@@ -1,4 +1,3 @@
-# Aktivní síťové prvky, topologie
 
 ## Aktivní vs. pasivní síťové prvky
 
