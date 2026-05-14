@@ -519,8 +519,8 @@ document.getElementById('btn-subtopics-close').addEventListener('click', closeSu
 
   document.addEventListener('mousemove', e => {
     if (!resizing) return
-    const w = Math.min(Math.max(180, startW + e.clientX - startX), 520)
-    const h = Math.min(Math.max(120, startH + e.clientY - startY), window.innerHeight - 40)
+    const w = Math.min(Math.max(180, startW + e.clientX - startX), window.innerWidth - 20)
+    const h = Math.min(Math.max(120, startH + e.clientY - startY), window.innerHeight - 20)
     panel.style.width = w + 'px'
     panel.style.height = h + 'px'
     const fontSize = Math.round(11 + ((w - 180) / 340) * 7)
