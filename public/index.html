@@ -42,12 +42,73 @@
         <div id="note-toolbar" class="hidden lg:flex items-center sticky top-0 bg-white border-b border-gray-200 px-6 py-4 z-10 relative min-h-[4rem]">
           <h1 id="note-title" class="absolute left-1/2 -translate-x-1/2 text-2xl font-bold text-gray-900 text-center leading-tight max-w-[50%] truncate pointer-events-none"></h1>
           <div class="ml-auto shrink-0 flex items-center gap-1.5">
-            <button id="btn-flashcards" class="text-sm px-3 py-1.5 rounded-md bg-amber-100 text-amber-900 hover:bg-amber-200 transition-colors font-medium">Kartičky</button>
+            <button id="btn-flashcards" class="hidden text-sm px-3 py-1.5 rounded-md bg-amber-100 text-amber-900 hover:bg-amber-200 transition-colors font-medium">Kartičky</button>
+            <button id="btn-exam" class="hidden text-sm px-3 py-1.5 rounded-md bg-violet-100 text-violet-900 hover:bg-violet-200 transition-colors font-medium">Zkoušení</button>
             <button id="btn-download" class="text-sm px-3 py-1.5 rounded-md bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium">.md</button>
             <button id="btn-pdf" class="text-sm px-3 py-1.5 rounded-md bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium">PDF</button>
           </div>
         </div>
         <article id="note-content" class="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full"></article>
+      </div>
+
+      <!-- ── Zkouškový mód ── -->
+      <div id="exam-view" class="hidden h-full flex flex-col">
+        <div class="hidden lg:flex items-center sticky top-0 bg-white border-b border-gray-200 px-4 py-3 z-10 relative min-h-[3.25rem]">
+          <button id="btn-back-to-note-exam" class="shrink-0 text-sm px-3 py-1.5 rounded-md border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors">← zápisek</button>
+          <span id="exam-score-display" class="absolute left-1/2 -translate-x-1/2 text-sm text-gray-400 pointer-events-none"></span>
+        </div>
+        <div class="flex-1 overflow-y-auto flex flex-col items-center p-6">
+          <div class="w-full max-w-2xl flex flex-col gap-4">
+
+            <!-- loading -->
+            <div id="exam-loading" class="hidden flex-col items-center justify-center gap-3 py-20 text-gray-400">
+              <svg class="w-6 h-6 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/></svg>
+              <span id="exam-loading-text" class="text-sm">Generuji otázku…</span>
+            </div>
+
+            <!-- error / nedostupná -->
+            <div id="exam-error" class="hidden flex-col items-center justify-center gap-3 py-20 text-center">
+              <p class="text-4xl">🤖</p>
+              <p class="font-medium text-gray-700">AI momentálně nedostupná</p>
+              <p id="exam-error-text" class="text-sm text-gray-400">Zkontroluj, zda běží Ollama na tvém PC.</p>
+              <button id="btn-exam-retry" class="mt-2 text-sm px-4 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors">Zkusit znovu</button>
+            </div>
+
+            <!-- otázka + odpověď -->
+            <div id="exam-qa" class="hidden flex-col gap-4">
+              <div class="bg-violet-50 border border-violet-200 rounded-xl p-5">
+                <p class="text-xs font-semibold text-violet-500 uppercase tracking-wider mb-2">Otázka</p>
+                <p id="exam-question" class="text-gray-800 font-medium leading-relaxed"></p>
+              </div>
+              <textarea id="exam-answer" rows="5" placeholder="Napiš svou odpověď… (Ctrl+Enter pro odeslání)" class="w-full border border-gray-300 rounded-xl p-4 text-sm resize-none focus:outline-none focus:border-violet-400 focus:ring-1 focus:ring-violet-300 transition-colors"></textarea>
+              <div class="flex justify-between items-center">
+                <button id="btn-back-to-note-exam-mobile" class="lg:hidden text-sm text-gray-400 hover:text-gray-600 underline">← zpět</button>
+                <button id="btn-exam-submit" class="ml-auto px-5 py-2 rounded-lg bg-violet-500 text-white hover:bg-violet-600 transition-colors font-medium text-sm">Odeslat →</button>
+              </div>
+            </div>
+
+            <!-- feedback -->
+            <div id="exam-feedback-wrap" class="hidden flex-col gap-4">
+              <div class="bg-violet-50 border border-violet-200 rounded-xl p-5">
+                <p class="text-xs font-semibold text-violet-500 uppercase tracking-wider mb-2">Otázka</p>
+                <p id="exam-question-recap" class="text-gray-600 text-sm leading-relaxed"></p>
+              </div>
+              <div id="exam-feedback-card" class="border-2 rounded-xl p-5 flex flex-col gap-2">
+                <div class="flex items-baseline gap-2">
+                  <span id="exam-score-badge" class="text-3xl font-bold"></span>
+                  <span class="text-sm text-gray-400">/ 10 bodů</span>
+                </div>
+                <p id="exam-feedback-text" class="text-sm text-gray-700 leading-relaxed"></p>
+              </div>
+              <div class="flex justify-between items-center">
+                <span id="exam-total-display" class="text-sm text-gray-400"></span>
+                <button id="btn-exam-next" class="px-5 py-2 rounded-lg bg-violet-500 text-white hover:bg-violet-600 transition-colors font-medium text-sm">Další otázka →</button>
+              </div>
+              <button id="btn-back-to-note-exam-mobile2" class="lg:hidden text-sm text-gray-400 hover:text-gray-600 underline self-center">← zpět na zápisek</button>
+            </div>
+
+          </div>
+        </div>
       </div>
 
       <div id="flashcard-view" class="hidden h-full flex flex-col">

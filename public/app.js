@@ -2,6 +2,7 @@
 
 let currentSubject = null
 let currentFile = null
+let currentNoteContent = ''
 
 async function fetchJSON(url) {
   const res = await fetch(url)
@@ -94,13 +95,17 @@ async function showNote(subject, file, title, fetchUrl, skipHash) {
   document.getElementById('mobile-title').textContent = title
   document.getElementById('note-title').textContent = title
   document.getElementById('btn-pdf-mobile').classList.remove('hidden')
-  document.getElementById('note-content').innerHTML = marked.parse(data.content || '_Tento zápisek je zatím prázdný._')
+  currentNoteContent = data.content || ''
+  document.getElementById('note-content').innerHTML = marked.parse(currentNoteContent || '_Tento zápisek je zatím prázdný._')
   document.querySelectorAll('#note-content pre code').forEach(el => hljs.highlightElement(el))
   wireInternalLinks()
   fixImages(subject)
   currentSubject = subject
   currentFile = file
   if (!skipHash) setHash(subject, file)
+
+  // Vždy zobraz tlačítko Zkoušení
+  document.getElementById('btn-exam').classList.remove('hidden')
 
   // Zobraz tlačítko Kartičky jen pokud zápisek má karty
   document.getElementById('btn-flashcards').classList.add('hidden')
@@ -432,7 +437,113 @@ async function downloadPdf() {
 }
 
 document.getElementById('btn-pdf-mobile').addEventListener('click', downloadPdf)
-
 document.getElementById('btn-pdf').addEventListener('click', downloadPdf)
+
+// ── Zkouškový mód ─────────────────────────────────────────
+let examTotalScore = 0
+let examQuestionCount = 0
+let examCurrentQuestion = ''
+
+function examSetState(state) {
+  document.getElementById('exam-loading').classList.toggle('hidden', state !== 'loading')
+  document.getElementById('exam-error').classList.toggle('hidden', state !== 'error')
+  document.getElementById('exam-qa').classList.toggle('hidden', state !== 'qa')
+  document.getElementById('exam-feedback-wrap').classList.toggle('hidden', state !== 'feedback')
+  // flex na viditelné
+  ;['exam-loading', 'exam-qa', 'exam-feedback-wrap', 'exam-error'].forEach(id => {
+    const el = document.getElementById(id)
+    if (!el.classList.contains('hidden')) el.classList.add('flex')
+    else el.classList.remove('flex')
+  })
+}
+
+function examUpdateScoreDisplay() {
+  const el = document.getElementById('exam-score-display')
+  el.textContent = examQuestionCount > 0
+    ? `${examTotalScore} / ${examQuestionCount * 10} bodů (${examQuestionCount} ot.)`
+    : ''
+}
+
+async function examAskQuestion() {
+  examSetState('loading')
+  document.getElementById('exam-loading-text').textContent = 'Generuji otázku…'
+  try {
+    const data = await fetch('/api/exam/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ noteContent: currentNoteContent, subject: currentSubject })
+    }).then(r => { if (!r.ok) throw r; return r.json() })
+    examCurrentQuestion = data.question
+    document.getElementById('exam-question').textContent = examCurrentQuestion
+    document.getElementById('exam-answer').value = ''
+    examSetState('qa')
+    document.getElementById('exam-answer').focus()
+  } catch (e) {
+    const errData = e.json ? await e.json().catch(() => ({})) : {}
+    document.getElementById('exam-error-text').textContent = errData.error || 'Zkontroluj, zda běží Ollama na tvém PC.'
+    examSetState('error')
+  }
+}
+
+async function examSubmitAnswer() {
+  const answer = document.getElementById('exam-answer').value.trim()
+  examSetState('loading')
+  document.getElementById('exam-loading-text').textContent = 'Vyhodnocuji odpověď…'
+  try {
+    const data = await fetch('/api/exam/evaluate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: examCurrentQuestion, answer, noteContent: currentNoteContent, subject: currentSubject })
+    }).then(r => { if (!r.ok) throw r; return r.json() })
+
+    const score = data.score ?? 0
+    examTotalScore += score
+    examQuestionCount++
+    examUpdateScoreDisplay()
+
+    document.getElementById('exam-question-recap').textContent = examCurrentQuestion
+    const badge = document.getElementById('exam-score-badge')
+    badge.textContent = `${score}/10`
+    badge.className = 'text-3xl font-bold ' + (score >= 9 ? 'text-green-600' : score >= 7 ? 'text-amber-500' : score >= 5 ? 'text-orange-500' : 'text-red-500')
+    const card = document.getElementById('exam-feedback-card')
+    card.className = 'border-2 rounded-xl p-5 flex flex-col gap-2 ' + (score >= 9 ? 'border-green-200 bg-green-50' : score >= 7 ? 'border-amber-200 bg-amber-50' : score >= 5 ? 'border-orange-200 bg-orange-50' : 'border-red-200 bg-red-50')
+    document.getElementById('exam-feedback-text').textContent = data.feedback
+    document.getElementById('exam-total-display').textContent = `Celkem: ${examTotalScore} / ${examQuestionCount * 10} bodů`
+    examSetState('feedback')
+  } catch (e) {
+    const errData = e.json ? await e.json().catch(() => ({})) : {}
+    document.getElementById('exam-error-text').textContent = errData.error || 'Chyba při vyhodnocování.'
+    examSetState('error')
+  }
+}
+
+function openExam() {
+  if (!currentFile) return
+  document.getElementById('note-view').classList.add('hidden')
+  document.getElementById('flashcard-view').classList.add('hidden')
+  document.getElementById('welcome').classList.add('hidden')
+  document.getElementById('exam-view').classList.remove('hidden')
+  examTotalScore = 0
+  examQuestionCount = 0
+  examUpdateScoreDisplay()
+  examAskQuestion()
+}
+
+function closeExam() {
+  document.getElementById('exam-view').classList.add('hidden')
+  document.getElementById('note-view').classList.remove('hidden')
+}
+
+document.getElementById('btn-exam').addEventListener('click', openExam)
+document.getElementById('btn-back-to-note-exam').addEventListener('click', closeExam)
+document.getElementById('btn-back-to-note-exam-mobile').addEventListener('click', closeExam)
+document.getElementById('btn-back-to-note-exam-mobile2').addEventListener('click', closeExam)
+document.getElementById('btn-exam-submit').addEventListener('click', examSubmitAnswer)
+document.getElementById('btn-exam-next').addEventListener('click', examAskQuestion)
+document.getElementById('btn-exam-retry').addEventListener('click', examAskQuestion)
+
+document.getElementById('exam-answer').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && e.ctrlKey) { e.preventDefault(); examSubmitAnswer() }
+})
 
 loadNav()
