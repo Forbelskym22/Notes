@@ -88,3 +88,36 @@ print(s[::2])   # každý druhý prvek (krok 2)
 print(s[::-1])  # obrácení (krok -1 = pozpátku)
 # [5, 4, 3, 2, 1]
 ```
+
+**Zvětšování seznamu:**
+
+```python
+s = [1, 2, 3]
+
+s.append(4)       # přidá na konec
+# [1, 2, 3, 4]
+
+s.insert(1, 99)   # vloží na index 1
+# [1, 99, 2, 3, 4]
+
+s.extend([5, 6])  # připojí jiný seznam
+# [1, 99, 2, 3, 4, 5, 6]
+```
+
+**Zmenšování seznamu:**
+
+```python
+s = [1, 2, 3, 4, 5]
+
+s.pop()           # odebere a vrátí poslední prvek
+# [1, 2, 3, 4]  →  vrátí 5
+
+s.pop(1)          # odebere a vrátí prvek na indexu 1
+# [1, 3, 4]  →  vrátí 2
+
+s.remove(3)       # odebere první výskyt hodnoty 3
+# [1, 4]
+
+del s[0]          # smaže prvek na indexu 0
+# [4]
+```
