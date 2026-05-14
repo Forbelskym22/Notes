@@ -1,0 +1,12 @@
+[
+  {"q": "Co je SQL a jakého je typu?", "a": "Structured Query Language — deklarativní jazyk pro práci s relačními databázemi. Říkáme CO chceme, ne JAK to získat."},
+  {"q": "Jaké jsou skupiny SQL příkazů?", "a": "DML (SELECT/INSERT/UPDATE/DELETE), DDL (CREATE/ALTER/DROP), DCL (GRANT/REVOKE), TCL (COMMIT/ROLLBACK)."},
+  {"q": "Jak funguje WHERE v SQL?", "a": "Filtruje záznamy podle podmínky. Operátory: =, <>, >, <, BETWEEN, IN, LIKE (% = libovolný počet znaků, _ = jeden znak), IS NULL, AND, OR, NOT."},
+  {"q": "Co dělá GROUP BY a HAVING?", "a": "GROUP BY seskupí záznamy se stejnou hodnotou. HAVING filtruje skupiny (jako WHERE, ale až po seskupení). Agregační funkce: COUNT, SUM, AVG, MIN, MAX."},
+  {"q": "Co je INNER JOIN?", "a": "Spojí záznamy ze dvou tabulek, kde existuje shoda v JOIN podmínce. Záznamy bez shody jsou vynechány."},
+  {"q": "Jaký je rozdíl mezi LEFT JOIN a INNER JOIN?", "a": "LEFT JOIN vrátí vše z levé tabulky + shody z pravé (kde není shoda, NULL). INNER JOIN vrátí jen záznamy se shodou v obou tabulkách."},
+  {"q": "Co je poddotaz (subquery) v SQL?", "a": "SELECT uvnitř jiného SELECT. Např. WHERE plat > (SELECT AVG(plat) FROM osoby) — zaměstnanci s platem nad průměrem."},
+  {"q": "Co dělá ORDER BY?", "a": "Seřadí výsledky podle sloupce. ASC = vzestupně (výchozí), DESC = sestupně."},
+  {"q": "Co dělá DISTINCT v SQL?", "a": "Vrátí pouze jedinečné řádky — odstraní duplicity z výsledku."},
+  {"q": "Co dělá klauzule WITH (CTE)?", "a": "Vytvoří pojmenovaný dočasný výsledek pro přehlednější zápis složitých dotazů — ekvivalent poddotazu, ale čitelnější."}
+]

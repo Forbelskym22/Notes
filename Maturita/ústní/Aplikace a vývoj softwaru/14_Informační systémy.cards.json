@@ -1,0 +1,12 @@
+[
+  {"q": "Co jsou data a co je informace?", "a": "Data jsou zaznamenané poznatky/fakta (surový vstup). Informace je výsledek zpracování dat — odstraňuje nevědění u příjemce."},
+  {"q": "Co je informační systém (IS)?", "a": "Soubor lidí, techniky a metod pro sběr, přenos, zpracování a uchování dat za účelem poskytování informací uživatelům."},
+  {"q": "Jaké jsou komponenty informačního systému?", "a": "Hardware, Software, Datové zdroje, Procesy (pravidla zpracování), Lidské zdroje (uživatelé, správci)."},
+  {"q": "Co je TPS a k čemu slouží?", "a": "Transaction Processing System — zaznamenává každou transakci v reálném čase (objednávky, platby, docházka). Operativní úroveň."},
+  {"q": "Co je MIS a k čemu slouží?", "a": "Management Information System — bere data z TPS a dělá reporty a přehledy pro střední management. Odpovídá: Co se děje?"},
+  {"q": "Co je EIS/ESS?", "a": "Executive Information/Support System — strategické analýzy, trendy a prognózy pro vrcholový management. Odpovídá: Kam míříme?"},
+  {"q": "Co je ER diagram?", "a": "Entity-Relationship diagram — grafické znázornění entit (tabulek), jejich atributů a vzájemných vazeb v databázi."},
+  {"q": "Jaké jsou tři normální formy (NF)?", "a": "1NF: atomické hodnoty, PK. 2NF: závislost na celém klíči (ne jen části). 3NF: žádný atribut nezávisí na jiném neklíčovém atributu."},
+  {"q": "Co je ERP systém?", "a": "Enterprise Resource Planning — software pro řízení podnikových procesů (účetnictví, nákup, sklad, HR). Příklady: SAP, Helios, Oracle."},
+  {"q": "Co je CRM systém?", "a": "Customer Relationship Management — systém pro správu vztahů se zákazníky, sledování nákupů, cílený marketing a zákaznickou péči."}
+]

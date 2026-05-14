@@ -1,0 +1,12 @@
+[
+  {"q": "Co je broadcast storm a proč vzniká?", "a": "Redundantní L2 smyčka způsobí, že broadcast se nekončíme šíří oběma směry — počet kopií exponenciálně roste, switchem jsou přetíženy, reálný provoz selže."},
+  {"q": "Co je STP a jak zabrání broadcast storm?", "a": "Spanning Tree Protocol — blokuje redundantní porty tak, aby nevznikaly L2 smyčky. Při výpadku linky odblokuje záložní port."},
+  {"q": "Jak se volí Root Bridge v STP?", "a": "Switch s nejnižším Bridge ID (= priorita + MAC adresa). Výchozí priorita 32768 — snížením priority preferujeme konkrétní switch jako Root Bridge."},
+  {"q": "Jaký je rozdíl mezi STP a RSTP?", "a": "STP (802.1D): pomalá konvergence ~50 sekund. RSTP (802.1w): Rapid STP — konvergence ~1–2 sekund. RSTP je zpětně kompatibilní se STP."},
+  {"q": "Co je PortFast a BPDU Guard?", "a": "PortFast: přeskočí STP stavy na access portech (PC se připojí okamžitě). BPDU Guard: vypne port, pokud přijde BPDU zpráva — chrání access porty před nechtěnými smyčkami."},
+  {"q": "Co je EtherChannel?", "a": "Sdružení více fyzických linek do jednoho logického kanálu — zvyšuje šířku pásma a redundanci. STP vidí kanál jako jeden port, takže ho neblokuje."},
+  {"q": "Jaký je rozdíl mezi LACP a PAgP?", "a": "LACP (802.3ad): otevřený standard, funguje mezi různými výrobci. Active/Passive módy. PAgP: Cisco proprietary. Desirable/Auto módy."},
+  {"q": "Co je FHRP a proč se používá?", "a": "First Hop Redundancy Protocol — řeší redundanci výchozí brány. Routery vytvoří virtuální router se sdílenou virtuální IP. Při výpadku hlavního routeru ji záloha převezme."},
+  {"q": "Jaký je rozdíl mezi HSRP a VRRP?", "a": "HSRP: Cisco proprietary, role Active/Standby. VRRP: otevřený standard, role Master/Backup. Oba řeší redundanci brány, ale VRRP funguje mezi různými výrobci."},
+  {"q": "Co je GLBP a čím se liší od HSRP/VRRP?", "a": "Gateway Load Balancing Protocol (Cisco) — jako jediný umožňuje load balancing: více routerů aktivně přenáší data současně. HSRP/VRRP mají vždy jen jeden aktivní router."}
+]

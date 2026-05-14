@@ -1,0 +1,12 @@
+[
+  {"q": "Jaký je rozdíl mezi HTTP a HTTPS?", "a": "HTTP (port 80): přenos v čistém textu, bezstavový. HTTPS (port 443): HTTP šifrované přes TLS — zajišťuje důvěrnost, integritu a autentizaci serverového certifikátu."},
+  {"q": "Co je bezstavovost HTTP a jak se řeší?", "a": "Server si nepamatuje předchozí komunikaci. Stav se udržuje pomocí cookies (uloženy v prohlížeči) nebo sessions (uloženy na serveru)."},
+  {"q": "Jaký je rozdíl mezi SMTP, POP3 a IMAP?", "a": "SMTP: odesílání e-mailů. POP3: stahování e-mailů ze serveru (odstraní je ze serveru). IMAP: přístup k e-mailům přímo na serveru, plná synchronizace mezi zařízeními."},
+  {"q": "Na jakém portu běží SSH, FTP, SMTP a DNS?", "a": "SSH: 22. FTP: 20 (data), 21 (řízení). SMTP: 25 (server–server), 587 (klient→server). DNS: 53 (UDP dotazy, TCP přenosy)."},
+  {"q": "Jaký je rozdíl mezi FTP a SFTP?", "a": "FTP: nešifrovaný přenos souborů, přihlašovací údaje v čistém textu. SFTP: přenos souborů šifrovaný přes SSH (port 22)."},
+  {"q": "Jaký je rozdíl mezi Telnet a SSH?", "a": "Telnet (port 23): nešifrovaný vzdálený přístup — obsoletní. SSH (port 22): šifrované vzdálené připojení, autentizace heslem nebo klíčem."},
+  {"q": "Jak funguje DNS překlad?", "a": "Klient → rekurzivní resolver (ISP) → kořenový server → TLD server (.cz/.com) → autoritativní server domény → IP adresa vrácena klientovi."},
+  {"q": "Jaké jsou typy DNS záznamů?", "a": "A: jméno → IPv4. AAAA: jméno → IPv6. CNAME: alias na jiné jméno. MX: poštovní server. NS: autoritativní DNS server. TXT: textové info (SPF, DKIM)."},
+  {"q": "Co dělá DHCP?", "a": "Dynamic Host Configuration Protocol — automaticky přiděluje klientům IP adresu, masku podsítě, výchozí bránu a DNS server. Port 67 (server), 68 (klient), UDP."},
+  {"q": "Co je NTP?", "a": "Network Time Protocol (port 123, UDP) — synchronizuje čas mezi zařízeními v síti. Přesná synchronizace je kritická pro bezpečnost (certifikáty, logy, Kerberos)."}
+]

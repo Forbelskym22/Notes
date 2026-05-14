@@ -1,0 +1,12 @@
+[
+  {"q": "Co je Wi-Fi 5 a Wi-Fi 6?", "a": "Wi-Fi 5 = 802.11ac (5 GHz, max 3,5 Gb/s, MU-MIMO). Wi-Fi 6 = 802.11ax (2,4/5/6 GHz, max 9,6 Gb/s, OFDMA — lepší v hustých prostředích)."},
+  {"q": "Jaký je rozdíl mezi pásmem 2,4 GHz a 5 GHz?", "a": "2,4 GHz: větší dosah, lepší průchod zdmi, více rušení (mikrovlnky, Bluetooth). 5 GHz: kratší dosah, horší průchod překážkami, vyšší rychlost, méně rušení."},
+  {"q": "Které kanály 2,4 GHz se nepřekrývají?", "a": "Kanály 1, 6 a 11 — jsou od sebe dostatečně vzdáleny (25 MHz), aby se nepřekrývaly. Ostatní kanály se překrývají a způsobují interferenci."},
+  {"q": "Co je SSID a BSSID?", "a": "SSID (Service Set Identifier): název Wi-Fi sítě. BSSID: MAC adresa přístupového bodu (AP)."},
+  {"q": "Jaký je vývoj Wi-Fi zabezpečení?", "a": "WEP: prolomitelný za minuty — nepoužívat. WPA: TKIP, dočasná náhrada. WPA2: AES, standard pro většinu sítí. WPA3: SAE handshake, odolný vůči slovníkovým útokům."},
+  {"q": "Jaký je rozdíl mezi WPA2 Personal a Enterprise?", "a": "Personal (PSK): sdílené heslo pro všechny — pro domácnosti. Enterprise: ověření pomocí RADIUS serveru a individuálních certifikátů — pro firmy, vyšší bezpečnost."},
+  {"q": "Co je CSMA/CA?", "a": "Collision Avoidance — bezdrátová přístupová metoda. Klient se před vysíláním domluví s AP pomocí RTS/CTS (Request/Clear to Send), aby předešel kolizím. Nelze detekovat kolize jako u drátového CSMA/CD."},
+  {"q": "Co je DFS ve Wi-Fi?", "a": "Dynamic Frequency Selection — AP sleduje, zda pásmo 5 GHz nepoužívá radar. Při detekci automaticky přepne na jiný kanál. Vyžadují ho kanály 52–140 (UNII-2)."},
+  {"q": "Co je MU-MIMO?", "a": "Multi-User Multiple Input Multiple Output — AP může komunikovat s více zařízeními současně přes více antén. Zvyšuje celkovou propustnost sítě ve srovnání se SU-MIMO."},
+  {"q": "Jaký je princip přenosu bezdrátových sítí?", "a": "Data se přenášejí pomocí elektromagnetických vln (rádiové frekvence). Signál se šíří vzduchem a může být rušen fyzickými překážkami, jinými zařízeními nebo interferencí na stejném kanálu."}
+]

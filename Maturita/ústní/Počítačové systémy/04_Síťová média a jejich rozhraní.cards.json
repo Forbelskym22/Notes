@@ -1,0 +1,12 @@
+[
+  {"q": "Co je UTP kabel a proč jsou vodiče zkrouceny?", "a": "Unshielded Twisted Pair — nestíněná kroucená dvojlinka. Zkroucení párů snižuje elektromagnetické rušení (EMI) a přeslechy mezi páry."},
+  {"q": "Jaký konektor se používá pro Ethernet a jaký pro telefon/DSL?", "a": "RJ-45 (8P8C) — standardní konektor pro Ethernet. RJ-11 — telefonní linka, používán i pro DSL připojení k internetu."},
+  {"q": "Jaký je rozdíl mezi Cat 5e, Cat 6 a Cat 6A?", "a": "Cat 5e: 1 Gb/s, 100 m. Cat 6: 1 Gb/s (10 Gb/s do 55 m), 100 m. Cat 6A: 10 Gb/s, 100 m — vhodná pro datová centra."},
+  {"q": "Na jakém principu fungují optická vlákna?", "a": "Přenos světelných impulzů skleněným vláknem. Totální odraz — světlo se odráží od rozhraní jádra (vyšší index lomu) a pláště (nižší index lomu)."},
+  {"q": "Jaký je rozdíl mezi jednovidovým (SMF) a mnohovidovým (MMF) vláknem?", "a": "SMF: úzké jádro ~9 µm, světlo jednou cestou, desítky km, páteřní sítě. MMF: širší jádro 50–62,5 µm, více cest, do 2 km, LAN a datová centra."},
+  {"q": "Jaké jsou výhody optického vlákna oproti kroucené dvojlince?", "a": "Imunní vůči EMI, rychlosti až Tb/s, vzdálenosti desítky km (SMF vs. max 100 m), nelze odposlouchávat elektromagneticky."},
+  {"q": "Co je SFP port?", "a": "Small Form-factor Pluggable — modulární port na switchi/routeru pro optické nebo metalické transceivery. SFP+ podporuje 10 Gb/s."},
+  {"q": "K čemu slouží fusion splicer (svářečka vláken)?", "a": "Spojuje dvě optická vlákna elektrickým obloukem (tavením). Vytváří spoj s minimálním útlumem."},
+  {"q": "Co je přímý kabel a křížený kabel?", "a": "Přímý (straight-through): propojuje různé typy zařízení (PC–switch). Křížený (crossover): stejné typy (PC–PC, switch–switch). Dnes Auto-MDI/X to řeší automaticky."},
+  {"q": "Jak se označuje útlum optického vlákna a co znamená?", "a": "Útlum v dB/km — ztráta síly signálu na kilometr délky vlákna. SMF má nižší útlum než MMF, proto dosahuje větších vzdáleností."}
+]

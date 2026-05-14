@@ -1,0 +1,12 @@
+[
+  {"q": "Na jaké OSI vrstvě pracuje hub, switch a router?", "a": "Hub: vrstva 1 (fyzická). Switch: vrstva 2 (linková), L3 switch i vrstva 3. Router: vrstva 3 (síťová)."},
+  {"q": "Jak funguje switch — MAC tabulka?", "a": "Switch si pamatuje, ze kterého portu přišla zdrojová MAC adresa. Pro cílovou MAC hledá v tabulce — pokud ji zná, přepošle jen na daný port; pokud ne, rozešle na všechny (flooding)."},
+  {"q": "Jaký je rozdíl mezi kolizní a broadcastovou doménou?", "a": "Kolizní doména: oblast kde může dojít ke kolizi — switch ji odděluje na každý port. Broadcastová doména: kam se doručí broadcast — odděluje až router."},
+  {"q": "Co dělá router?", "a": "Propojuje různé sítě a směruje pakety podle IP adres pomocí směrovací tabulky. Odděluje broadcastové domény. Funkce: NAT, DHCP, firewall, QoS."},
+  {"q": "Proč je switch lepší než hub?", "a": "Hub posílá data na VŠECHNY porty (sdílená kolizní doména). Switch posílá data jen na cílový port podle MAC adresy — každý port má vlastní kolizní doménu, eliminuje kolize."},
+  {"q": "Co je hvězdicová topologie a jaká je její nevýhoda?", "a": "Všechna zařízení připojena do centrálního prvku (switch). Nejrozšířenější LAN topologie. Nevýhoda: výpadek centrálního prvku = výpadek celé sítě."},
+  {"q": "Co je mesh topologie a kde se používá?", "a": "Každé zařízení propojeno s každým — maximální redundance. Nevýhoda: vysoké náklady. Používá se v páteřních a WAN sítích."},
+  {"q": "Co je stromová topologie?", "a": "Hierarchická kombinace hvězdic: páteřní switch → distribuční switche → přístupové switche. Typická pro větší podnikové sítě."},
+  {"q": "Co je repeater a kdy se používá?", "a": "Zesiluje a obnovuje elektrický/optický signál — překonává útlum na dlouhých kabelech. Nepracuje s adresami. Dnes nahrazen switchi."},
+  {"q": "Co je L3 switch?", "a": "Switch s funkcemi routeru — umí nejen přeposílat rámce podle MAC adres, ale i směrovat IP pakety. Rychlejší než router v rámci LAN."}
+]

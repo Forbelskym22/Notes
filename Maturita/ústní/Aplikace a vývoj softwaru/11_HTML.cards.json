@@ -1,0 +1,12 @@
+[
+  {"q": "Co je HTML a k čemu slouží?", "a": "HyperText Markup Language — značkovací jazyk pro popis struktury a obsahu webové stránky. Text se obaluje tagy, které říkají, co daný obsah znamená."},
+  {"q": "Jaká je minimální struktura HTML dokumentu?", "a": "<!DOCTYPE html>, <html lang>, <head> (meta charset, viewport, title), <body> (viditelný obsah)."},
+  {"q": "Co je DOM (stromová struktura HTML)?", "a": "HTML má stromovou strukturu — každý element má rodiče, děti a sourozence. Kořenem je <html>, větve jsou <head> a <body>."},
+  {"q": "Co obsahuje <head> a co <body>?", "a": "<head> obsahuje metadata (charset, viewport, title, CSS, JS) — nezobrazuje se. <body> obsahuje viditelný obsah stránky."},
+  {"q": "Jaký je rozdíl mezi <ul> a <ol>?", "a": "<ul> je neuspořádaný seznam (odrážky). <ol> je uspořádaný seznam (čísla). Položky jsou <li>."},
+  {"q": "Co jsou sémantické elementy HTML5?", "a": "Elementy popisující účel obsahu: <header>, <nav>, <main>, <section>, <article>, <aside>, <footer>. Zlepšují čitelnost kódu a SEO."},
+  {"q": "Jaký je rozdíl mezi <div> a <span>?", "a": "<div> je blokový kontejner (zabere celý řádek). <span> je řádkový kontejner (jen tolik místa, kolik potřebuje)."},
+  {"q": "Co je atribut alt u obrázku?", "a": "Alternativní text zobrazený, pokud se obrázek nenačte. Důležitý pro přístupnost (screen readery) a SEO."},
+  {"q": "Jaký je rozdíl mezi method GET a POST u formuláře?", "a": "GET posílá data v URL (viditelná, vhodná pro vyhledávání). POST posílá data v těle požadavku (bezpečnější, pro přihlášení a citlivá data)."},
+  {"q": "Co dělá atribut defer u <script>?", "a": "Skript se stáhne paralelně, ale spustí se až po načtení celého HTML dokumentu. Zabraňuje blokování parsování stránky."}
+]

@@ -1,0 +1,13 @@
+[
+  {"q": "Co je strojové učení (ML)?", "a": "Odvětví AI, kde se model učí ze vzorových dat a na jejich základě dělá předpovědi nebo rozhodnutí bez explicitního programování."},
+  {"q": "Co je supervised learning (učení s učitelem)?", "a": "Model se učí na označených datech (vstup + správný výstup). Příklady: klasifikace, regrese."},
+  {"q": "Co je unsupervised learning (učení bez učitele)?", "a": "Model hledá skryté vzory v neoznačených datech. Příklady: shlukování (clustering), redukce dimenzí."},
+  {"q": "Co je reinforcement learning (zpětnovazební učení)?", "a": "Agent se učí akcemi v prostředí — dostává odměny za správná rozhodnutí a snaží se maximalizovat celkovou odměnu."},
+  {"q": "Co je neuron v umělé neuronové síti?", "a": "Výpočetní jednotka: přijímá vstupy, násobí je vahami, sečte, přičte bias a výsledek předá aktivační funkcí."},
+  {"q": "Co dělá aktivační funkce ReLU?", "a": "Vrátí max(0, x) — pro záporné hodnoty vrátí 0, pro kladné ponechá hodnotu beze změny. Nejčastější ve skrytých vrstvách."},
+  {"q": "K čemu slouží aktivační funkce Softmax?", "a": "Převede výstupy na pravděpodobnosti (součet = 1). Používá se v poslední vrstvě pro vícetřídní klasifikaci."},
+  {"q": "Co je CNN (konvoluční neuronová síť)?", "a": "Síť specializovaná na zpracování obrazu — používá konvoluční vrstvy pro detekci vzorů (hran, tvarů) v prostorových datech."},
+  {"q": "Co je RNN (rekurentní neuronová síť)?", "a": "Síť s cykly — výstup z předchozího kroku vstupuje do dalšího. Vhodná pro sekvenční data (text, časové řady)."},
+  {"q": "Co je Transformer architektura?", "a": "Architektura postavená na mechanismu pozornosti (attention). Základ moderních jazykových modelů (GPT, BERT)."},
+  {"q": "Co je autoenkodér?", "a": "Síť, která kóduje vstup do komprimované reprezentace (latentní prostor) a poté ho rekonstruuje. Používá se pro kompresi a detekci anomálií."}
+]

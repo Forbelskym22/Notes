@@ -1,0 +1,12 @@
+[
+  {"q": "Co je CPU a jaká je jeho funkce?", "a": "Central Processing Unit — mikroprocesor vykonávající instrukce programu. Provádí aritmetické, logické a řídicí operace."},
+  {"q": "Co je Moorův zákon?", "a": "Pozorování (1965): počet tranzistorů na čipu se zdvojnásobuje přibližně každých 18–24 měsíců. Dnes zpomaluje kvůli fyzikálním limitům."},
+  {"q": "Jaký je rozdíl mezi CISC a RISC architekturou?", "a": "CISC (Complex Instruction Set): složité instrukce, méně řádků kódu (x86). RISC (Reduced Instruction Set): jednoduché instrukce, vyšší výkon při optimalizaci (ARM)."},
+  {"q": "Co je Hyper-Threading / SMT?", "a": "Technologie umožňující jednomu fyzickému jádru zpracovávat 2 vlákna současně — Intel Hyper-Threading, AMD SMT."},
+  {"q": "Co je TDP procesoru?", "a": "Thermal Design Power — tepelný výkon v wattech, který musí chladit chladič. Udává maximální teplo generované CPU za typického zatížení."},
+  {"q": "Co je socket CPU a proč musí souhlasit?", "a": "Fyzické rozhraní pro připojení CPU k základní desce (LGA1700, AM5). CPU lze použít pouze se základní deskou se stejným socketem."},
+  {"q": "Co je chipset základní desky?", "a": "Sada čipů řídící komunikaci mezi CPU a ostatními komponentami. Určuje podporované procesory, RAM, počet PCIe linek, USB portů a možnost přetaktování."},
+  {"q": "Co je PCIe sběrnice a jaké má generace?", "a": "PCI Express — sériová sběrnice pro GPU, NVMe SSD a rozšiřující karty. PCIe 3.0: ~1 GB/s/linku, 4.0: ~2 GB/s, 5.0: ~4 GB/s. GPU používá slot x16."},
+  {"q": "Jaký je rozdíl mezi BIOS a UEFI?", "a": "BIOS: starší 16bitový firmware, omezení na disky do 2 TB (MBR). UEFI: nástupce, grafické prostředí, GPT (disky >2 TB), Secure Boot, rychlejší boot."},
+  {"q": "Jaké jsou form faktory základních desek?", "a": "ATX (305×244 mm): standard. Micro-ATX (244×244 mm): méně slotů. Mini-ITX (170×170 mm): kompaktní. E-ATX (305×330+ mm): workstations."}
+]

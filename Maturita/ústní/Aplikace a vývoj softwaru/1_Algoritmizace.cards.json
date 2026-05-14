@@ -1,0 +1,13 @@
+[
+  {"q": "Co je algoritmizace?", "a": "Proces návrhu a sestavení algoritmu — převedení problému na přesný postup kroků vedoucích k jeho řešení."},
+  {"q": "Co je algoritmus?", "a": "Přesný, konečný postup kroků, který vyřeší daný problém. Musí být konečný, jednoznačný, obecný, mít vstup a výstup."},
+  {"q": "Jaké jsou vlastnosti algoritmu?", "a": "Konečnost (skončí v konečném počtu kroků), jednoznačnost (každý krok je přesně určen), obecnost (řeší třídu problémů), vstup a výstup."},
+  {"q": "Jaké jsou způsoby zápisu algoritmu?", "a": "Přirozený jazyk, pseudokód, vývojový diagram (flowchart), programovací jazyk."},
+  {"q": "Co je dekompozice problému?", "a": "Rozložení složitého problému na menší, snáze řešitelné podproblémy."},
+  {"q": "Co vyjadřuje časová složitost O(1)?", "a": "Konstantní čas — výkon nezávisí na velikosti vstupu (např. přístup k prvku pole)."},
+  {"q": "Co vyjadřuje časová složitost O(n)?", "a": "Lineární čas — výkon roste přímo úměrně velikosti vstupu (např. procházení pole)."},
+  {"q": "Co vyjadřuje časová složitost O(n²)?", "a": "Kvadratická složitost — typická pro vnořené smyčky (např. bubble sort)."},
+  {"q": "Co vyjadřuje časová složitost O(log n)?", "a": "Logaritmická složitost — vstup se v každém kroku půlí (např. binární vyhledávání)."},
+  {"q": "Co vyjadřuje O(2ⁿ)?", "a": "Exponenciální složitost — extrémně pomalá, typická pro hrubou sílu u kombinatorických úloh."},
+  {"q": "K čemu slouží vývojový diagram?", "a": "Grafický zápis algoritmu pomocí standardizovaných tvarů: obdélník (krok), kosočtverec (podmínka), ovál (start/konec), hexagon (cyklus)."}
+]

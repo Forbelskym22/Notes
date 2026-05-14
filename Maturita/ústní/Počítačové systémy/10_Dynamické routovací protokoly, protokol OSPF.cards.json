@@ -1,0 +1,12 @@
+[
+  {"q": "Jaký je rozdíl mezi IGP a EGP?", "a": "IGP (Interior Gateway Protocol): uvnitř jednoho autonomního systému (OSPF, EIGRP, RIP). EGP (Exterior Gateway Protocol): mezi autonomními systémy internetu (BGP)."},
+  {"q": "Jaký je rozdíl mezi distance vector a link state protokolem?", "a": "Distance vector: router zná jen vzdálenost a směr, sdílí info se sousedy (RIP, EIGRP). Link state: router zná celou topologii, každý si sám počítá nejkratší cesty (OSPF)."},
+  {"q": "Co je metrika v routovacích protokolech?", "a": "Číslo vyjadřující cenu cesty — router vybírá trasu s nejnižší metrikou. RIP: počet hopů (max 15). OSPF: cost (10⁸/bandwidth). EIGRP: bandwidth + delay."},
+  {"q": "Co je konvergence sítě?", "a": "Čas, za který všechny routery mají shodnou a správnou směrovací tabulku po změně topologie. Rychlá konvergence = lepší protokol (OSPF konverguje rychleji než RIP)."},
+  {"q": "Co je OSPF a jaký algoritmus používá?", "a": "Open Shortest Path First — link state IGP protokol (RFC 2328). Používá SPF (Dijkstrův algoritmus) pro výpočet nejkratších cest. Metrika = cost (10⁸/bandwidth)."},
+  {"q": "Co je Area 0 v OSPF?", "a": "Backbone oblast — páteřní oblast OSPF. Všechny ostatní oblasti se musí připojit přes Area 0. Rozdělení do oblastí snižuje velikost LSDB a počet výpočtů SPF."},
+  {"q": "Co jsou DR a BDR v OSPF?", "a": "Designated Router a Backup Designated Router — voleni na multiaccess sítích (Ethernet). DR sbírá a distribuuje LSA, čímž snižuje počet OSPF zpráv. Volba: nejvyšší priorita, pak nejvyšší Router ID."},
+  {"q": "Co je Router ID v OSPF?", "a": "Unikátní identifikátor routeru ve formátu IPv4 (např. 1.1.1.1). Výběr: 1. ručně nastaveno, 2. nejvyšší loopback IP, 3. nejvyšší fyzická IP."},
+  {"q": "Jak se vypočítá OSPF cost?", "a": "Cost = 10⁸ / bandwidth (bps). FastEthernet (100M) = 1. GigabitEthernet (1G) = 0,1 → zaokrouhlí se na 1. Pro přesnější výpočet je nutné nastavit `auto-cost reference-bandwidth`."},
+  {"q": "Co musí mít shodné OSPF sousedé pro navázání sousedství?", "a": "Hello interval, Dead interval, Area ID, maska podsítě, MTU. Při neshodu se sousedství nenavazuje."}
+]

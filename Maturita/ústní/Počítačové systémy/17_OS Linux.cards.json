@@ -1,0 +1,12 @@
+[
+  {"q": "Co je Linux a kdo ho vytvořil?", "a": "Open-source jádro (kernel) OS vytvořené Linusem Torvaldsem v roce 1991. Kompletní systém = Linux kernel + GNU nástroje → GNU/Linux."},
+  {"q": "Co je linuxová distribuce (distro)?", "a": "Kombinace kernelu + balíčkovacího systému + nástrojů + prostředí. Příklady: Debian (apt), Fedora (dnf), Arch Linux (pacman), Kali Linux (penetrační testování)."},
+  {"q": "Co znamená \"vše je soubor\" v Linuxu?", "a": "Disky, tiskárny, síťová rozhraní, procesy — vše je reprezentováno jako soubor v adresářovém stromu. Díky tomu lze se vším pracovat stejnými nástroji."},
+  {"q": "Co obsahuje adresář /etc, /var a /tmp?", "a": "/etc: konfigurační soubory systému a služeb (textové, editovatelné). /var: proměnná data — logy, databáze (mění se za běhu). /tmp: dočasné soubory smazané při restartu."},
+  {"q": "Co znamenají oprávnění rwxr-xr-- na souboru?", "a": "r=read(4), w=write(2), x=execute(1). Tři skupiny: vlastník(rwx=7), skupina(r-x=5), ostatní(r--=4). chmod 754 soubor."},
+  {"q": "Co dělá příkaz chmod 755 a 644?", "a": "chmod 755: rwxr-xr-x (vlastník může vše, ostatní mohou číst a spustit). chmod 644: rw-r--r-- (vlastník čte+zapisuje, ostatní jen čtou)."},
+  {"q": "Co je systemd a k čemu slouží?", "a": "Moderní init systém (PID 1) pro správu služeb (démonů) a jejich závislostí. systemctl start/stop/restart/enable/status <služba>. journalctl pro logy."},
+  {"q": "Co dělá příkaz sudo?", "a": "Spustí příkaz s právy superuživatele (root) bez přihlášení jako root. Root má UID 0 a neomezená práva v systému."},
+  {"q": "Co je swap v Linuxu?", "a": "Odkládací prostor na disku — funguje jako virtuální RAM když fyzická RAM nestačí. Doporučená velikost: stejná jako RAM nebo 2× RAM."},
+  {"q": "Co je souborový systém ext4?", "a": "Výchozí FS pro Linux — žurnálování (journaling) pro ochranu dat při havárii, spolehlivý a rychlý. Alternativy: FAT32 (USB, EFI), NTFS (Windows disky)."}
+]

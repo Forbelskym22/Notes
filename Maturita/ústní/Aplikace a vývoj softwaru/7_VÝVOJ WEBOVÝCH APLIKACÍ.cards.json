@@ -1,0 +1,12 @@
+[
+  {"q": "Co je architektura klient–server?", "a": "Klient (prohlížeč) posílá požadavky na server, který je zpracuje a vrátí odpověď. Komunikace probíhá přes HTTP/HTTPS."},
+  {"q": "Co je frontend a co je backend?", "a": "Frontend = vše, co vidí uživatel (HTML, CSS, JS v prohlížeči). Backend = serverová logika, databáze, API (Node.js, Python, PHP…)."},
+  {"q": "Co je MVC architektura?", "a": "Model–View–Controller: Model (data a business logika), View (prezentace dat uživateli), Controller (zpracovává požadavek a propojuje Model s View)."},
+  {"q": "Jak funguje MVC tok požadavku?", "a": "Router → Controller → Model (čte/píše data) → Controller → View → odpověď klientovi."},
+  {"q": "Jaký je rozdíl mezi SPA a klasickou webovou aplikací?", "a": "SPA (Single Page App) načte jednu HTML stránku a dynamicky mění obsah přes JS/API. Klasická aplikace načítá celou stránku při každém přechodu."},
+  {"q": "Co je REST API?", "a": "Rozhraní pro komunikaci klient–server přes HTTP, používá metody GET, POST, PUT, DELETE a URL pro identifikaci zdrojů."},
+  {"q": "Co je DevOps?", "a": "Metodika spojující vývoj (Dev) a provoz (Ops) — automatizace procesů nasazení, testování a monitoringu."},
+  {"q": "Co je CI/CD?", "a": "Continuous Integration (průběžná integrace a testování) / Continuous Deployment (automatické nasazení na server po úspěšném testu)."},
+  {"q": "K čemu slouží Docker?", "a": "Kontejnerizace aplikací — zabalí aplikaci se všemi závislostmi do přenosného kontejneru, který běží stejně v každém prostředí."},
+  {"q": "Co je HTTP metoda GET vs POST?", "a": "GET čte data (parametry v URL, idempotentní). POST odesílá data na server (v těle požadavku, např. formulář, vytvoření záznamu)."}
+]

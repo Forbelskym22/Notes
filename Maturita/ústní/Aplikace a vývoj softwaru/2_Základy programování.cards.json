@@ -1,0 +1,12 @@
+[
+  {"q": "Jaký je rozdíl mezi imperativním a deklarativním paradigmatem?", "a": "Imperativní říká HOW (jak to udělat, krok po kroku). Deklarativní říká WHAT (co chceme, bez popisu postupu)."},
+  {"q": "Co je kompilace?", "a": "Překlad celého zdrojového kódu do strojového kódu najednou před spuštěním (např. C, C++, Rust)."},
+  {"q": "Co je interpretace?", "a": "Překlad a spouštění kódu řádek po řádku za běhu programu (např. Python, JavaScript)."},
+  {"q": "Co je bytekód?", "a": "Mezistupeň mezi zdrojovým kódem a strojovým kódem — přeložen do platformově neutrálního formátu, spouštěn virtuálním strojem (např. Java .class, C# IL)."},
+  {"q": "Jaké jsou základní řídicí struktury?", "a": "Sekvence (postupné kroky), větvení (if/else, switch), cyklus (for, while, do-while)."},
+  {"q": "Co je pole (array)?", "a": "Datová struktura s pevnou velikostí, prvky stejného typu uložené na sousedních místech v paměti. Přístup O(1)."},
+  {"q": "Jaký je rozdíl mezi zásobníkem (stack) a frontou (queue)?", "a": "Zásobník je LIFO — přidává i odebírá ze vrcholu. Fronta je FIFO — přidává na konec, odebírá ze začátku."},
+  {"q": "Co je slovník (dict/map)?", "a": "Datová struktura ukládající dvojice klíč–hodnota. Přístup přes klíč je průměrně O(1)."},
+  {"q": "Co je rekurze?", "a": "Technika, kdy funkce volá samu sebe. Musí mít základní případ (base case), který zastaví volání, jinak vznikne stack overflow."},
+  {"q": "Co je seznam (linked list)?", "a": "Dynamická datová struktura, kde každý prvek (uzel) obsahuje hodnotu a odkaz na další uzel. Vložení O(1), přístup O(n)."}
+]

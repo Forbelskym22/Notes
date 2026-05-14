@@ -1,0 +1,9 @@
+[
+  {"q": "Jaké jsou fáze datové analýzy?", "a": "1. Sběr dat, 2. Čištění dat, 3. Průzkumná analýza (EDA), 4. Modelování, 5. Interpretace výsledků, 6. Prezentace."},
+  {"q": "Co jsou otevřená data?", "a": "Data volně dostupná k použití, sdílení a dalšímu zpracování bez omezení autorských práv nebo licencí."},
+  {"q": "Co je strojová čitelnost dat?", "a": "Data jsou ve formátu, který může program zpracovat automaticky (CSV, JSON, XML jsou strojově čitelné; PDF, obrázky textu nejsou)."},
+  {"q": "Co jsou Big Data — jaká jsou tři V?", "a": "Volume (objem — petabajty dat), Velocity (rychlost přírůstku), Variety (různorodost — strukturovaná, nestrukturovaná, semistrukturovaná data)."},
+  {"q": "Co je EDA (Exploratory Data Analysis)?", "a": "Průzkumná analýza dat — zkoumání datasetu pomocí statistik a vizualizací před samotným modelováním."},
+  {"q": "Jaké jsou typické zdroje dat?", "a": "Databáze, API, webový scraping, soubory (CSV/JSON/Excel), IoT senzory, sociální sítě, otevřené datové portály."},
+  {"q": "Proč je čištění dat důležité?", "a": "Reálná data bývají neúplná, duplicitní nebo chybná. Nekvalitní data vedou k chybným závěrům (garbage in, garbage out)."}
+]

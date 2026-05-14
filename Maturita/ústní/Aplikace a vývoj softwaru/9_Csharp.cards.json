@@ -1,0 +1,12 @@
+[
+  {"q": "Jak je C# typován a jak se spouští?", "a": "Staticky typovaný (typy se kontrolují při kompilaci) a kompilovaný do IL (Intermediate Language), který JIT kompilátor přeloží do strojového kódu za běhu."},
+  {"q": "Co je CLR v C#?", "a": "Common Language Runtime — virtuální stroj .NET, který spravuje paměť (garbage collector), bezpečnost a JIT kompilaci IL kódu."},
+  {"q": "Jaký je rozdíl mezi int, double, decimal a float v C#?", "a": "int: celé číslo 32bit. float: desetinné 32bit (méně přesné). double: desetinné 64bit. decimal: 128bit, vhodný pro finanční výpočty (přesnost)."},
+  {"q": "Co dělají přístupové modifikátory v C#?", "a": "public: přístupné odkudkoli. private: jen v dané třídě. protected: v třídě a potomcích. internal: jen v rámci assembly."},
+  {"q": "Co je namespace v C#?", "a": "Jmenný prostor — logické seskupení tříd, které zabraňuje kolizím jmen. Importuje se pomocí `using`."},
+  {"q": "Jaký je rozdíl mezi interface a abstraktní třídou v C#?", "a": "Interface definuje pouze signatury členů (žádná implementace, třída může implementovat více). Abstraktní třída může mít implementaci, ale nelze ji instanciovat."},
+  {"q": "Co je var v C#?", "a": "Klíčové slovo pro implicitní typování — kompilátor odvodí typ z pravé strany přiřazení. Typ je stále statický, jen se nemusí psát explicitně."},
+  {"q": "Co je LINQ v C#?", "a": "Language Integrated Query — syntaxe pro dotazování kolekcí přímo v C# (podobná SQL). Používá metody jako Where, Select, OrderBy, GroupBy."},
+  {"q": "Co jsou vlastnosti (properties) v C#?", "a": "Syntaktický cukr pro gettery a settery: `public int Věk { get; set; }`. Umožňují řídit přístup k privátním polím elegantně."},
+  {"q": "Co je garbage collector v .NET?", "a": "Automatická správa paměti — GC sleduje živé objekty a uvolňuje paměť těch, na které neexistuje žádný odkaz. Programátor nemusí volat free()."}
+]

@@ -1,0 +1,12 @@
+[
+  {"q": "Kdy se spojily spotřebitelská a NT větev Windows?", "a": "Ve Windows XP (2001) — NT větev (stabilní, 32bit, pro firmy) se spojila se spotřebitelskou větví (95/98)."},
+  {"q": "Co vyžaduje Windows 11 oproti starším verzím?", "a": "TPM 2.0 (Trusted Platform Module), UEFI firmware, Secure Boot, 64bit CPU s alespoň 2 jádry, 4 GB RAM, 64 GB úložiště."},
+  {"q": "Co je PXE a k čemu slouží?", "a": "Pre-boot Execution Environment — síťová instalace OS. Počítač bootuje přes síť (DHCP + TFTP), stáhne a spustí instalační obraz bez fyzického média."},
+  {"q": "Co je WinPE?", "a": "Windows Preinstallation Environment — minimální Windows prostředí pro spuštění instalátoru. Načte se z instalačního média a spustí setup.exe."},
+  {"q": "Co je OOBE při instalaci Windows?", "a": "Out-of-Box Experience — závěrečná fáze instalace: nastavení regionu, klávesnice, vytvoření uživatelského účtu, připojení k Microsoft účtu."},
+  {"q": "Co je Registr Windows?", "a": "Centrální hierarchická databáze pro konfiguraci Windows, nainstalovaného softwaru a hardwaru. Editace přes regedit.exe."},
+  {"q": "Co je Windows Defender?", "a": "Integrovaný bezpečnostní nástroj Windows — antivirová ochrana a softwarový firewall zahrnutý přímo v OS."},
+  {"q": "Co je Task Manager v Windows a jak se spustí?", "a": "Správce úloh — zobrazuje běžící procesy, využití CPU/RAM/disku/sítě, spravuje spouštění při startu. Klávesová zkratka: Ctrl+Shift+Esc nebo Ctrl+Alt+Del."},
+  {"q": "Jaký je souborový systém Windows a co je NTFS?", "a": "NTFS (New Technology File System) — výchozí FS pro Windows. Podporuje oprávnění, šifrování (EFS), žurnálování, velké soubory a disky. FAT32 se používá pro USB a EFI oddíly."},
+  {"q": "Jaký je rozdíl mezi Windows Home a Pro?", "a": "Pro navíc: připojení k doméně (Active Directory), BitLocker šifrování, Remote Desktop, Group Policy, Hyper-V virtualizace."}
+]

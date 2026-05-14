@@ -1,0 +1,12 @@
+[
+  {"q": "Co dělá napájecí zdroj (PSU)?", "a": "Převádí střídavé napětí ze sítě (230 V / 50 Hz) na stejnosměrné napětí: +12 V (CPU, GPU), +5 V (USB, periferie), +3,3 V (RAM, logika)."},
+  {"q": "Co znamená 80 PLUS certifikace zdroje?", "a": "Certifikace účinnosti PSU: Bronze (82 %), Gold (87 %), Platinum (90 %), Titanium (92 %+). Zbytek energie se mění na teplo."},
+  {"q": "Jaký je rozdíl mezi diskrétní a integrovanou GPU?", "a": "Diskrétní (dedikovaná): samostatná karta v PCIe slotech, vlastní VRAM a chlazení. Integrovaná (iGPU): součást CPU čipu, sdílí systémovou RAM, slabší výkon."},
+  {"q": "Co je rasterizace a ray tracing?", "a": "Rasterizace: převod 3D scény na 2D pixely — tradiční a rychlá metoda. Ray tracing: simulace fyzikálního šíření světla — realistické odrazy/stíny, výpočetně náročné."},
+  {"q": "Jaký je rozdíl mezi TN, IPS a VA panelem monitoru?", "a": "TN: rychlá odezva, špatné pozorovací úhly, nepřesné barvy. IPS: přesné barvy, dobré úhly, pomalejší. VA: nejlepší kontrast, ghosting při pohybu."},
+  {"q": "Co je OLED panel a jaké jsou jeho výhody/nevýhody?", "a": "Každý pixel svítí samostatně — dokonalý kontrast (skutečná černá), rychlá odezva. Riziko burn-in (vypálení statického obrazu), vyšší cena."},
+  {"q": "Co je G-Sync a FreeSync?", "a": "Adaptive sync technologie pro eliminaci trhání obrazu (screen tearing). G-Sync: NVIDIA. FreeSync: AMD (a NVIDIA jako FreeSync kompatibilní)."},
+  {"q": "Jak funguje laserová tiskárna?", "a": "Laser nabije fotoválec → toner se přichytí na nabité oblasti → přenese se na papír → fixuje se teplem. Rychlá, levný tisk/stranu, vhodná pro kancelář."},
+  {"q": "Jak funguje termální tiskárna?", "a": "Teplo aktivuje speciální termální papír (tmavne v místě zahřátí) — žádný inkoust ani toner. Výtisk časem bledne. Využití: účtenky, štítky."},
+  {"q": "Co je modulární napájecí zdroj?", "a": "Plně modulární PSU: všechny kabely odnímatelné — lepší správa kabelů, přehlednost v skříni. Semi-modulární: hlavní kabely pevné, ostatní odnímatelné."}
+]

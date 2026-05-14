@@ -1,0 +1,12 @@
+[
+  {"q": "Kolik vrstev má model OSI a kolik TCP/IP?", "a": "OSI: 7 vrstev (referenční, teoretický). TCP/IP: 4 vrstvy (praktická implementace internetu)."},
+  {"q": "Jaké jsou vrstvy OSI modelu (od 1 do 7)?", "a": "1-Fyzická, 2-Linková, 3-Síťová, 4-Transportní, 5-Relační, 6-Prezentační, 7-Aplikační."},
+  {"q": "Co je PDU a jaká je na každé vrstvě?", "a": "Protocol Data Unit — datová jednotka vrstvy. Aplikační: Data. Transportní: Segment/Datagram. Síťová: Paket. Linková: Rámec. Fyzická: Bit."},
+  {"q": "Jaký je rozdíl mezi TCP a UDP?", "a": "TCP: spojované (3-way handshake), spolehlivé (ACK, retransmise), zaručené pořadí, pomalejší. UDP: bezespojové, nespolehlivé, rychlejší — DNS, VoIP, streaming."},
+  {"q": "Jak probíhá TCP 3-way handshake?", "a": "Klient → SYN → Server. Klient ← SYN-ACK ← Server. Klient → ACK → Server. Spojení navázáno."},
+  {"q": "Co se děje při zapouzdření dat?", "a": "Každá vrstva přidá svou hlavičku (případně patičku): Data → Segment (porty) → Paket (IP adresy) → Rámec (MAC adresy + FCS) → Bity."},
+  {"q": "Co přidává transportní vrstva k datům?", "a": "TCP/UDP hlavičku: zdrojový a cílový port. TCP navíc: sekvenční číslo, ACK, příznaky (SYN, FIN, RST), velikost okna."},
+  {"q": "Co přidává síťová vrstva k segmentu?", "a": "IP hlavičku: zdrojovou a cílovou IP adresu, TTL, číslo protokolu vyšší vrstvy (TCP=6, UDP=17, ICMP=1)."},
+  {"q": "Co přidává linková vrstva k paketu?", "a": "Ethernet hlavičku: zdrojovou a cílovou MAC adresu, EtherType. Patičku: FCS (Frame Check Sequence) — CRC pro detekci chyb přenosu."},
+  {"q": "Co je broadcastová doména a co ji odděluje?", "a": "Oblast sítě, kam se doručí broadcast. Switch broadcasty šíří (pokud bez VLAN). Router je nepřeposílá — odděluje broadcastové domény. VLAN je logicky rozděluje v rámci switche."}
+]

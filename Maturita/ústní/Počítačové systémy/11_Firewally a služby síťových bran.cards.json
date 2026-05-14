@@ -1,0 +1,12 @@
+[
+  {"q": "Co je firewall?", "a": "Síťové zařízení nebo software filtrující provoz mezi sítěmi podle pravidel. Chrání před neoprávněným přístupem."},
+  {"q": "Jaký je rozdíl mezi bezestavovým a stavovým firewallem?", "a": "Bezestavový: hodnotí každý paket samostatně bez kontextu. Stavový (Stateful Inspection): sleduje stav TCP/UDP spojení — ví, která spojení byla navázána zevnitř, a povoluje odpovědi."},
+  {"q": "Co je NGFW?", "a": "Next Generation Firewall — kombinuje stavový firewall + DPI (Deep Packet Inspection) + IPS + aplikační filtrování. Identifikuje aplikace bez ohledu na port."},
+  {"q": "Co jsou ACL v kontextu firewallu?", "a": "Access Control List — pravidla filtrování provozu. Vyhodnocují se shora dolů, první shoda vyhraje. Na konci je implicitní `deny all` (zakaž vše)."},
+  {"q": "Co je NAT?", "a": "Network Address Translation — překlad IP adres. Umožňuje více zařízením s privátními IP sdílet jednu veřejnou IP při komunikaci s internetem."},
+  {"q": "Co je PAT (NAT Overload)?", "a": "Port Address Translation — nejrozšířenější typ NAT. Více privátních IP sdílí jednu veřejnou IP, rozlišení probíhá pomocí čísel portů. Typické v domácích routerech."},
+  {"q": "Jak funguje PAT?", "a": "Interní zařízení 192.168.1.10:1234 → router přeloží na 203.0.113.1:5001 → server odpovídá na veřejnou IP → router přeloží zpět na vnitřní adresu:port."},
+  {"q": "Co je statický NAT a kdy se používá?", "a": "Pevné mapování jedné privátní IP na jednu veřejnou IP. Používá se pro servery dostupné z internetu (webserver, mailserver)."},
+  {"q": "Jaký je rozdíl mezi forward proxy a reverse proxy?", "a": "Forward proxy: klient → proxy → internet (skrývá klienta, filtruje obsah). Reverse proxy: internet → proxy → server (skrývá server, load balancing, SSL terminace)."},
+  {"q": "Co je DPI?", "a": "Deep Packet Inspection — analýza obsahu paketu nad rámec hlaviček. Umožňuje identifikaci aplikací (Facebook, BitTorrent) bez ohledu na číslo portu."}
+]

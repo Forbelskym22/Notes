@@ -1,0 +1,12 @@
+[
+  {"q": "Co je VLAN?", "a": "Virtual Local Area Network — logické rozdělení fyzické sítě na nezávislé broadcastové domény v rámci jednoho nebo více switchů. Zařízení různých VLANů spolu nekomunikují bez routeru."},
+  {"q": "Jaké jsou výhody VLANů?", "a": "Bezpečnost (oddělení citlivého provozu), výkon (menší broadcastové domény), flexibilita (přesun zařízení konfigurací), úspora HW (jeden switch místo více)."},
+  {"q": "Jaký je rozdíl mezi access portem a trunk portem?", "a": "Access port: přiřazen do jedné VLAN, pro koncová zařízení, rámce bez VLAN tagu. Trunk port: přenáší provoz více VLANů, pro propojení switch–switch nebo switch–router, rámce s 802.1Q tagem."},
+  {"q": "Co je IEEE 802.1Q?", "a": "Standard pro VLAN tagging — při průchodu trunk portem se do Ethernet rámce vloží 4bytový tag s VLAN ID (1–4094)."},
+  {"q": "Co je Native VLAN?", "a": "VLAN, jejíž provoz na trunk portu přenáší bez tagu. Musí být shodná na obou stranách trunk spoje — neshoda způsobuje problémy s provozem."},
+  {"q": "Co je Router-on-a-Stick?", "a": "Routování mezi VLANami přes jeden fyzický port routeru rozdělený na subinterface (jeden per VLAN). Trunk linka mezi switchem a routerem. Výhoda: stačí jeden fyzický port."},
+  {"q": "Co je SVI a k čemu slouží?", "a": "Switched Virtual Interface — virtuální rozhraní na L3 switchi pro každou VLAN. Umožňuje L3 switchi routovat mezi VLANami bez externího routeru."},
+  {"q": "Co je VTP a jaké jsou jeho módy?", "a": "VLAN Trunking Protocol (Cisco) — automatická distribuce VLAN konfigurace mezi switchi. Server: vytváří/mění VLANy. Client: přijímá, nelze lokálně měnit. Transparent: konfiguruje lokálně, zprávy přeposílá."},
+  {"q": "Jaké nebezpečí skrývá VTP?", "a": "Starý switch s vysokým revision number přidaný do domény přepíše VLANy na všech serverech — může smazat celou VLAN konfiguraci sítě."},
+  {"q": "Co je DTP a proč se doporučuje vypnout?", "a": "Dynamic Trunking Protocol (Cisco) — automatické vyjednání trunk portu. V produkci se doporučuje vypnout (`switchport nonegotiate`) a konfigurovat porty ručně — DTP lze zneužít k útoku."}
+]

@@ -1,0 +1,12 @@
+[
+  {"q": "Jaký je rozdíl mezi editorem a IDE?", "a": "Editor je jednoduchý nástroj pro úpravy textu/kódu (VS Code, Notepad++). IDE je komplexní vývojové prostředí s debuggerem, buildem a integrací (Visual Studio, IntelliJ)."},
+  {"q": "Co je debugging?", "a": "Proces hledání a odstraňování chyb (bugů) v kódu pomocí nástrojů jako breakpointy, krokování, výpis proměnných."},
+  {"q": "Jaké jsou typy chyb v programu?", "a": "Syntaktické (kód nelze přeložit), logické (program běží, ale dává špatný výsledek), runtime (chyba nastane až při běhu)."},
+  {"q": "Co je unit test?", "a": "Test nejmenší izolované jednotky kódu (funkce, metody). Ověřuje, že funguje správně sama o sobě."},
+  {"q": "Co je integrační test?", "a": "Test spolupráce více komponent systému dohromady."},
+  {"q": "Co je systémový (end-to-end) test?", "a": "Test celého systému jako celku z pohledu uživatele — ověřuje, že všechny části fungují společně správně."},
+  {"q": "Jaký je rozdíl mezi knihovnou a frameworkem?", "a": "Knihovna je sada funkcí, kterou ty voláš. Framework naopak řídí tok programu a volá tvůj kód (inversion of control)."},
+  {"q": "Co je Git a co je SVN?", "a": "Git je distribuovaný VCS — každý vývojář má plnou kopii repozitáře. SVN je centralizovaný VCS — existuje jeden centrální server."},
+  {"q": "Jaké jsou základní operace Gitu?", "a": "git init, git clone, git add, git commit, git push, git pull, git branch, git merge, git rebase."},
+  {"q": "Co je větev (branch) v Gitu?", "a": "Nezávislá linie vývoje. Umožňuje pracovat na nové funkci nebo opravě bez ovlivnění hlavní větve (main/master)."}
+]

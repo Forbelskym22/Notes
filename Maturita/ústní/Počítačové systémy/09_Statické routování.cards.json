@@ -1,0 +1,12 @@
+[
+  {"q": "Jak router vybírá trasu ze směrovací tabulky?", "a": "Longest prefix match — vybere nejkonkrétnější (nejdelší) shodu s cílovou IP adresou. Více specifická trasa vždy vyhraje nad obecnější."},
+  {"q": "Co je Administrative Distance (AD)?", "a": "Číslo vyjadřující důvěryhodnost zdroje routu. Čím nižší, tím důvěryhodnější. Connected=0, Static=1, EIGRP=90, OSPF=110, RIP=120."},
+  {"q": "Co je default route a jak se konfiguruje?", "a": "Výchozí trasa 0.0.0.0/0 — použije se pro pakety bez konkrétnější shody. Na Cisco: `ip route 0.0.0.0 0.0.0.0 <next-hop>`. Typicky ukazuje na ISP."},
+  {"q": "Co je floating static route?", "a": "Záložní statická trasa s uměle zvýšeným AD (např. 200). Je aktivní pouze pokud primární trasa (nižší AD) vypadne — jinak je skryta v tabulce."},
+  {"q": "Jak se přidá statická trasa na Cisco routeru?", "a": "`ip route <síť> <maska> <next-hop IP nebo rozhraní>`. Ověření: `show ip route`, `show ip route static`."},
+  {"q": "Co se stane, když router nenajde trasu ani default route?", "a": "Paket je zahozen a odesílatel obdrží ICMP zprávu Destination Unreachable."},
+  {"q": "Co je sumarizace routů a proč se používá?", "a": "Sloučení více konkrétních tras do jedné souhrnné (např. čtyři /24 → jedna /22). Zmenšuje směrovací tabulky, snižuje počet update zpráv a urychluje lookup."},
+  {"q": "Jaký příkaz zobrazí celou směrovací tabulku na Cisco?", "a": "`show ip route` — zobrazí všechny trasy. Písmena označují typ: C=connected, S=static, O=OSPF, R=RIP."},
+  {"q": "Jaké jsou výhody a nevýhody statického routování?", "a": "Výhody: jednoduché, předvídatelné, nízká zátěž CPU. Nevýhody: nereaguje automaticky na výpadky topologie, správa ve větších sítích je náročná."},
+  {"q": "Co je Connected route?", "a": "Trasa automaticky přidaná do tabulky při konfiguraci IP adresy na rozhraní routeru — reprezentuje přímo připojenou síť. AD=0."}
+]

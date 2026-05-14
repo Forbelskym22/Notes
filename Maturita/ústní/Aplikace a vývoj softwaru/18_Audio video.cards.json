@@ -1,0 +1,12 @@
+[
+  {"q": "Co je vzorkovací frekvence (sample rate)?", "a": "Kolikrát za sekundu se měří analogový zvukový signál. 44,1 kHz = CD standard, 48 kHz = video/broadcast, 96 kHz = studio."},
+  {"q": "Co je bitová hloubka zvuku?", "a": "Přesnost každého vzorku. 16 bit = CD kvalita (65 536 úrovní), 24 bit = studiová kvalita."},
+  {"q": "Jaký je rozdíl mezi WAV a MP3?", "a": "WAV: bezztrátový, nekomprimovaný, velké soubory (studio). MP3: ztrátový, malé soubory, drobná ztráta kvality (přehrávání)."},
+  {"q": "Co je kodek a co je kontejner?", "a": "Kodek: algoritmus komprese/dekomprese (H.264, MP3, AAC). Kontejner: soubor, který drží zakódovaná data (.mp4, .mkv, .avi)."},
+  {"q": "Co je snímková frekvence (FPS)?", "a": "Počet snímků za sekundu. 24 fps = film, 25/30 fps = televize, 60 fps = sport/hry, 120+ fps = slow motion/VR."},
+  {"q": "Jaká jsou standardní rozlišení videa?", "a": "HD (1280×720), Full HD 1080p (1920×1080), 4K UHD (3840×2160), 8K (7680×4320)."},
+  {"q": "Co je H.264 a H.265?", "a": "Videokodeky. H.264 (AVC): nejrozšířenější, dobrá kvalita/velikost. H.265 (HEVC): 2× lepší komprese než H.264, vyšší nároky na HW."},
+  {"q": "Co je adaptivní bitrate (ABR) při streamingu?", "a": "Streamovací technologie (Netflix, YouTube), která automaticky přizpůsobuje kvalitu videa rychlosti internetového připojení."},
+  {"q": "Jaký je formát .mkv a .mp4?", "a": ".mp4 (MPEG-4): H.264/H.265 + AAC, univerzální standard. .mkv (Matroska): libovolné kodeky, podporuje titulky a kapitoly."},
+  {"q": "Co je transcodování?", "a": "Převod videa (nebo audia) z jednoho kodeku nebo formátu do jiného. Využívá se při přípravě pro publikování nebo kompatibilitu."}
+]

@@ -1,0 +1,12 @@
+[
+  {"q": "Co je MAC adresa a jak je strukturována?", "a": "48bitová fyzická adresa síťového rozhraní. Prvních 24 bitů = OUI (výrobce), dalších 24 = unikátní číslo zařízení. Platí pouze v jednom síťovém segmentu (L2)."},
+  {"q": "Co jsou privátní IPv4 rozsahy?", "a": "10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16. Nejsou routovány na internetu (RFC 1918). Překlad na veřejnou IP zajišťuje NAT."},
+  {"q": "Proč vznikl IPv6 a jak dlouhý je?", "a": "Kvůli vyčerpání IPv4 adresního prostoru. IPv6: 128 bitů, 8 skupin po 16 bitech hex, skupiny nul lze zkrátit na ::. Poskytuje 3,4 × 10³⁸ adres."},
+  {"q": "Co jsou link-local adresy IPv6?", "a": "Adresy z rozsahu fe80::/10 — platné jen v rámci jednoho síťového segmentu. Přiděleny automaticky každému rozhraní bez DHCP."},
+  {"q": "Jaké jsou výhody IPv6 oproti IPv4?", "a": "Obrovský adresní prostor, SLAAC (automatická konfigurace bez DHCP), integrovaný IPsec, žádný broadcast (nahrazen multicastem), jednodušší hlavička."},
+  {"q": "Co je TTL v IP paketu?", "a": "Time to Live — počitadlo snižované o 1 na každém routeru. Když dosáhne 0, paket je zahozen. Zabraňuje nekonečnému putování paketu sítí."},
+  {"q": "Co je protokol ICMP a k čemu slouží?", "a": "Internet Control Message Protocol — řídící protokol pro IP. Přenáší chybové zprávy a diagnostiku. Základ příkazů ping (Echo Request/Reply) a traceroute (Time Exceeded)."},
+  {"q": "Co je SLAAC?", "a": "Stateless Address Autoconfiguration — IPv6 mechanismus pro automatickou konfiguraci adresy bez DHCP serveru. Router Advertisement (RA) oznamuje prefix, zařízení si generuje adresu."},
+  {"q": "Jaký je rozdíl mezi ARP a ND protokolem?", "a": "ARP: IPv4, zjistí MAC adresu pro danou IP pomocí broadcastu. ND (Neighbor Discovery): IPv6 náhrada, používá multicast a ICMPv6. ND navíc zvládne SLAAC a DAD."},
+  {"q": "Co je Multicast v IPv6 a co nahrazuje?", "a": "Multicast: zpráva poslaná více příjemcům skupiny (ff00::/8). Nahrazuje broadcast z IPv4 — efektivnější, protože přijímají jen zainteresovaná zařízení."}
+]

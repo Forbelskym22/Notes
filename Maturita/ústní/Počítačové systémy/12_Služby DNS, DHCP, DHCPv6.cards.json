@@ -1,0 +1,12 @@
+[
+  {"q": "Co je DNS a na jakém portu běží?", "a": "Domain Name System — hierarchický systém pro překlad doménových jmen na IP adresy. Port 53 (UDP pro dotazy, TCP pro zónové přenosy)."},
+  {"q": "Jaký je průběh DNS dotazu?", "a": "Klient → rekurzivní resolver → root server → TLD server (.cz/.com) → autoritativní server → IP adresa vrácena klientovi. Resolver výsledek cachuje po dobu TTL."},
+  {"q": "Co jsou root DNS servery?", "a": "13 sad root serverů (A–M) — znají adresy TLD serverů. Veřejné rekurzivní resolvery: 8.8.8.8 (Google), 1.1.1.1 (Cloudflare)."},
+  {"q": "Co je DNS záznam PTR?", "a": "Reverzní DNS — překlad IP adresy na doménové jméno. Opak záznamu A."},
+  {"q": "Co je DNSsec?", "a": "Rozšíření DNS o digitální podpisy. Chrání před DNS spoofingem (podstrčení falešného záznamu). Nešifruje obsah — pouze ověřuje integritu odpovědí."},
+  {"q": "Jak probíhá DHCP DORA proces?", "a": "Discover (klient broadcastem hledá server) → Offer (server nabídne adresu) → Request (klient potvrdí zájem) → Acknowledge (server potvrdí přidělení)."},
+  {"q": "Co je DHCP Relay Agent a proč je potřeba?", "a": "DHCP používá broadcast, který router nepřeposílá. Relay agent (router/L3 switch) přeposílá DHCP zprávy unicastem na DHCP server v jiné síti. Cisco: `ip helper-address`."},
+  {"q": "Co je DHCP lease?", "a": "Adresa je přidělena na omezenou dobu (lease time). Klient ji před vypršením obnoví. Po vypršení bez obnovy se adresa vrátí do poolu."},
+  {"q": "Jaký je rozdíl mezi DHCPv6 Stateful, Stateless a SLAAC?", "a": "SLAAC: zařízení si samo vygeneruje IPv6 adresu z RA prefixu — bez DHCP. DHCPv6 Stateful: server přiděluje konkrétní adresy. DHCPv6 Stateless: SLAAC pro adresu + DHCPv6 pro DNS a ostatní."},
+  {"q": "Co říkají M a O flagy v RA zprávě?", "a": "M=1: použij DHCPv6 Stateful pro adresu. O=1: použij DHCPv6 Stateless pro ostatní parametry (DNS). M=0, O=0: čistý SLAAC."}
+]

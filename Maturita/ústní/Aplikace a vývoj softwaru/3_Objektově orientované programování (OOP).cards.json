@@ -1,0 +1,14 @@
+[
+  {"q": "Co je třída a co je objekt?", "a": "Třída je šablona (blueprint) popisující vlastnosti a chování. Objekt je konkrétní instance třídy vytvořená v paměti."},
+  {"q": "Co je konstruktor?", "a": "Speciální metoda volána při vytváření objektu. Inicializuje atributy instance."},
+  {"q": "Jaký je rozdíl mezi statickým a instančním členem?", "a": "Statický člen patří třídě — sdílen všemi instancemi, přístupný bez vytvoření objektu. Instanční člen patří každému objektu zvlášť."},
+  {"q": "Co je zapouzdření (encapsulation)?", "a": "Skrytí vnitřního stavu objektu — data jsou private, přístupná jen přes veřejné metody (gettery/settery)."},
+  {"q": "Co je dědičnost (inheritance)?", "a": "Třída (potomek) přebírá atributy a metody jiné třídy (rodiče) a může je rozšiřovat nebo přepisovat."},
+  {"q": "Co je polymorfismus?", "a": "Schopnost volat stejně pojmenovanou metodu na různých typech objektů a dostat různé chování (přetížení, přepisování metod)."},
+  {"q": "Co je abstrakce?", "a": "Skrytí implementačních detailů a vystavení pouze podstatného rozhraní. Realizována abstraktními třídami nebo interfacy."},
+  {"q": "Jaký je rozdíl mezi abstraktní třídou a interfacem?", "a": "Abstraktní třída může mít implementaci metod a atributy, nelze ji instanciovat. Interface definuje pouze kontrakt (co musí třída umět), bez implementace."},
+  {"q": "Co znamená S v principu SOLID?", "a": "Single Responsibility Principle — každá třída má mít jen jednu zodpovědnost (jeden důvod ke změně)."},
+  {"q": "Co znamená O v principu SOLID?", "a": "Open/Closed Principle — třídy by měly být otevřeny pro rozšíření, ale uzavřeny pro modifikaci."},
+  {"q": "Co znamená L v principu SOLID?", "a": "Liskov Substitution Principle — potomek musí být použitelný všude, kde se očekává rodič, aniž by se narušilo chování programu."},
+  {"q": "Co znamenají I a D v principu SOLID?", "a": "I = Interface Segregation (raději více malých interfaců). D = Dependency Inversion (záviset na abstrakcích, ne na konkrétních implementacích)."}
+]

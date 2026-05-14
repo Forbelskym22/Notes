@@ -1,0 +1,12 @@
+[
+  {"q": "Jaký je rozdíl mezi SRAM a DRAM?", "a": "SRAM: uchovává bit klopným obvodem (6 tranzistorů), velmi rychlá, nevyžaduje refresh → cache CPU. DRAM: bit jako náboj kondenzátoru, hustší a levnější, vyžaduje refresh → operační paměť."},
+  {"q": "Jaký je rozdíl mezi ROM a RAM?", "a": "ROM: jen pro čtení, obsah zachován po vypnutí (firmware BIOS/UEFI). RAM: čtení i zápis, obsah se po vypnutí ztratí (volatilní)."},
+  {"q": "Jaké jsou typy NAND flash buněk a jak se liší?", "a": "SLC (1 bit/buňku) – nejrychlejší, nejtrvanlivější, nejdražší. MLC (2 bity). TLC (3 bity). QLC (4 bity) – největší kapacita, nejkratší životnost."},
+  {"q": "Jaký je rozdíl mezi M.2 SATA a M.2 NVMe?", "a": "M.2 SATA: fyzický formát M.2, ale stále SATA protokol (~550 MB/s). M.2 NVMe: využívá PCIe sběrnici, rychlosti 3500–7000+ MB/s."},
+  {"q": "Co je DDR a co znamená přenosová rychlost DDR4-3200?", "a": "DDR = Double Data Rate, přenos na obě hrany hodinového signálu. DDR4-3200 = clock 1600 MHz × 2 = 3200 MT/s (megatransferů za sekundu)."},
+  {"q": "Co je ECC paměť?", "a": "Error-Correcting Code — paměť schopná detekovat a opravit jednobitové chyby. Vyžaduje podporu CPU i základní desky (typicky servery a workstations)."},
+  {"q": "Co je TBW u SSD?", "a": "Terabytes Written — celkový objem dat, který lze do SSD zapsat za jeho životnost. Po překročení TBW se SSD dostane do read-only režimu."},
+  {"q": "Jak se liší CD, DVD a Blu-ray?", "a": "CD: 700 MB, infračervený laser 780 nm. DVD: 4,7 GB (SL), červený laser 650 nm. Blu-ray: 25 GB (SL), modrý laser 405 nm."},
+  {"q": "Proč je HDD pomalejší než SSD?", "a": "HDD má mechanické části — rotující plotny a pohyblivá ramena s hlavami. Průměrná přístupová doba 5–10 ms vs. NVMe SSD ~0,1 ms."},
+  {"q": "Co je dual channel paměti a co ho ovlivňuje?", "a": "Dva paměťové kanály pracují paralelně → vyšší propustnost. Závisí na podpoře CPU a základní desky, ne na samotném modulu paměti."}
+]

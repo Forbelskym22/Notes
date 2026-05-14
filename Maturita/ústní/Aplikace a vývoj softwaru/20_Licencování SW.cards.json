@@ -1,0 +1,12 @@
+[
+  {"q": "Kdy vzniká autorské právo k dílu?", "a": "Automaticky okamžikem vytvoření — nevyžaduje registraci. Platí zákon č. 121/2000 Sb. (autorský zákon)."},
+  {"q": "Jaký je rozdíl mezi osobními a majetkovými právy autora?", "a": "Osobní (morální): právo být uveden jako autor, nelze převést, trvají i po smrti. Majetková: právo rozmnožovat a distribuovat dílo, lze licencovat, trvají 70 let po smrti autora."},
+  {"q": "Co je zaměstnanecké dílo?", "a": "Dílo vytvořené zaměstnancem při pracovních povinnostech. Osobní práva zůstávají zaměstnanci, majetková práva vykonává zaměstnavatel."},
+  {"q": "Co říká § 30 autorského zákona o osobní potřebě?", "a": "Fyzická osoba může dílo použít pro vlastní osobní potřebu bez souhlasu autora. VÝJIMKA: software a elektronické databáze — ty jsou chráněny vždy."},
+  {"q": "Co je citace dle § 31 a jaké jsou podmínky?", "a": "Bez souhlasu autora lze citovat (malá, velká, výuková citace). Podmínky: citát musí být označen, uveden zdroj a jméno autora."},
+  {"q": "Co je licence Creative Commons?", "a": "Volná licence, kde autor zvolí kombinaci podmínek: BY (uvést autora), SA (zachovat licenci), NC (nekomerčně), ND (nezasahovat do díla)."},
+  {"q": "Jaký je rozdíl mezi GNU GPL a MIT licencí?", "a": "GNU GPL: odvozená díla musí být také GPL (copyleft). MIT: téměř žádná omezení — kód lze použít i v komerčním proprietárním softwaru."},
+  {"q": "Co je EULA?", "a": "End User License Agreement — licenční smlouva mezi vlastníkem práv a uživatelem SW. Uživatel nekupuje program, ale licenci k jeho užití."},
+  {"q": "Co je OEM licence?", "a": "Licence dodávaná spolu s hardwarem — vázána na konkrétní zařízení, nelze ji přenést na jiný počítač."},
+  {"q": "Jak se cituje elektronický zdroj dle ČSN ISO 690?", "a": "PŘÍJMENÍ, Jméno. Název článku [online]. [cit. RRRR-MM-DD]. Dostupné z: URL."}
+]

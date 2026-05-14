@@ -1,0 +1,12 @@
+[
+  {"q": "Jak převedu binární číslo 10011100 na desítkové?", "a": "Součet mocnin 2 na místech s 1: 128+16+8+4 = 156. Binární hodnoty zleva: 128-64-32-16-8-4-2-1."},
+  {"q": "Jak převedu desítkové číslo na binární?", "a": "Dělím 2 se zbytkem, zbytky čtu zdola nahoru. Např. 156 → 10011100."},
+  {"q": "Jak převedu binární číslo na hexadecimální?", "a": "Rozdělím bity do skupin po 4 zprava, každou skupinu převedu na hex cifru. 1001 1100 → 9 C → 9C."},
+  {"q": "Co je CIDR notace a co znamená /24?", "a": "CIDR = Classless Inter-Domain Routing. Lomítko + počet síťových bitů. /24 = 255.255.255.0, první 24 bitů = síť, zbývajících 8 bitů = hostitelé."},
+  {"q": "Kolik hostů má podsíť /26?", "a": "Hostitelských bitů: 32–26 = 6. Počet hostů: 2⁶ – 2 = 62 (–2 za adresu sítě a broadcast)."},
+  {"q": "Jak rozdělím síť 192.168.1.0/24 na 4 podsítě?", "a": "Potřebuji 2ˢ ≥ 4 → s=2. Nová maska /26. Krok = 256–192 = 64. Podsítě: .0/26, .64/26, .128/26, .192/26."},
+  {"q": "Co je adresa sítě a co broadcast?", "a": "Adresa sítě: hostitelská část = samé 0 (nelze přidělit hostiteli). Broadcast: hostitelská část = samé 1 (zpráva všem v síti). Použitelní hostitelé jsou mezi nimi."},
+  {"q": "Co je VLSM?", "a": "Variable Length Subnet Mask — podsítě různých velikostí podle potřeby. Efektivnější využití adresního prostoru. Linka mezi routery potřebuje jen /30 (2 hostitele)."},
+  {"q": "Co znamenají hex číslice A–F?", "a": "A=10, B=11, C=12, D=13, E=14, F=15. Jedna hex cifra = 4 bity. Používá se pro MAC adresy, IPv6, HTML barvy."},
+  {"q": "Jaký je vzorec pro počet podsítí a počet hostů?", "a": "Počet podsítí = 2ˢ (s = počet půjčených bitů). Počet hostů = 2ⁿ – 2 (n = počet hostitelských bitů, –2 za adresu sítě a broadcast)."}
+]

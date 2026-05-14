@@ -1,0 +1,12 @@
+[
+  {"q": "Jaký je rozdíl mezi rastrovou a vektorovou grafikou?", "a": "Rastrová: mřížka pixelů, pixelizace při zvětšení (JPEG, PNG). Vektorová: matematické křivky, libovolně škálovatelná bez ztráty kvality (SVG, AI)."},
+  {"q": "Kdy použít JPEG a kdy PNG?", "a": "JPEG: fotografie, ztrátová komprese, malá velikost, nepodporuje průhlednost. PNG: grafika s průhledností (alpha), bezztrátová komprese."},
+  {"q": "Co je DPI a k čemu se používá?", "a": "Dots Per Inch — počet tiskových bodů na palec. Pro tisk: 300 DPI = standardní kvalita, 150 DPI = noviny, 72–96 DPI = web/obrazovka."},
+  {"q": "Co je barevný model RGB?", "a": "Aditivní míchání světla — R+G+B = bílá. Každá složka 0–255. Používá se pro obrazovky, monitory a web."},
+  {"q": "Co je barevný model CMYK?", "a": "Subtraktivní míchání pigmentů pro tisk — Cyan, Magenta, Yellow, Key(Black). Grafika pro tisk se převádí do CMYK."},
+  {"q": "Co je SVG formát?", "a": "Scalable Vector Graphics — XML-based vektorový formát. Škálovatelný bez ztráty kvality, podporuje animace, vhodný pro web a ikony."},
+  {"q": "Jaký je rozdíl mezi ztrátovou a bezztrátovou kompresí grafiky?", "a": "Bezztrátová (PNG, TIFF): data lze přesně obnovit. Ztrátová (JPEG, WebP): část dat se zahodí, menší soubor, ale nelze obnovit do originálu."},
+  {"q": "Co je GIF a jaké má omezení?", "a": "Rastrový formát podporující animace a průhlednost, ale maximálně 256 barev — nevhodný pro fotografie."},
+  {"q": "Co je HSV/HSL barevný model?", "a": "Intuitivnější model pro člověka: Hue (odstín 0–360°), Saturation (sytost), Value/Lightness (jas). Používá se v color pickerech grafických editorů."},
+  {"q": "K čemu slouží formát RAW?", "a": "Surová data přímo ze senzoru fotoaparátu — nejvyšší kvalita bez komprese. Používají fotografové pro následné editování."}
+]

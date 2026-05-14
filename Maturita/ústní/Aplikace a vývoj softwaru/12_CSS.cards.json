@@ -1,0 +1,12 @@
+[
+  {"q": "Co je CSS a k čemu slouží?", "a": "Cascading Style Sheets — jazyk pro vizuální formátování HTML dokumentů (barvy, rozměry, rozložení, animace)."},
+  {"q": "Jaké jsou způsoby propojení CSS s HTML?", "a": "Inline (style=\"\" v elementu, nejvyšší priorita), interní (<style> v <head>), externí (<link rel=\"stylesheet\" href=\"...\"> — doporučený způsob)."},
+  {"q": "Co je box model v CSS?", "a": "Každý element je obdélník tvořený: content → padding (mezera uvnitř) → border → margin (mezera vně)."},
+  {"q": "Co dělá box-sizing: border-box?", "a": "Padding a border se počítají DO deklarované šířky/výšky — element nebude širší, než definujeme."},
+  {"q": "Jaká je specificita selektorů CSS (od nejnižší)?", "a": "Element (p, div) < třída (.trida), pseudotřída (:hover) < ID (#id) < inline styl < !important."},
+  {"q": "Co je flexbox?", "a": "Moderní CSS layout: display: flex na kontejneru. justify-content zarovnává horizontálně, align-items vertikálně. Výborný pro řazení prvků v řadě nebo sloupci."},
+  {"q": "Jaký je rozdíl mezi position: relative a absolute?", "a": "relative: posun relativní k vlastní původní pozici. absolute: posun relativní k nejbližšímu rodiči s position jiným než static."},
+  {"q": "Co je position: fixed?", "a": "Element je fixován vůči oknu prohlížeče — při scrollování zůstává na místě (např. sticky navigace)."},
+  {"q": "Které vlastnosti CSS se dědí a které ne?", "a": "Dědí se typografické: color, font-*, line-height, text-align. Nedědí se: margin, padding, border, background."},
+  {"q": "Co dělají selektory div > p a div p?", "a": "div > p vybere pouze PŘÍMÉ potomky <p> uvnitř <div>. div p vybere VŠECHNY <p> uvnitř <div> (i hlouběji zanořené)."}
+]

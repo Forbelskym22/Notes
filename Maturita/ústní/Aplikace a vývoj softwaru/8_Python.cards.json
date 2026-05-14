@@ -1,0 +1,12 @@
+[
+  {"q": "Jak je Python typován a jak se spouští?", "a": "Dynamicky typovaný (typ proměnné se určí za běhu) a interpretovaný (překládá se do bytekódu, který spouští CPython VM)."},
+  {"q": "Jaké jsou základní datové typy v Pythonu?", "a": "str (řetězec), int (celé číslo), float (desetinné číslo), bool (True/False), None (absence hodnoty)."},
+  {"q": "Jaký je rozdíl mezi list a tuple v Pythonu?", "a": "List je měnitelný (mutable) — lze přidávat/odebírat prvky. Tuple je neměnný (immutable) — po vytvoření nelze měnit."},
+  {"q": "Co je dict v Pythonu?", "a": "Slovník — datová struktura klíč–hodnota. Klíče musí být neměnné (str, int, tuple). Přístup průměrně O(1)."},
+  {"q": "Co je set v Pythonu?", "a": "Množina — kolekce unikátních prvků bez zaručeného pořadí. Rychlé testování příslušnosti (O(1))."},
+  {"q": "Co je slicování v Pythonu?", "a": "Výběr části sekvence: seznam[start:stop:krok]. Např. s[1:4] vrátí prvky na indexech 1, 2, 3. Záporný index počítá od konce."},
+  {"q": "Co jsou list comprehensions?", "a": "Zkrácený zápis pro vytváření listů: [výraz for prvek in sekvence if podmínka]. Např. [x**2 for x in range(10) if x % 2 == 0]."},
+  {"q": "Co jsou dekorátory v Pythonu?", "a": "Funkce obalující jinou funkci — mění nebo rozšiřují její chování bez změny jejího kódu. Syntaxe: @decorator nad definicí funkce."},
+  {"q": "Co je GIL v Pythonu?", "a": "Global Interpreter Lock — zámek, který dovoluje v jednom okamžiku spustit pouze jedno vlákno CPythonu. Omezuje skutečný paralelismus vláken."},
+  {"q": "Jak se v Pythonu pracuje s výjimkami?", "a": "try/except blok zachytí výjimku. finally se provede vždy. raise vyvolá výjimku. Vlastní výjimky dědí z třídy Exception."}
+]

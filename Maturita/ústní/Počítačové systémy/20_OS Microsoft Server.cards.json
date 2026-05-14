@@ -1,0 +1,12 @@
+[
+  {"q": "Co je Active Directory?", "a": "Adresářová služba Microsoftu — centrální databáze uživatelů, počítačů, skupin a politik v doméně. Umožňuje centrální správu celé sítě z Domain Controlleru."},
+  {"q": "Co je Domain Controller (DC)?", "a": "Server s rolí Active Directory Domain Services — ověřuje uživatele, spravuje přihlášení a politiky. V doméně by měly být alespoň dva DC pro redundanci."},
+  {"q": "Co je Single Sign-On v doméně?", "a": "Uživatel se přihlásí jedním doménovým účtem a má přístup ke všem prostředkům v doméně (sdílené složky, tiskárny, aplikace) bez opakovaného zadávání hesla."},
+  {"q": "Co je OU (Organizational Unit) v AD?", "a": "Složka v Active Directory pro organizaci objektů (uživatelé, počítače, skupiny). Na OU se aplikují GPO (Group Policy Objects) — politiky konfigurace."},
+  {"q": "Co je GPO?", "a": "Group Policy Object — sada pravidel aplikovaných na uživatele nebo počítače v doméně (wallpaper, hesla, přesměrování složek, instalace SW)."},
+  {"q": "Jaký je rozdíl mezi pracovní skupinou a doménou?", "a": "Pracovní skupina: každý PC spravuje uživatele lokálně, vhodné do ~10 PC, bez centrální správy. Doména: centrální správa přes DC, Single Sign-On, GPO."},
+  {"q": "Co je CAL licence pro Windows Server?", "a": "Client Access License — každý uživatel nebo zařízení přistupující na server musí mít CAL. User CAL: pro uživatele s více zařízeními. Device CAL: pro jedno zařízení sdílené více uživateli."},
+  {"q": "Jaký je rozdíl mezi Windows Server Standard a Datacenter?", "a": "Standard: malé a střední firmy, licence na 2 VM. Datacenter: velké firmy, neomezený počet VM na licencovaném hostiteli."},
+  {"q": "Co je Server Core instalace?", "a": "Windows Server bez grafického rozhraní (GUI) — pouze příkazový řádek a PowerShell. Menší plocha útoku, nižší nároky na HW, vhodné pro produkční servery."},
+  {"q": "Co je Forest a Domain v Active Directory?", "a": "Forest: nejvyšší kontejner AD, může obsahovat více domén (sdílí schema a konfiguraci). Domain: základní administrativní jednotka (`firma.local`). OU jsou složky uvnitř domény."}
+]

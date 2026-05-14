@@ -1,0 +1,12 @@
+[
+  {"q": "Jak je JavaScript typován a kde běží?", "a": "Dynamicky typovaný, interpretovaný přes V8 engine. Běží v prohlížeči nebo na serveru (Node.js)."},
+  {"q": "Jaký je rozdíl mezi let, const a var?", "a": "let: proměnná platná v bloku {}. const: konstanta platná v bloku. var: stará deklarace platná v celé funkci (ne v bloku) — vyhýbat se."},
+  {"q": "Jaké jsou datové typy v JavaScriptu?", "a": "number (int i float v jednom), string, boolean (true/false malá písmena), null (záměrně prázdné), undefined (nedefinováno)."},
+  {"q": "Proč dává 0.1 + 0.2 v JS špatný výsledek?", "a": "IEEE 754 floating point problém — desetinná čísla nejsou uložena přesně v binárním formátu. Výsledek je 0.30000000000000004."},
+  {"q": "Jaké jsou datové struktury v JavaScriptu?", "a": "Array (indexované pole), Object (klíč:hodnota, jako dict), Set (unikátní hodnoty), Map (klíč:hodnota s libovolným typem klíče)."},
+  {"q": "Jaký je rozdíl mezi for...of a for...in?", "a": "for...of prochází HODNOTAMI pole/kolekce. for...in prochází KLÍČI objektu."},
+  {"q": "Co je arrow funkce v JS?", "a": "Zkrácený zápis funkce: `const fn = (param) => výraz;`. Neváže vlastní `this`."},
+  {"q": "Co je Promise v JavaScriptu?", "a": "Objekt reprezentující budoucí výsledek asynchronní operace — může být pending, fulfilled nebo rejected."},
+  {"q": "Jaký je rozdíl mezi .then() a async/await?", "a": ".then() řetězí Promise, starší způsob. async/await je modernější — kód vypadá synchronně, čitelnější při více operacích. Obě jsou ekvivalentní."},
+  {"q": "Proč JS používá asynchronní zpracování?", "a": "JS je jednovláknový — aby neblokoval UI při čekání na data (síť, I/O), používá event loop a asynchronní callback/Promise mechanismus."}
+]

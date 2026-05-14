@@ -1,0 +1,12 @@
+[
+  {"q": "Co je relační databáze?", "a": "Databáze ukládající data do tabulek (relací) s řádky (záznamy) a sloupci (atributy). Tabulky jsou propojeny klíči."},
+  {"q": "Jaký je rozdíl mezi DB a DBMS?", "a": "DB = soubory s daty na disku. DBMS = software pro jejich správu (dotazování, zápis, definice struktury). Příklady: MySQL, PostgreSQL, SQLite."},
+  {"q": "Co je primární klíč (PK)?", "a": "Atribut (nebo kombinace), který jednoznačně identifikuje každý záznam v tabulce. Musí být vyplněn a unikátní."},
+  {"q": "Co je cizí klíč (FK)?", "a": "Atribut obsahující primární klíč jiné tabulky — vytváří vazbu mezi tabulkami a zajišťuje referenční integritu."},
+  {"q": "Co je referenční integrita?", "a": "Pravidlo zaručující, že FK vždy odkazuje na existující PK. Databáze nedovolí vložit FK na neexistující záznam."},
+  {"q": "Co je 1. normální forma (1NF)?", "a": "Každá hodnota je atomická (dále nedělitelná), neexistují opakující se skupiny sloupců a existuje primární klíč."},
+  {"q": "Co je 2. normální forma (2NF)?", "a": "Splněna 1NF + každý neklíčový atribut závisí na CELÉM primárním klíči (ne jen na jeho části)."},
+  {"q": "Co je 3. normální forma (3NF)?", "a": "Splněna 2NF + žádný atribut nezávisí na jiném neklíčovém atributu. Odvozené hodnoty se neukládají (lze dopočítat)."},
+  {"q": "Jaké jsou typy vazeb v ER diagramu?", "a": "1:1 (člověk–pas), 1:N (oddělení–zaměstnanci), M:N (studenti–předměty, řeší se vazební tabulkou)."},
+  {"q": "Jaké jsou fáze návrhu databáze?", "a": "1. Koncepční model (entity, atributy, vazby, ER diagram bez typů). 2. Logický model (klíče, normalizace). 3. Fyzický model (SQL skripty pro konkrétní DBMS)."}
+]

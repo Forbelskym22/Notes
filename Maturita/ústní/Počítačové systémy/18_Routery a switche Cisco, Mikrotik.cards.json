@@ -1,0 +1,12 @@
+[
+  {"q": "Co je Cisco IOS?", "a": "Internetwork Operating System — operační systém běžící na Cisco routerech a switchích. Konfiguruje se přes CLI (příkazový řádek)."},
+  {"q": "Kde je uložen Cisco IOS image, running-config a startup-config?", "a": "IOS image: Flash (zachová se po restartu). Running-config: RAM (ztratí se). Startup-config: NVRAM (zachová se po restartu)."},
+  {"q": "Jaké jsou módy Cisco CLI?", "a": "User EXEC (Router>): základní monitoring. Privileged EXEC (Router#): show příkazy, ukládání. Global config (Router(config)#): celé zařízení. Interface config: konkrétní rozhraní."},
+  {"q": "Jak se přepíná mezi módy Cisco CLI?", "a": "`enable` → Privileged EXEC. `configure terminal` → Global config. `interface Gi0/1` → Interface config. `exit` = o úroveň výš. `end` / Ctrl+Z = zpět do Privileged EXEC."},
+  {"q": "Jak se první konfiguruje Cisco zařízení?", "a": "Přes konzolový port (RJ-45) — konzolový kabel + emulátor terminálu (PuTTY) na PC. Síťová správa (SSH/Telnet) je možná až po nastavení IP adres."},
+  {"q": "Jak uložím konfiguraci na Cisco routeru?", "a": "`copy running-config startup-config` nebo `write memory`. Jinak se konfigurace po restartu ztratí (running-config je jen v RAM)."},
+  {"q": "Jak nastavím IP adresu na Cisco rozhraní?", "a": "`interface GigabitEthernet0/0`, `ip address 192.168.1.1 255.255.255.0`, `no shutdown` (rozhraní je výchozně administrativně vypnuto)."},
+  {"q": "Co je `no shutdown` na Cisco?", "a": "Příkaz zapínající rozhraní — výchozí stav fyzických rozhraní na Cisco routerech je administrativně vypnutý (shutdown). Bez `no shutdown` rozhraní nepracuje."},
+  {"q": "Jaký příkaz zobrazí základní informace o Cisco zařízení?", "a": "`show version` — verze IOS, uptime, paměti, počet rozhraní, sériové číslo. `show ip interface brief` — stav všech rozhraní a jejich IP adresy."},
+  {"q": "Co je Cisco IOS Universal Image?", "a": "Od verze IOS 15.x — jeden image obsahuje všechny funkce, aktivují se softwarovými licencemi (IP Base, Security, Data…)."}
+]

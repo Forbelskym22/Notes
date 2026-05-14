@@ -1,0 +1,12 @@
+[
+  {"q": "Co je pravidlo 3-2-1 pro zálohování?", "a": "3 kopie dat celkem, na 2 různých médiích (např. HDD + cloud), 1 záloha off-site (mimo místo) — ochrana před fyzickou katastrofou."},
+  {"q": "Jaký je rozdíl mezi přírůstkovou a rozdílovou zálohou?", "a": "Přírůstková (Incremental): jen změny od poslední zálohy (jakékoli) — rychlá, ale obnova vyžaduje všechny přírůstky. Rozdílová (Differential): změny od poslední PLNÉ zálohy — větší, ale rychlejší obnova."},
+  {"q": "Co je RPO a RTO?", "a": "RPO (Recovery Point Objective): maximální přijatelná ztráta dat (jak stará záloha stačí). RTO (Recovery Time Objective): maximální přijatelná doba obnovy systému."},
+  {"q": "Jaký je rozdíl mezi zálohováním a archivací?", "a": "Zálohování: obnova při ztrátě aktuálních dat (dny–měsíce). Archivace: dlouhodobé uchování neaktivních dat (roky–desítky let)."},
+  {"q": "Co je RAID a nahrazuje zálohu?", "a": "RAID propojuje více disků pro výkon/redundanci. NENÍ náhradou zálohy — chrání před selháním disku, ne před náhodným smazáním nebo ransomwarem."},
+  {"q": "Jaký je princip bezztrátové komprese?", "a": "Data lze přesně obnovit do originálu. Principy: Huffmanovo kódování (časté znaky = kratší kód), RLE (AAAAB → 4A1B), LZW (slovník vzorů). Formáty: ZIP, PNG, FLAC."},
+  {"q": "Jaký je princip ztrátové komprese?", "a": "Část dat se trvale zahodí — nelze obnovit. Hodí se tam, kde ztrátu smysly nevnímají. Čím vyšší komprese, tím viditelnější artefakty. Formáty: JPEG, MP3, H.264."},
+  {"q": "Co je IaaS, PaaS a SaaS?", "a": "IaaS: virtuální servery/síť/úložiště (AWS EC2). PaaS: prostředí pro vývoj a nasazení (Heroku). SaaS: hotové aplikace přes prohlížeč (Gmail, Office 365)."},
+  {"q": "Co je public cloud, private cloud a hybrid cloud?", "a": "Public: sdílená infrastruktura třetí strany (AWS, Azure). Private: dedikovaná infrastruktura organizace. Hybrid: kombinace obou — citlivá data on-premise, zbytek v cloudu."},
+  {"q": "Jaké jsou typy softwaru podle distribuce?", "a": "Komerční (za úplatu, uzavřený), Freeware (zdarma, uzavřený), Shareware (zkušební zdarma, plná za poplatek), Open-source (volný kód), Public domain (bez autorských práv)."}
+]

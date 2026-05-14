@@ -1,0 +1,12 @@
+[
+  {"q": "Jaké jsou fáze přípravy prezentace?", "a": "1. Definice cíle, 2. Analýza publika, 3. Sběr obsahu, 4. Struktura, 5. Tvorba slajdů, 6. Nácvik."},
+  {"q": "Co je pravidlo 6×6 pro slajdy?", "a": "Maximálně 6 odrážek na slajd a maximálně 6 slov na odrážku. Cílem je nepřehlcovat slajd textem."},
+  {"q": "Jaká je minimální velikost písma pro prezentaci?", "a": "Minimum 24 pt pro tělo textu, 32–40 pt pro nadpisy — aby bylo čitelné z větší vzdálenosti."},
+  {"q": "Jaký je rozdíl mezi patkovým (Serif) a bezpatkovým (Sans-serif) písmem?", "a": "Serif (Times New Roman, Georgia): má patky, vhodné pro tisk a delší texty. Sans-serif (Arial, Roboto): bez patek, lepší pro obrazovky a prezentace."},
+  {"q": "Co je Monospace písmo a k čemu se používá?", "a": "Všechny znaky jsou stejně široké (Courier, Consolas). Používá se pro zobrazení kódu a terminálový výstup."},
+  {"q": "Jak se píše česká pomlčka a spojovník?", "a": "Spojovník (-): spojuje slova bez mezer (česko-slovenský). Pomlčka (–): odděluje větné celky, píše se s mezerami z obou stran (Přišel – odešel)."},
+  {"q": "Jaké jsou české typografické uvozovky?", "a": "„dolní-horní" — uvozovky se otevírají dole a zavírají nahoře. Anglické \"...\" se v češtině nepoužívají."},
+  {"q": "Co je nezlomitelná mezera a kdy se používá?", "a": "Mezera, která zabrání zalomení řádku. Používá se za jednopísmennými předložkami a spojkami (v&nbsp;Praze, a&nbsp;pak)."},
+  {"q": "Jak se má mluvit při prezentaci?", "a": "Udržovat oční kontakt s publikem (nesledovat plátno), mluvit zřetelně přiměřenou rychlostí, dělat pauzy, nestát zády."},
+  {"q": "Jaký poměr stran a rozlišení se doporučuje pro prezentace?", "a": "16:9 (widescreen) nebo 4:3 (starší projektory). Export obrázků min. 1920×1080 (Full HD). Záloha vždy jako PDF."}
+]
