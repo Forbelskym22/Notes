@@ -105,6 +105,18 @@ async function showNote(subject, file, title, fetchUrl, skipHash) {
   currentSubject = subject
   currentFile = file
   if (!skipHash) setHash(subject, file)
+
+  // Zobraz tlačítko Kartičky jen pokud zápisek má karty
+  document.getElementById('btn-flashcards').classList.add('hidden')
+  const cardsUrl = subject
+    ? `/api/flashcards/${encodeURIComponent(subject)}/${encodeURIComponent(file)}`
+    : `/api/flashcards/_root/${encodeURIComponent(file)}`
+  try {
+    const cards = await fetchJSON(cardsUrl)
+    if (Array.isArray(cards) && cards.length > 0) {
+      document.getElementById('btn-flashcards').classList.remove('hidden')
+    }
+  } catch { /* žádné kartičky — tlačítko zůstane skryté */ }
 }
 
 async function loadNav() {
@@ -234,6 +246,80 @@ async function restoreFromHash() {
   const fullTitle = numBadge && !isNaN(numBadge) ? `${numBadge}. ${title}` : title
   showNote(subject, file, fullTitle, `/api/note/${encodeURIComponent(subject)}/${encodeURIComponent(file)}`, true)
 }
+
+// ── Kartičky ────────────────────────────────────────────────
+let flashcards = []
+let cardIndex = 0
+let cardFlipped = false
+
+function flipCard() {
+  cardFlipped = !cardFlipped
+  document.getElementById('card-inner').classList.toggle('flipped', cardFlipped)
+}
+
+function showCard(i) {
+  cardFlipped = false
+  document.getElementById('card-inner').classList.remove('flipped')
+  const c = flashcards[i]
+  document.getElementById('card-q').textContent = c.q
+  document.getElementById('card-a').textContent = c.a
+  document.getElementById('card-counter').textContent = `${i + 1} / ${flashcards.length}`
+  document.getElementById('card-prev').disabled = i === 0
+  document.getElementById('card-next').disabled = i === flashcards.length - 1
+}
+
+function prevCard() { if (cardIndex > 0) showCard(--cardIndex) }
+function nextCard() { if (cardIndex < flashcards.length - 1) showCard(++cardIndex) }
+
+async function openFlashcards() {
+  if (!currentFile) return
+  document.getElementById('note-view').classList.add('hidden')
+  document.getElementById('welcome').classList.add('hidden')
+  const view = document.getElementById('flashcard-view')
+  view.classList.remove('hidden')
+  document.getElementById('flashcard-loading').classList.remove('hidden')
+  document.getElementById('flashcard-content').classList.add('hidden')
+  document.getElementById('flashcard-error').classList.add('hidden')
+
+  try {
+    const url = currentSubject
+      ? `/api/flashcards/${encodeURIComponent(currentSubject)}/${encodeURIComponent(currentFile)}`
+      : `/api/flashcards/_root/${encodeURIComponent(currentFile)}`
+    const data = await fetchJSON(url)
+    flashcards = Array.isArray(data) && data.length ? data : null
+    document.getElementById('flashcard-loading').classList.add('hidden')
+    if (!flashcards) {
+      document.getElementById('flashcard-error').classList.remove('hidden')
+      document.getElementById('flashcard-error').textContent = 'Pro tento zápisek kartičky zatím nejsou.'
+    } else {
+      cardIndex = 0
+      document.getElementById('flashcard-content').classList.remove('hidden')
+      showCard(0)
+    }
+  } catch {
+    document.getElementById('flashcard-loading').classList.add('hidden')
+    document.getElementById('flashcard-error').classList.remove('hidden')
+  }
+}
+
+function closeFlashcards() {
+  document.getElementById('flashcard-view').classList.add('hidden')
+  document.getElementById('note-view').classList.remove('hidden')
+}
+
+document.getElementById('btn-flashcards').addEventListener('click', openFlashcards)
+document.getElementById('btn-back-to-note').addEventListener('click', closeFlashcards)
+document.getElementById('btn-back-to-note-mobile').addEventListener('click', closeFlashcards)
+document.getElementById('card-prev').addEventListener('click', prevCard)
+document.getElementById('card-next').addEventListener('click', nextCard)
+
+document.addEventListener('keydown', e => {
+  if (document.getElementById('flashcard-view').classList.contains('hidden')) return
+  if (e.key === 'ArrowLeft') prevCard()
+  else if (e.key === 'ArrowRight') nextCard()
+  else if (e.key === ' ') { e.preventDefault(); flipCard() }
+  else if (e.key === 'Escape') closeFlashcards()
+})
 
 document.getElementById('btn-download').addEventListener('click', () => {
   if (!currentFile) return
