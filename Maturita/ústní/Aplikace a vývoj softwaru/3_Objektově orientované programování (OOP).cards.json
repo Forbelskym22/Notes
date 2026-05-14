@@ -1,7 +1,7 @@
 [
   {"q": "Co je třída a co je objekt?", "a": "Třída je šablona (blueprint) popisující vlastnosti a chování. Objekt je konkrétní instance třídy vytvořená v paměti."},
   {"q": "Co je konstruktor?", "a": "Speciální metoda volána při vytváření objektu. Inicializuje atributy instance."},
-  {"q": "Jaký je rozdíl mezi statickým a instančním členem?", "a": "Statický člen patří třídě — sdílen všemi instancemi, přístupný bez vytvoření objektu. Instanční člen patří každému objektu zvlášť."},
+  {"q": "Jaký je rozdíl mezi statickým a instančním atributem?", "a": "Statický atribut patří třídě — sdílen všemi instancemi (např. PocetKol = 4 pro všechna auta). Instanční atribut patří každému objektu zvlášť (např. Barva)."},
   {"q": "Co je zapouzdření (encapsulation)?", "a": "Skrytí vnitřního stavu objektu — data jsou private, přístupná jen přes veřejné metody (gettery/settery)."},
   {"q": "Co je dědičnost (inheritance)?", "a": "Třída (potomek) přebírá atributy a metody jiné třídy (rodiče) a může je rozšiřovat nebo přepisovat."},
   {"q": "Co je polymorfismus?", "a": "Schopnost volat stejně pojmenovanou metodu na různých typech objektů a dostat různé chování (přetížení, přepisování metod)."},
