@@ -16,6 +16,29 @@ renderer.code = ({ text, lang }) => {
 }
 marked.use({ renderer })
 
+// Parsování Témata.md → mapa filename -> subtopics
+function buildSubtopicsMap() {
+  const temaPath = path.join(__dirname, 'Maturita', 'ústní', 'Témata.md')
+  if (!fs.existsSync(temaPath)) return {}
+  const lines = fs.readFileSync(temaPath, 'utf8').split('\n')
+  const map = {}
+  for (let i = 0; i < lines.length; i++) {
+    const linkMatch = lines[i].match(/\[.*?\]\((.+?\.md)\)/)
+    if (!linkMatch) continue
+    const filename = decodeURIComponent(linkMatch[1].split('/').pop())
+    const subtopicLines = []
+    for (let j = i + 1; j < lines.length; j++) {
+      const trimmed = lines[j].trim()
+      if (!trimmed) break
+      if (/^\d+\./.test(trimmed) || trimmed.startsWith('#')) break
+      subtopicLines.push(trimmed)
+    }
+    if (subtopicLines.length) map[filename] = subtopicLines.join(' ')
+  }
+  return map
+}
+const subtopicsMap = buildSubtopicsMap()
+
 const CHROMIUM_PATH = process.env.CHROMIUM_PATH || (process.platform === 'win32'
   ? 'C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe'
   : '/usr/bin/chromium')
@@ -79,7 +102,7 @@ app.get('/api/note/_root/:file', (req, res) => {
   if (!filePath.startsWith(NOTES_ROOT)) return res.status(400).json({ error: 'Invalid path' })
   if (!filePath.endsWith('.md')) return res.status(400).json({ error: 'Only .md files allowed' })
   if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'Note not found' })
-  res.json({ content: fs.readFileSync(filePath, 'utf8') })
+  res.json({ content: fs.readFileSync(filePath, 'utf8'), subtopics: subtopicsMap[req.params.file] || null })
 })
 
 app.get('/api/notes/:subject', (req, res) => {
@@ -108,7 +131,7 @@ app.get('/api/note/:subject/:file', (req, res) => {
   if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'Note not found' })
 
   const content = fs.readFileSync(filePath, 'utf8')
-  res.json({ content })
+  res.json({ content, subtopics: subtopicsMap[req.params.file] || null })
 })
 
 async function generatePdf(filePath, title, res) {

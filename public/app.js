@@ -94,6 +94,13 @@ async function showNote(subject, file, title, fetchUrl, skipHash) {
   document.getElementById('mobile-title').textContent = title
   document.getElementById('note-title').textContent = title
   document.getElementById('btn-pdf-mobile').classList.remove('hidden')
+  const subtopicsEl = document.getElementById('note-subtopics')
+  if (data.subtopics) {
+    document.getElementById('note-subtopics-text').textContent = data.subtopics
+    subtopicsEl.classList.remove('hidden')
+  } else {
+    subtopicsEl.classList.add('hidden')
+  }
   document.getElementById('note-content').innerHTML = marked.parse(data.content || '_Tento zápisek je zatím prázdný._')
   document.querySelectorAll('#note-content pre code').forEach(el => hljs.highlightElement(el))
   wireInternalLinks()
