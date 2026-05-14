@@ -100,7 +100,6 @@ async function showNote(subject, file, title, fetchUrl, skipHash) {
     `<li class="flex gap-2 py-1.5 border-b border-gray-50 text-xs text-gray-700 leading-snug last:border-0"><span class="text-amber-400 shrink-0 mt-0.5">–</span>${t}</li>`
   ).join('')
   document.getElementById('subtopics-empty').classList.toggle('hidden', items.length > 0)
-  document.getElementById('btn-subtopics').classList.toggle('hidden', items.length === 0)
   document.getElementById('btn-subtopics-mobile').classList.toggle('hidden', items.length === 0)
   document.getElementById('note-content').innerHTML = marked.parse(data.content || '_Tento zápisek je zatím prázdný._')
   document.querySelectorAll('#note-content pre code').forEach(el => hljs.highlightElement(el))
@@ -443,29 +442,41 @@ document.getElementById('btn-pdf-mobile').addEventListener('click', downloadPdf)
 document.getElementById('btn-pdf').addEventListener('click', downloadPdf)
 
 // ── Draggable subtopics widget ─────────────────────────────
+function setSubtopicsFabIcon(open) {
+  document.getElementById('btn-subtopics-icon-open').classList.toggle('hidden', open)
+  document.getElementById('btn-subtopics-icon-close').classList.toggle('hidden', !open)
+}
+
 function openSubtopics() {
   document.getElementById('subtopics-panel').classList.remove('hidden')
+  setSubtopicsFabIcon(true)
 }
 function closeSubtopics() {
   document.getElementById('subtopics-panel').classList.add('hidden')
+  setSubtopicsFabIcon(false)
+}
+function toggleSubtopics() {
+  const hidden = document.getElementById('subtopics-panel').classList.contains('hidden')
+  hidden ? openSubtopics() : closeSubtopics()
 }
 
-document.getElementById('btn-subtopics').addEventListener('click', openSubtopics)
-document.getElementById('btn-subtopics-mobile').addEventListener('click', openSubtopics)
+document.getElementById('btn-subtopics-mobile').addEventListener('click', toggleSubtopics)
 document.getElementById('btn-subtopics-close').addEventListener('click', closeSubtopics)
 
-// Drag logic
+// Drag — jen na desktopu
 ;(function () {
   const panel = document.getElementById('subtopics-panel')
   const handle = document.getElementById('subtopics-drag-handle')
   let dragging = false, ox = 0, oy = 0
 
+  function isDesktop() { return window.matchMedia('(min-width: 1024px)').matches }
+
   function startDrag(cx, cy) {
+    if (!isDesktop()) return
     dragging = true
     const r = panel.getBoundingClientRect()
     ox = cx - r.left
     oy = cy - r.top
-    // Nastavit left/top PŘED odebráním right, jinak panel skočí
     panel.style.left = r.left + 'px'
     panel.style.top = r.top + 'px'
     panel.style.right = 'auto'
@@ -483,8 +494,6 @@ document.getElementById('btn-subtopics-close').addEventListener('click', closeSu
   handle.addEventListener('mousedown', e => { e.preventDefault(); startDrag(e.clientX, e.clientY) })
   document.addEventListener('mousemove', e => moveDrag(e.clientX, e.clientY))
   document.addEventListener('mouseup', endDrag)
-
-  handle.addEventListener('touchstart', e => { const t = e.touches[0]; startDrag(t.clientX, t.clientY) }, { passive: true })
   document.addEventListener('touchmove', e => { const t = e.touches[0]; moveDrag(t.clientX, t.clientY) }, { passive: true })
   document.addEventListener('touchend', endDrag)
 })()

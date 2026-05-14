@@ -15,6 +15,17 @@
   transform: rotateY(180deg);
 }
 
+/* Subtopics panel — centered on mobile, draggable on desktop */
+@media (max-width: 1023px) {
+  #subtopics-panel {
+    top: 50% !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(90vw, 320px) !important;
+  }
+}
+
 @media print {
   #sidebar, #note-toolbar, #btn-open-sidebar, #overlay { display: none !important; }
   #note-content { padding: 0; max-width: 100%; }

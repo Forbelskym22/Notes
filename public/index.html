@@ -43,9 +43,6 @@
           <h1 id="note-title" class="absolute left-1/2 -translate-x-1/2 text-2xl font-bold text-gray-900 text-center leading-tight max-w-[50%] truncate pointer-events-none"></h1>
           <div class="ml-auto shrink-0 flex items-center gap-1.5">
             <button id="btn-flashcards" class="hidden text-sm px-3 py-1.5 rounded-md bg-amber-100 text-amber-900 hover:bg-amber-200 transition-colors font-medium">Kartičky</button>
-            <button id="btn-subtopics" class="hidden text-sm px-3 py-1.5 rounded-md border border-amber-200 text-amber-700 hover:bg-amber-50 transition-colors" title="Co se zkouší">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 12h6m-6 4h6"/></svg>
-            </button>
             <button id="btn-download" class="text-sm px-3 py-1.5 rounded-md bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium">.md</button>
             <button id="btn-pdf" class="text-sm px-3 py-1.5 rounded-md bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium">PDF</button>
           </div>
@@ -53,9 +50,10 @@
         <article id="note-content" class="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full"></article>
       </div>
 
-      <!-- mobile FAB for subtopics -->
-      <button id="btn-subtopics-mobile" class="hidden fixed bottom-5 right-5 z-40 lg:hidden w-12 h-12 rounded-full bg-amber-400 text-gray-900 shadow-lg flex items-center justify-center">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 12h6m-6 4h6"/></svg>
+      <!-- FAB toggle button — visible on all screen sizes -->
+      <button id="btn-subtopics-mobile" class="hidden fixed bottom-5 right-5 z-40 w-12 h-12 rounded-full bg-amber-400 text-gray-900 shadow-lg flex items-center justify-center transition-colors hover:bg-amber-500">
+        <svg id="btn-subtopics-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 12h6m-6 4h6"/></svg>
+        <svg id="btn-subtopics-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
 
       <!-- draggable floating subtopics widget -->
