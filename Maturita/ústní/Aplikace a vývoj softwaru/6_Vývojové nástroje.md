@@ -34,10 +34,6 @@ Zkoumání kódu bez nutnosti ho spustit — hledáme chyby, problémy s výkone
 - Syntaktické chyby, nepoužité proměnné, nebezpečné vzory
 - Nástroje: **ESLint** (JavaScript), **Pylint** (Python), **Roslyn** (C#)
 
-**Linting** — podmnožina statické analýzy zaměřená na styl a čitelnost kódu:
-- Konzistentní odsazení, délka řádků, pojmenování proměnných
-- Obvykle integrován přímo v editoru (podtrhává problémy v reálném čase)
-
 **Profilování (Profiling)** — analýza za běhu, hledá výkonnostní bottlenecky:
 - Která funkce trvá nejdéle? Kde se plýtvá pamětí?
 - Nástroje: Chrome DevTools (JS), cProfile (Python), Diagnostics Tools (Visual Studio)
