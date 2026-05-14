@@ -96,14 +96,15 @@ async function showNote(subject, file, title, fetchUrl, skipHash) {
   document.getElementById('btn-pdf-mobile').classList.remove('hidden')
   if (data.subtopics) {
     const items = data.subtopics.split(',').map(s => s.trim()).filter(Boolean)
-    const list = document.getElementById('note-subtopics-list')
-    list.innerHTML = items.map(t => `<li class="text-xs text-amber-900 leading-snug before:content-['–'] before:mr-1.5 before:text-amber-400">${t}</li>`).join('')
-    document.getElementById('note-subtopics-text').textContent = data.subtopics
-    document.getElementById('note-subtopics').classList.remove('hidden')
-    document.getElementById('note-subtopics-mobile').classList.remove('hidden')
+    document.getElementById('note-subtopics-list').innerHTML = items.map(t =>
+      `<li class="flex gap-2 py-2 border-b border-amber-50 text-sm text-gray-700 leading-snug"><span class="text-amber-400 shrink-0">–</span>${t}</li>`
+    ).join('')
+    document.getElementById('btn-subtopics').classList.remove('hidden')
+    document.getElementById('btn-subtopics-mobile').classList.remove('hidden')
   } else {
-    document.getElementById('note-subtopics').classList.add('hidden')
-    document.getElementById('note-subtopics-mobile').classList.add('hidden')
+    document.getElementById('btn-subtopics').classList.add('hidden')
+    document.getElementById('btn-subtopics-mobile').classList.add('hidden')
+    closeSubtopics()
   }
   document.getElementById('note-content').innerHTML = marked.parse(data.content || '_Tento zápisek je zatím prázdný._')
   document.querySelectorAll('#note-content pre code').forEach(el => hljs.highlightElement(el))
@@ -444,5 +445,16 @@ async function downloadPdf() {
 
 document.getElementById('btn-pdf-mobile').addEventListener('click', downloadPdf)
 document.getElementById('btn-pdf').addEventListener('click', downloadPdf)
+
+// ── Subtopics panel ────────────────────────────────────────
+function openSubtopics() {
+  document.getElementById('subtopics-panel').classList.remove('translate-x-full')
+  document.getElementById('subtopics-backdrop').classList.remove('hidden')
+}
+function closeSubtopics() {
+  document.getElementById('subtopics-panel').classList.add('translate-x-full')
+  document.getElementById('subtopics-backdrop').classList.add('hidden')
+}
+document.getElementById('btn-subtopics').addEventListener('click', openSubtopics)
 
 loadNav()

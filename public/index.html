@@ -38,29 +38,37 @@
       <div id="welcome" class="flex items-center justify-center h-full text-gray-400 text-sm">
         Vyber zápisek ze seznamu.
       </div>
-      <div id="note-view" class="hidden flex flex-col lg:flex-row min-h-full">
-        <!-- hlavní obsah -->
-        <div class="flex-1 min-w-0 flex flex-col">
-          <div id="note-toolbar" class="hidden lg:flex items-center sticky top-0 bg-white border-b border-gray-200 px-6 py-4 z-10 relative min-h-[4rem]">
-            <h1 id="note-title" class="absolute left-1/2 -translate-x-1/2 text-2xl font-bold text-gray-900 text-center leading-tight max-w-[50%] truncate pointer-events-none"></h1>
-            <div class="ml-auto shrink-0 flex items-center gap-1.5">
-              <button id="btn-flashcards" class="hidden text-sm px-3 py-1.5 rounded-md bg-amber-100 text-amber-900 hover:bg-amber-200 transition-colors font-medium">Kartičky</button>
-              <button id="btn-download" class="text-sm px-3 py-1.5 rounded-md bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium">.md</button>
-              <button id="btn-pdf" class="text-sm px-3 py-1.5 rounded-md bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium">PDF</button>
-            </div>
+      <div id="note-view" class="hidden">
+        <div id="note-toolbar" class="hidden lg:flex items-center sticky top-0 bg-white border-b border-gray-200 px-6 py-4 z-10 relative min-h-[4rem]">
+          <h1 id="note-title" class="absolute left-1/2 -translate-x-1/2 text-2xl font-bold text-gray-900 text-center leading-tight max-w-[50%] truncate pointer-events-none"></h1>
+          <div class="ml-auto shrink-0 flex items-center gap-1.5">
+            <button id="btn-flashcards" class="hidden text-sm px-3 py-1.5 rounded-md bg-amber-100 text-amber-900 hover:bg-amber-200 transition-colors font-medium">Kartičky</button>
+            <button id="btn-subtopics" class="hidden text-sm px-3 py-1.5 rounded-md border border-amber-200 text-amber-700 hover:bg-amber-50 transition-colors" title="Co se zkouší">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 12h6m-6 4h6"/></svg>
+            </button>
+            <button id="btn-download" class="text-sm px-3 py-1.5 rounded-md bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium">.md</button>
+            <button id="btn-pdf" class="text-sm px-3 py-1.5 rounded-md bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium">PDF</button>
           </div>
-          <article id="note-content" class="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full"></article>
         </div>
-        <!-- panel témat (desktop) -->
-        <div id="note-subtopics" class="hidden lg:flex flex-col gap-2 w-52 shrink-0 border-l border-amber-100 bg-amber-50/50 px-4 py-6 sticky top-0 h-screen overflow-y-auto">
-          <p class="text-xs font-bold uppercase tracking-wider text-amber-600 mb-1">Zkouší se</p>
-          <ul id="note-subtopics-list" class="flex flex-col gap-1.5"></ul>
-        </div>
-        <!-- banner témat (mobil) -->
-        <div id="note-subtopics-mobile" class="hidden lg:hidden border-b border-amber-100 bg-amber-50/60 px-4 py-2.5 order-first">
-          <p class="text-xs text-amber-800 leading-relaxed"><span class="font-semibold text-amber-600">Zkouší se: </span><span id="note-subtopics-text"></span></p>
-        </div>
+        <article id="note-content" class="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full"></article>
       </div>
+
+      <!-- floating subtopics panel -->
+      <div id="subtopics-backdrop" class="hidden fixed inset-0 bg-black/30 z-40" onclick="closeSubtopics()"></div>
+      <div id="subtopics-panel" class="fixed top-0 right-0 h-full w-72 max-w-[85vw] bg-white border-l border-amber-200 shadow-xl z-50 flex flex-col translate-x-full transition-transform duration-200">
+        <div class="flex items-center justify-between px-4 py-4 border-b border-amber-100 bg-amber-50">
+          <p class="text-xs font-bold uppercase tracking-wider text-amber-700">Co se zkouší</p>
+          <button onclick="closeSubtopics()" class="text-gray-400 hover:text-gray-600 p-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <ul id="note-subtopics-list" class="flex flex-col gap-0 overflow-y-auto flex-1 p-4"></ul>
+      </div>
+
+      <!-- mobile subtopics button (floating) -->
+      <button id="btn-subtopics-mobile" class="hidden fixed bottom-5 right-5 z-30 lg:hidden w-12 h-12 rounded-full bg-amber-400 text-gray-900 shadow-lg flex items-center justify-center" onclick="openSubtopics()">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 12h6m-6 4h6"/></svg>
+      </button>
 
       <div id="flashcard-view" class="hidden h-full flex flex-col">
         <div class="hidden lg:flex items-center sticky top-0 bg-white border-b border-gray-200 px-4 py-3 z-10 relative min-h-[3.25rem]">
