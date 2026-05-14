@@ -245,9 +245,11 @@ async function restoreFromHash() {
 
 // ── Kartičky ────────────────────────────────────────────────
 let flashcards = []
+let flashcardsOriginal = []
 let cardIndex = 0
 let cardFlipped = false
 let cardReversed = false
+let cardShuffled = false
 
 function flipCard() {
   cardFlipped = !cardFlipped
@@ -267,6 +269,33 @@ function showCard(i) {
 
 function prevCard() { if (cardIndex > 0) showCard(--cardIndex) }
 function nextCard() { if (cardIndex < flashcards.length - 1) showCard(++cardIndex) }
+
+function toggleShuffle() {
+  cardShuffled = !cardShuffled
+  if (cardShuffled) {
+    // Fisher-Yates shuffle on a copy
+    flashcards = [...flashcardsOriginal]
+    for (let i = flashcards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [flashcards[i], flashcards[j]] = [flashcards[j], flashcards[i]]
+    }
+  } else {
+    flashcards = [...flashcardsOriginal]
+  }
+  const btns = [document.getElementById('btn-shuffle-cards'), document.getElementById('btn-shuffle-cards-mobile')]
+  btns.forEach(btn => {
+    if (!btn) return
+    if (cardShuffled) {
+      btn.classList.add('bg-amber-100', 'border-amber-300', 'text-amber-900')
+      btn.classList.remove('text-gray-600', 'border-gray-300')
+    } else {
+      btn.classList.remove('bg-amber-100', 'border-amber-300', 'text-amber-900')
+      btn.classList.add('text-gray-600', 'border-gray-300')
+    }
+  })
+  cardIndex = 0
+  showCard(0)
+}
 
 function toggleReversed() {
   cardReversed = !cardReversed
@@ -295,20 +324,28 @@ async function openFlashcards() {
   document.getElementById('flashcard-loading').classList.remove('hidden')
   document.getElementById('flashcard-content').classList.add('hidden')
   document.getElementById('flashcard-error').classList.add('hidden')
-  // reset reversed mode
+  // reset modes
   cardReversed = false
+  cardShuffled = false
   document.getElementById('card-mode-badge').classList.add('hidden')
-  const btnRev = document.getElementById('btn-reverse-cards')
-  if (btnRev) { btnRev.classList.remove('bg-amber-100', 'border-amber-300', 'text-amber-900'); btnRev.classList.add('text-gray-600', 'border-gray-300') }
-  const btnRevM = document.getElementById('btn-reverse-cards-mobile')
-  if (btnRevM) { btnRevM.classList.remove('bg-amber-100', 'border-amber-300', 'text-amber-900'); btnRevM.classList.add('text-gray-600', 'border-gray-300') }
+  ;[
+    document.getElementById('btn-reverse-cards'),
+    document.getElementById('btn-reverse-cards-mobile'),
+    document.getElementById('btn-shuffle-cards'),
+    document.getElementById('btn-shuffle-cards-mobile'),
+  ].forEach(btn => {
+    if (!btn) return
+    btn.classList.remove('bg-amber-100', 'border-amber-300', 'text-amber-900')
+    btn.classList.add('text-gray-600', 'border-gray-300')
+  })
 
   try {
     const url = currentSubject
       ? `/api/flashcards/${encodeURIComponent(currentSubject)}/${encodeURIComponent(currentFile)}`
       : `/api/flashcards/_root/${encodeURIComponent(currentFile)}`
     const data = await fetchJSON(url)
-    flashcards = Array.isArray(data) && data.length ? data : null
+    flashcardsOriginal = Array.isArray(data) && data.length ? data : null
+    flashcards = flashcardsOriginal ? [...flashcardsOriginal] : null
     document.getElementById('flashcard-loading').classList.add('hidden')
     if (!flashcards) {
       document.getElementById('flashcard-error').classList.remove('hidden')
@@ -336,6 +373,8 @@ document.getElementById('card-prev').addEventListener('click', prevCard)
 document.getElementById('card-next').addEventListener('click', nextCard)
 document.getElementById('btn-reverse-cards').addEventListener('click', toggleReversed)
 document.getElementById('btn-reverse-cards-mobile').addEventListener('click', toggleReversed)
+document.getElementById('btn-shuffle-cards').addEventListener('click', toggleShuffle)
+document.getElementById('btn-shuffle-cards-mobile').addEventListener('click', toggleShuffle)
 
 document.addEventListener('keydown', e => {
   if (document.getElementById('flashcard-view').classList.contains('hidden')) return
