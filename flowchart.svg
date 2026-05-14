@@ -1,0 +1,77 @@
+<svg width="700" height="740" viewBox="0 0 700 740" xmlns="http://www.w3.org/2000/svg"
+     font-family="-apple-system, system-ui, sans-serif" font-size="14" fill="#111827">
+
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <!-- START -->
+  <rect x="270" y="24" width="160" height="40" rx="20" fill="white" stroke="#374151" stroke-width="2"/>
+  <text x="350" y="49" text-anchor="middle" font-weight="600" font-size="15">START</text>
+
+  <!-- Arrow START → Podmínka -->
+  <line x1="350" y1="64" x2="350" y2="100" stroke="#374151" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Podmínka diamond: center (350, 132) -->
+  <polygon points="350,100 450,132 350,164 250,132" fill="white" stroke="#374151" stroke-width="2"/>
+  <text x="350" y="137" text-anchor="middle">Podmínka</text>
+
+  <!-- Ne exit (right) -->
+  <line x1="450" y1="132" x2="620" y2="132" stroke="#374151" stroke-width="1.5"/>
+  <line x1="620" y1="132" x2="620" y2="660" stroke="#374151" stroke-width="1.5"/>
+  <line x1="620" y1="660" x2="432" y2="660" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="534" y="124" text-anchor="middle" font-size="12" fill="#6b7280">Ne</text>
+
+  <!-- Ano exit (down) label -->
+  <text x="358" y="188" font-size="12" fill="#6b7280">Ano</text>
+
+  <!-- Arrow Podmínka → switch block -->
+  <line x1="350" y1="164" x2="350" y2="200" stroke="#374151" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Switch/case outer rectangle -->
+  <rect x="44" y="200" width="560" height="320" fill="#fafafa" stroke="#374151" stroke-width="2"/>
+
+  <!-- Column dividers -->
+  <line x1="184" y1="200" x2="184" y2="520" stroke="#374151" stroke-width="1.5"/>
+  <line x1="370" y1="200" x2="370" y2="520" stroke="#374151" stroke-width="1.5"/>
+  <line x1="510" y1="200" x2="510" y2="520" stroke="#374151" stroke-width="1.5"/>
+
+  <!-- Column labels -->
+  <text x="114" y="224" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">x = 0</text>
+  <text x="277" y="224" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">x = 1</text>
+  <text x="440" y="224" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">x = 2</text>
+  <text x="565" y="224" text-anchor="middle" font-size="12" fill="#6b7280" font-style="italic">x = 3</text>
+
+  <!-- x = 1 column: sub-diamond Podmínka (center 277, 278) -->
+  <polygon points="277,252 337,278 277,304 217,278" fill="white" stroke="#374151" stroke-width="1.5"/>
+  <text x="277" y="283" text-anchor="middle" font-size="12">Podmínka</text>
+
+  <!-- Arrow sub-diamond → KROK -->
+  <line x1="277" y1="304" x2="277" y2="338" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- KROK rectangle -->
+  <rect x="212" y="338" width="130" height="38" fill="white" stroke="#374151" stroke-width="1.5"/>
+  <text x="277" y="362" text-anchor="middle">KROK</text>
+
+  <!-- Arrow KROK → output -->
+  <line x1="277" y1="376" x2="277" y2="410" stroke="#374151" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Output box (rounded = I/O or result) -->
+  <rect x="212" y="410" width="130" height="38" rx="8" fill="white" stroke="#374151" stroke-width="1.5"/>
+
+  <!-- x = 2 & 3: predefined process (double-bar rect), centered between cols 3+4 -->
+  <rect x="396" y="348" width="158" height="42" fill="white" stroke="#374151" stroke-width="1.5"/>
+  <line x1="414" y1="348" x2="414" y2="390" stroke="#374151" stroke-width="1.5"/>
+  <line x1="538" y1="348" x2="538" y2="390" stroke="#374151" stroke-width="1.5"/>
+  <text x="476" y="374" text-anchor="middle" font-size="13">RESTART</text>
+
+  <!-- Arrow switch → KONEC -->
+  <line x1="350" y1="520" x2="350" y2="638" stroke="#374151" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- KONEC terminal -->
+  <rect x="270" y="638" width="160" height="40" rx="20" fill="white" stroke="#374151" stroke-width="2"/>
+  <text x="350" y="663" text-anchor="middle" font-weight="600" font-size="15">KONEC</text>
+
+</svg>

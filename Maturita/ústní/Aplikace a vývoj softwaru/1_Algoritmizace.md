@@ -12,7 +12,7 @@
 
 ## Základní vlastnosti
 
-Pro každý správně sestavený algoritmus platí tyto klíčové vlastnosti:
+Pro každý správn ě sestavený algoritmus platí tyto klíčové vlastnosti:
 
 * **Konečnost (Finitnost):** Algoritmus musí skončit po konečném množství kroků.
 * **Jednoznačnost (Determinovanost):** Každý krok musí být jasně definovaný. Pořadí operací je kritické (např. při otevírání dveří musíme nejdříve odemknout, až pak táhnout).
@@ -33,6 +33,8 @@ Zápis se pohybuje na spektru od lidské řeči až po kód srozumitelný stroji
 ### 2. Vývojové diagramy
 * Grafické znázornění pomocí standardizovaných symbolů (obdélníky, kosočtverce atd.).
 * Ideální pro vizualizaci logiky a větvení.
+
+![Příklad vývojového diagramu](flowchart.svg)
 
 ### 3. Pseudokód
 Čitelný text připomínající kód, u kterého nás netrápí syntaxe konkrétního jazyka. Je nezávislý na platformě.

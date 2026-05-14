@@ -49,16 +49,31 @@ function setHash(subject, file) {
 }
 
 function wireInternalLinks() {
-  document.querySelectorAll('#note-content a').forEach(a => {
+  document.querySelectorAll('#note-content a[href]').forEach(a => {
     const href = decodeURIComponent(a.getAttribute('href') || '')
-    const match = href.match(/^([^/]+)\/([^/]+\.md)$/)
-    if (!match) return
+    if (!href.endsWith('.md')) return
     a.removeAttribute('href')
     a.style.cursor = 'pointer'
     a.addEventListener('click', e => {
       e.preventDefault()
-      navigateTo(match[1], match[2])
+      const clean = href.replace(/^\.\//, '')
+      const slashIdx = clean.indexOf('/')
+      if (slashIdx !== -1) {
+        navigateTo(clean.slice(0, slashIdx), clean.slice(slashIdx + 1))
+      } else {
+        navigateTo(currentSubject, clean)
+      }
     })
+  })
+}
+
+function fixImages(subject) {
+  const base = subject ? `/static/${encodeURIComponent(subject)}/` : '/static/'
+  document.querySelectorAll('#note-content img').forEach(img => {
+    const src = img.getAttribute('src')
+    if (!src || src.startsWith('http') || src.startsWith('data:') || src.startsWith('/')) return
+    const encoded = src.split('/').map(s => encodeURIComponent(decodeURIComponent(s))).join('/')
+    img.src = base + encoded
   })
 }
 
@@ -86,6 +101,7 @@ async function showNote(subject, file, title, fetchUrl, skipHash) {
   document.getElementById('btn-pdf-mobile').classList.remove('hidden')
   document.getElementById('note-content').innerHTML = marked.parse(data.content || '_Tento zápisek je zatím prázdný._')
   wireInternalLinks()
+  fixImages(subject)
   currentSubject = subject
   currentFile = file
   if (!skipHash) setHash(subject, file)

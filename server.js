@@ -49,6 +49,7 @@ const PORT = process.env.PORT || 4000
 const NOTES_ROOT = path.join(__dirname, 'Maturita', 'ústní')
 
 app.use(express.static(path.join(__dirname, 'public')))
+app.use('/static', express.static(NOTES_ROOT))
 
 function safePath(subject, file) {
   const subjectDir = path.join(NOTES_ROOT, subject)
