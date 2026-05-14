@@ -94,6 +94,7 @@ async function showNote(subject, file, title, fetchUrl, skipHash) {
   document.getElementById('mobile-title').textContent = title
   document.getElementById('note-title').textContent = title
   document.getElementById('btn-pdf-mobile').classList.remove('hidden')
+  document.getElementById('subtopics-title').textContent = title
   const items = data.subtopics ? data.subtopics.split(',').map(s => s.trim()).filter(Boolean) : []
   document.getElementById('note-subtopics-list').innerHTML = items.map(t =>
     `<li class="flex gap-2 py-1.5 border-b border-gray-50 text-xs text-gray-700 leading-snug last:border-0"><span class="text-amber-400 shrink-0 mt-0.5">–</span>${t}</li>`
@@ -464,6 +465,9 @@ document.getElementById('btn-subtopics-close').addEventListener('click', closeSu
     const r = panel.getBoundingClientRect()
     ox = cx - r.left
     oy = cy - r.top
+    // Nastavit left/top PŘED odebráním right, jinak panel skočí
+    panel.style.left = r.left + 'px'
+    panel.style.top = r.top + 'px'
     panel.style.right = 'auto'
     panel.style.transition = 'none'
   }
