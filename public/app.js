@@ -1,9 +1,4 @@
-marked.setOptions({
-  highlight: (code, lang) => {
-    if (lang && hljs.getLanguage(lang)) return hljs.highlight(code, { language: lang }).value
-    return hljs.highlightAuto(code).value
-  }
-})
+// marked v5+ dropped the highlight option — we post-process instead
 
 let currentSubject = null
 let currentFile = null
@@ -100,6 +95,7 @@ async function showNote(subject, file, title, fetchUrl, skipHash) {
   document.getElementById('note-title').textContent = title
   document.getElementById('btn-pdf-mobile').classList.remove('hidden')
   document.getElementById('note-content').innerHTML = marked.parse(data.content || '_Tento zápisek je zatím prázdný._')
+  document.querySelectorAll('#note-content pre code').forEach(el => hljs.highlightElement(el))
   wireInternalLinks()
   fixImages(subject)
   currentSubject = subject
