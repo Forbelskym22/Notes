@@ -85,8 +85,21 @@ Kulturní a technologický přístup propojující vývoj (Development) a provoz
 - Monitoring dle získaných dat se zlepšuje efektivita a kvalita
 
 **CI/CD (Continuous Integration / Continuous Delivery):**
-- Vývojář commitne kód → automaticky se spustí testy → automatické nasazení
-- Nástroje: GitHub Actions, GitLab CI/CD
+
+Cíl: aby se kód dostal od vývojáře na produkci **automaticky a bezpečně**, bez ručního klikání.
+
+**CI — Continuous Integration (průběžná integrace)**
+Každý commit spustí automaticky: sestavení projektu + testy. Pokud něco selže, vývojář to ví okamžitě — ne až za týden při release.
+
+**CD — Continuous Delivery (průběžné nasazení)**
+Pokud CI prošlo, kód se automaticky nasadí na server (staging nebo produkce). Žádné ruční kopírování souborů.
+
+Reálný příklad — tento projekt:
+```
+git push → GitHub Actions spustí testy → SSH na Hetzner → git pull → restart serveru
+```
+
+Nástroje: **GitHub Actions**, GitLab CI/CD, Jenkins
 
 **Kontejnerizace:**
 
