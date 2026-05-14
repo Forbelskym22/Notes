@@ -163,16 +163,6 @@ async function nactiData() {
 ```
 
 ```javascript
-// .then() — starší způsob
-// fetch vrátí Promise (příslib že data přijdou někdy v budoucnu)
-// .then() říká "až data přijdou, udělej toto"
-// .catch() říká "pokud nastane chyba, udělej toto"
-
-fetch("https://api.example.com/data")
-    .then(response => response.json())  // 1. převeď odpověď na JSON
-    .then(data => console.log(data))    // 2. pracuj s daty
-    .catch(error => console.error(error)); // 3. ošetři chybu
-
 // async/await — modernější způsob, čitelnější zápis
 // async označí funkci jako asynchronní
 // await říká "počkej na výsledek než jedeš dál — ale jen uvnitř této funkce"
@@ -194,8 +184,3 @@ fetch("https://api.example.com/data", {
     body: JSON.stringify({ jmeno: "Martin", vek: 18 })
 });
 ```
-
-Rozdíl .then() vs async/await:
-
-- .then() — řetězení, starší, hůř čitelné při více operacích
-- async/await — čitelnější, vypadá jako synchronní kód, modernější
