@@ -39,15 +39,47 @@
         Vyber zápisek ze seznamu.
       </div>
       <div id="note-view" class="hidden">
-        <div id="note-toolbar" class="hidden lg:flex items-center gap-4 sticky top-0 bg-white border-b border-gray-200 px-6 py-4 z-10">
-          <div class="w-32 shrink-0"></div>
-          <h1 id="note-title" class="flex-1 text-2xl font-bold text-gray-900 text-center leading-tight"></h1>
-          <div class="w-32 shrink-0 flex items-center justify-end gap-1.5">
+        <div id="note-toolbar" class="hidden lg:flex items-center sticky top-0 bg-white border-b border-gray-200 px-6 py-4 z-10 relative min-h-[4rem]">
+          <h1 id="note-title" class="absolute left-1/2 -translate-x-1/2 text-2xl font-bold text-gray-900 text-center leading-tight max-w-[50%] truncate pointer-events-none"></h1>
+          <div class="ml-auto shrink-0 flex items-center gap-1.5">
+            <button id="btn-flashcards" class="text-sm px-3 py-1.5 rounded-md bg-amber-100 text-amber-900 hover:bg-amber-200 transition-colors font-medium">Kartičky</button>
             <button id="btn-download" class="text-sm px-3 py-1.5 rounded-md bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium">.md</button>
             <button id="btn-pdf" class="text-sm px-3 py-1.5 rounded-md bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium">PDF</button>
           </div>
         </div>
         <article id="note-content" class="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-10 w-full"></article>
+      </div>
+
+      <div id="flashcard-view" class="hidden h-full flex flex-col">
+        <div class="hidden lg:flex items-center sticky top-0 bg-white border-b border-gray-200 px-6 py-4 z-10 relative min-h-[4rem]">
+          <button id="btn-back-to-note" class="shrink-0 text-sm px-3 py-1.5 rounded-md border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors">← zápisek</button>
+          <span id="card-counter" class="absolute left-1/2 -translate-x-1/2 text-sm text-gray-400 pointer-events-none"></span>
+        </div>
+        <div id="flashcard-loading" class="flex-1 flex flex-col items-center justify-center gap-3 text-gray-400">
+          <svg class="w-6 h-6 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/></svg>
+          <span class="text-sm">Generuji kartičky…</span>
+        </div>
+        <div id="flashcard-content" class="hidden flex-1 flex flex-col items-center justify-center gap-6 p-8">
+          <div id="card-wrap" class="cursor-pointer select-none w-full" style="max-width:560px;perspective:1200px" onclick="flipCard()">
+            <div id="card-inner" class="relative w-full transition-transform duration-500" style="height:260px;transform-style:preserve-3d">
+              <div class="card-face absolute inset-0 bg-white border-2 border-amber-200 rounded-2xl p-8 flex items-center justify-center shadow-sm">
+                <p id="card-q" class="text-center text-lg font-medium text-gray-800 leading-relaxed"></p>
+              </div>
+              <div class="card-face absolute inset-0 bg-amber-50 border-2 border-amber-300 rounded-2xl p-8 flex items-center justify-center shadow-sm" style="transform:rotateY(180deg)">
+                <p id="card-a" class="text-center text-gray-700 leading-relaxed"></p>
+              </div>
+            </div>
+          </div>
+          <p class="text-xs text-gray-400">klikni nebo mezerník pro otočení</p>
+          <div class="flex items-center gap-3">
+            <button id="card-prev" class="px-5 py-2 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors disabled:opacity-30">←</button>
+            <button id="card-next" class="px-5 py-2 rounded-lg bg-amber-400 text-gray-900 hover:bg-amber-500 transition-colors font-medium disabled:opacity-30">→</button>
+          </div>
+          <button id="btn-back-to-note-mobile" class="lg:hidden text-sm text-gray-400 hover:text-gray-600 underline">← zpět na zápisek</button>
+        </div>
+        <div id="flashcard-error" class="hidden flex-1 flex items-center justify-center text-red-400 text-sm">
+          Nepodařilo se vygenerovat kartičky.
+        </div>
       </div>
     </main>
   </div>

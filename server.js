@@ -44,6 +44,7 @@ ${content}
 </body></html>`
 }
 
+
 const app = express()
 const PORT = process.env.PORT || 4000
 const NOTES_ROOT = path.join(__dirname, 'Maturita', 'ústní')
@@ -142,6 +143,20 @@ app.get('/api/pdf/:subject/:file', async (req, res) => {
   const match = req.params.file.match(/^(\d+)_(.+)\.md$/)
   const title = match ? `${match[1]}. ${match[2]}` : req.params.file.replace(/\.md$/, '')
   await generatePdf(filePath, title, res)
+})
+
+app.get('/api/flashcards/_root/:file', (req, res) => {
+  const jsonPath = path.join(NOTES_ROOT, req.params.file.replace(/\.md$/, '.cards.json'))
+  if (!jsonPath.startsWith(NOTES_ROOT) || !fs.existsSync(jsonPath)) return res.status(404).json([])
+  res.json(JSON.parse(fs.readFileSync(jsonPath, 'utf8')))
+})
+
+app.get('/api/flashcards/:subject/:file', (req, res) => {
+  const mdPath = safePath(req.params.subject, req.params.file)
+  if (!mdPath) return res.status(400).json([])
+  const jsonPath = mdPath.replace(/\.md$/, '.cards.json')
+  if (!fs.existsSync(jsonPath)) return res.status(404).json([])
+  res.json(JSON.parse(fs.readFileSync(jsonPath, 'utf8')))
 })
 
 app.get('/api/download/:subject/:file', (req, res) => {

@@ -6,6 +6,15 @@
 }
 
 
+.card-face {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+#card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
 @media print {
   #sidebar, #note-toolbar, #btn-open-sidebar, #overlay { display: none !important; }
   #note-content { padding: 0; max-width: 100%; }

@@ -9,6 +9,7 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.96.0",
     "express": "^5.1.0",
     "highlight.js": "^11.11.1",
     "marked": "^18.0.3",
