@@ -17,9 +17,23 @@ Switch přeposílá rámce na základě MAC adres – každý port je samostatn�
 
 **STP** – protokol zabraňující L2 smyčkám; blokuje redundantní porty a při výpadku linky odblokuje záložní port.
 
+### Bridge ID
+
+Bridge ID má 8 bajtů a skládá se ze tří částí:
+
+```
+[ Priorita (4 bity) | VLAN ID (12 bitů) | MAC adresa (48 bitů) ]
+```
+
+- **Priorita** — 4 bity, hodnoty 0–61440 v krocích po 4096 (výchozí = 32768)
+- **VLAN ID** — 12 bitů, identifikuje VLAN (0–4095)
+- **MAC adresa** — 48 bitů, unikátní adresa switche
+
+Priorita + VLAN ID dohromady tvoří 16bitové pole zvané **Bridge Priority**. Například výchozí priorita 32768 pro VLAN 1 = 32768 + 1 = **32769**.
+
 ### Volba Root Bridge
 1. Všechny switche začnou jako kandidáti
-2. Volí se switch s **nejnižším Bridge ID** (= priorita + MAC adresa)
+2. Volí se switch s **nejnižším Bridge ID** (= priorita + VLAN ID + MAC adresa)
 3. Výchozí priorita = 32768; lze ručně snížit pro preferovaný switch
 4. Zvolený switch = **Root Bridge** – všechny jeho porty jsou Designated (přeposílají)
 
