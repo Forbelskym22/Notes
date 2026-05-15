@@ -144,6 +144,20 @@ chmod 644 soubor     # rw-r--r--
 chown user:group soubor   # změna vlastníka
 ```
 
+**Speciální bity:**
+
+- **Sticky bit** (`t`) — na adresáři znamená že soubor v něm může smazat jen jeho vlastník, i když má skupina právo zápisu. Používá se na `/tmp` — každý může vytvářet soubory, ale cizí mazat nemůže.
+  ```bash
+  chmod +t /tmp        # nastavení sticky bitu
+  # zobrazí se jako: drwxrwxrwt
+  ```
+
+- **Setuid** (`s`) — spustitelný soubor běží s právy vlastníka souboru, ne s právy toho kdo ho spouští. Příklad: `passwd` — běžný uživatel ho spustí, ale běží jako root aby mohl měnit `/etc/shadow`.
+  ```bash
+  chmod u+s soubor     # nastavení setuid
+  # zobrazí se jako: -rwsr-xr-x
+  ```
+
 ---
 
 ## Správa balíčků
