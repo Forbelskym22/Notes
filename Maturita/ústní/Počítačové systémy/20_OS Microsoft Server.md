@@ -78,6 +78,11 @@ Active Directory je adresářová služba Microsoftu – centrální databáze u
 | **Global** | Celý forest | Seskupení uživatelů ze stejné domény |
 | **Universal** | Celý forest | Seskupení uživatelů z více domén |
 
+### Práva vs. oprávnění
+
+- **Práva (Rights/Privileges)** — co smíš dělat se systémem (přihlásit se, vypnout server, zálohovat). Nastavují se v GPO → User Rights Assignment. Přiřazují se skupinám.
+- **Oprávnění (Permissions)** — co smíš dělat s konkrétním objektem (soubor, složka, sdílení). Čtení, zápis, mazání.
+
 ### Oprávnění NTFS
 - **Základní:** Číst, Zapisovat, Číst a spustit, Zobrazit obsah složky, Upravit, Úplné řízení
 - Oprávnění se **dědí** z nadřazené složky (lze zablokovat)
