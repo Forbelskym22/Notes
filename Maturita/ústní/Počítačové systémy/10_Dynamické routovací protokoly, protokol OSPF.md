@@ -59,7 +59,7 @@ Dynamické protokoly umožňují routerům **automaticky sdílet informace o sí
 ### Základní vlastnosti
 - **Link state** protokol, IGP
 - Otevřený standard (RFC 2328 pro OSPFv2, RFC 5340 pro OSPFv3 / IPv6)
-- Metrika = **cost** (10⁸ / bandwidth rozhraní v bps)
+- Metrika = **cost** (10⁸ / bandwidth rozhraní v bps) — základ 10⁸ se nazývá **reference bandwidth**, lze změnit příkazem `auto-cost reference-bandwidth`
 - Rychlá konvergence, škálovatelné díky oblastem (areas)
 - Používá **SPF algoritmus** pro výpočet nejkratší cesty
 - Přenáší zprávy přímo přes IP (protokol číslo 89), nepoužívá TCP/UDP
