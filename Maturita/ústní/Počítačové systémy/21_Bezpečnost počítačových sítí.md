@@ -93,12 +93,7 @@ Obrana: antivirus, pravidelné aktualizace, neotevírat podezřelé přílohy, z
 - Lze nastavit maximální počet MAC adres na port
 - Při připojení neznámé MAC adresy switch port zablokuje, pošle alert nebo zahodí paket
 - Obrana proti MAC flooding útokům a neoprávněnému připojení zařízení
-- Obrana proti **DHCP starvation** — útočník posílá DHCP requesty s falešnými MAC adresami a vyčerpá celý pool IP adres; port security omezí počet MAC na port → útok selže
-
-**DHCP Snooping** — funkce switche která rozlišuje důvěryhodné a nedůvěryhodné porty pro DHCP.
-- Obrana proti **DHCP spoofing** — útočník spustí falešný DHCP server, který klientům posílá špatnou výchozí bránu nebo DNS → MitM útok
-- Důvěryhodné porty (uplink na legitimní DHCP server) — DHCP odpovědi povoleny
-- Nedůvěryhodné porty (přípojky klientů) — DHCP odpovědi blokovány; pokud přijde DHCP odpověď z klientského portu, port se zablokuje
+- Obrana proti **DHCP starvation** — útočník posílá DHCP requesty s falešnými MAC adresami a vyčerpá pool IP adres; port security omezí počet MAC na port → útok selže
 
 **Aktualizace** — záplatování zranitelností v OS a síťových prvcích.
 

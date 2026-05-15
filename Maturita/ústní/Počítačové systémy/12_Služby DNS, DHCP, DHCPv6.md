@@ -98,6 +98,16 @@ ip dhcp pool SITI_1
 ip dhcp excluded-address 192.168.1.1 192.168.1.10
 ```
 
+### Útoky na DHCP
+
+**DHCP Starvation** — útočník posílá DHCP Discover zprávy s falešnými MAC adresami a vyčerpá celý pool IP adres. Legitimní zařízení pak nedostanou IP adresu.
+- Obrana: **Port security** — omezí počet MAC adres na port → útočník nemůže používat tisíce různých MAC
+
+**DHCP Spoofing** — útočník spustí falešný DHCP server, který odpovídá klientům dříve než legitimní server. Klientům podstrčí špatnou výchozí bránu nebo DNS → Man-in-the-Middle útok.
+- Obrana: **DHCP Snooping** — funkce switche, která rozlišuje důvěryhodné a nedůvěryhodné porty
+  - Důvěryhodné porty (uplink na legitimní DHCP server) — DHCP odpovědi povoleny
+  - Nedůvěryhodné porty (přípojky klientů) — DHCP odpovědi blokovány; pokud přijde odpověď z klientského portu, port se zablokuje
+
 ---
 
 ## DHCPv6
