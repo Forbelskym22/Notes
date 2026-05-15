@@ -108,17 +108,17 @@ Aplikační vrstva je nejvyšší vrstva síťového modelu (OSI vrstva 7, TCP/I
 
 ## Přehledová tabulka
 
-| Protokol | Port | Popis |
-| -------- | ---- | ----- |
-| HTTP | 80 | Webové stránky |
-| HTTPS | 443 | Webové stránky (šifrované, TLS) |
-| FTP | 20/21 | Přenos souborů |
-| SFTP | 22 | Přenos souborů (přes SSH) |
-| SSH | 22 | Vzdálený přístup (šifrovaný) |
-| Telnet | 23 | Vzdálený přístup (nešifrovaný) |
-| SMTP | 25/587 | Odesílání e-mailů |
-| DNS | 53 | Překlad jmen na IP |
-| DHCP | 67/68 | Přidělování IP adres |
-| POP3 | 110 | Stahování e-mailů |
-| IMAP | 143 | Přístup k e-mailům na serveru |
-| NTP | 123 | Synchronizace času |
+| Protokol | Port | TCP/UDP | Popis |
+| -------- | ---- | ------- | ----- |
+| HTTP | 80 | TCP | Webové stránky |
+| HTTPS | 443 | TCP | Webové stránky (šifrované, TLS) |
+| FTP | 20/21 | TCP | Přenos souborů |
+| SFTP | 22 | TCP | Přenos souborů (přes SSH) |
+| SSH | 22 | TCP | Vzdálený přístup (šifrovaný) |
+| Telnet | 23 | TCP | Vzdálený přístup (nešifrovaný) |
+| SMTP | 25/587 | TCP | Odesílání e-mailů |
+| DNS | 53 | UDP (TCP pro zónové přenosy) | Překlad jmen na IP |
+| DHCP | 67/68 | UDP | Přidělování IP adres |
+| POP3 | 110 | TCP | Stahování e-mailů |
+| IMAP | 143 | TCP | Přístup k e-mailům na serveru |
+| NTP | 123 | UDP | Synchronizace času |
