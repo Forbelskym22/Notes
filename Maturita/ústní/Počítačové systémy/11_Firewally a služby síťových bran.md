@@ -59,6 +59,32 @@ interface GigabitEthernet0/0
  ip access-group 100 in
 ```
 
+### iptables (Linux)
+
+Linuxový softwarový firewall. Pravidla se skládají z: **tabulky → řetězce → pravidla**.
+
+Hlavní řetězce:
+- **INPUT** — provoz směřující do tohoto zařízení
+- **OUTPUT** — provoz odesílaný z tohoto zařízení
+- **FORWARD** — provoz procházející přes toto zařízení (router)
+
+```bash
+# Syntaxe:
+iptables -A <řetězec> -p <protokol> --dport <port> -j <akce>
+# -A = append (přidat pravidlo), -j = jump (akce: ACCEPT / DROP / REJECT)
+
+# Příklady:
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT    # povol SSH
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT    # povol HTTP
+iptables -A INPUT -j DROP                        # zahoď vše ostatní
+
+# Zobrazení pravidel:
+iptables -L -n -v
+
+# Smazání všech pravidel:
+iptables -F
+```
+
 ---
 
 ## NAT – Network Address Translation
