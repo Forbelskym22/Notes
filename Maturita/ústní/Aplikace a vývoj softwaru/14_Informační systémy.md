@@ -44,45 +44,38 @@ Modelování dat je součástí návrhu IS — každý IS potřebuje datový mod
 
 Sada pravidel pro odstranění redundancí a nekonzistencí — aby se stejná data neukládala vícekrát a oprava na jednom místě stačila. V praxi se používají 3 normální formy, každá vyšší zahrnuje tu předchozí.
 
-Sloupce závisí na PK = podle PK poznáš všechny ostatní hodnoty řádku:
+Sloupce závisí na PK = podle PK poznáš všechny ostatní hodnoty řádku. Znáš `id = 1` → víš že je to Martin, vek=18. `jmeno` i `vek` závisí na `id`.
 
 | id | jmeno | vek |
 |---|---|---|
 | 1 | Martin | 18 |
 
-Když znáš `id = 1`, víš že je to Martin a je mu 18 → `jmeno` i `vek` závisí na `id`. 
+**1. NF** — každá hodnota musí být atomická (dále nedělitelná). Jeden sloupec = jedna věc.
+- adresa jako jeden řetězec → rozdělit na `Ulice`, `Čp.`, `Město`, `PSČ`
+- sloupce `Zboží1`, `Zboží2`, `Zboží3`… → udělat zvláštní tabulku položek
 
-- **1. NF** — každá hodnota musí být atomická (dále nedělitelná) a nesmí existovat opakující se skupiny sloupců. Prostě: *"jeden sloupec = jedna věc."*
-  - adresa jako jeden řetězec porušuje 1NF → rozdělit na `Ulice`, `Čp.`, `Město`, `PSČ`
-  - sloupce `Zboží1`, `Zboží2`, `Zboží3`… porušují 1NF → udělat zvláštní tabulku položek
+**2. NF** — každý atribut musí záviset na celém primárním klíči, ne jen na jeho části. Řeší se jen když máš složený PK (z více sloupců).
 
-- **2. NF** — každý atribut musí záviset na **celém** primárním klíči, ne jen na jeho části. Řeší se jen když máš složený PK (z více sloupců).
+PK je `objednavka_id + produkt_id` dohromady:
 
-  Příklad — PK je `objednavka_id + produkt_id` dohromady:
+| objednavka_id | produkt_id | mnozstvi | nazev_produktu |
+|---|---|---|---|
+| 1 | 5 | 2 | Tužka |
+| 1 | 8 | 1 | Sešit |
 
-  | objednavka_id | produkt_id | mnozstvi | nazev_produktu |
-  |---|---|---|---|
-  | 1 | 5 | 2 | Tužka |
-  | 1 | 8 | 1 | Sešit |
+`mnozstvi` závisí na obou sloupcích PK — kolik kusů produktu 5 je v objednávce 1.
+`nazev_produktu` závisí jen na `produkt_id` — název tužky nezávisí na tom v které objednávce je. Patří do vlastní tabulky produktů.
 
-  `mnozstvi` závisí na obou sloupcích PK — kolik kusů produktu 5 je v objednávce 1.
+**3. NF** — žádný atribut nesmí záviset na jiném neklíčovém atributu. Pokud sloupec závisí na jiném sloupci (ne na PK), patří do vlastní tabulky.
 
-  `nazev_produktu` závisí jen na `produkt_id` — název tužky nezávisí na tom v které objednávce je.
+`mesto` závisí na `psc`, ne na `id`:
 
-  Správně — `nazev_produktu` do vlastní tabulky produktů.
+| id | jmeno | psc | mesto |
+|---|---|---|---|
+| 1 | Martin | 10000 | Praha |
+| 2 | Jana | 10000 | Praha |
 
-- **3. NF** — žádný atribut nesmí záviset na jiném neklíčovém atributu. Prostě: *"pokud sloupec závisí na jiném sloupci (ne na PK), patří do vlastní tabulky."*
-
-  Špatně — `mesto` závisí na `psc`, ne na `id`:
-
-  | id | jmeno | psc | mesto |
-  |---|---|---|---|
-  | 1 | Martin | 10000 | Praha |
-  | 2 | Jana | 10000 | Praha |
-
-  Správně — rozdělit:
-
-  **osoby:** `id, jmeno, psc` → **mesta:** `psc, mesto`
+Správně — rozdělit: **osoby:** `id, jmeno, psc` → **mesta:** `psc, mesto`
 
 ---
 
