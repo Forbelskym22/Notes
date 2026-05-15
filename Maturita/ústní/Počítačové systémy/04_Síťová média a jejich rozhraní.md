@@ -25,7 +25,7 @@ Nejrozšířenější síťové médium pro LAN. Páry vodičů jsou zkrouceny �
 | Cat 6 | 1 Gb/s (10 Gb/s do 55 m) | 100 m | Běžné LAN |
 | Cat 6A | 10 Gb/s | 100 m | Datová centra |
 | Cat 7 | 10 Gb/s | 100 m | Průmysl, STP |
-| Cat 8 | 25/40 Gb/s | 30 m | Datová centra |
+| Cat 8 | 40 Gb/s | 30 m | Datová centra |
 
 **Konektory:** RJ-45 (8P8C) – standardní konektor pro Ethernet; RJ-11 – telefonní linka, používán i pro DSL připojení k internetu
 
