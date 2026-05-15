@@ -121,13 +121,21 @@ Jednosměrná funkce — ze vstupu vytvoří otisk pevné délky (hash). Nelze z
 ### Diffie-Hellman výměna klíčů
 Způsob jak si dvě strany bezpečně dohodnou sdílený klíč přes nezabezpečený kanál — bez toho aby klíč někdy přenášely.
 
-Princip (zjednodušeně):
-1. Obě strany se dohodnou na veřejných parametrech (velké prvočíslo)
-2. Každá strana si vygeneruje soukromé číslo a z něj vypočítá veřejnou hodnotu
-3. Veřejné hodnoty si vymění (může je vidět kdokoliv)
-4. Každá strana zkombinuje svou soukromou hodnotu s veřejnou hodnotou druhé strany → výsledek je na obou stranách stejný sdílený klíč
+Analogie s barvami — míchání barev je jednosměrné (jako matematická operace, nelze snadno odvodit složky):
 
-Útočník vidí veřejné hodnoty, ale bez soukromých čísel sdílený klíč nedokáže odvodit (diskrétní logaritmus je výpočetně neřešitelný pro dostatečně velká čísla).
+<div style="font-family:monospace;line-height:2;font-size:13px">
+  <span style="color:#888">Veřejná barva (vidí všichni):</span> <span style="background:#f5c518;color:#000;padding:1px 8px;border-radius:3px">žlutá</span>
+  <br><br>
+  <b>Alice</b> — tajná barva: <span style="background:#e74c3c;color:#fff;padding:1px 8px;border-radius:3px">červená</span> &nbsp;→&nbsp; smíchá: <span style="background:#e67e22;color:#fff;padding:1px 8px;border-radius:3px">oranžová</span> &nbsp;→&nbsp; pošle Bobovi<br>
+  <b>Bob</b> &nbsp;&nbsp;— tajná barva: <span style="background:#2980b9;color:#fff;padding:1px 8px;border-radius:3px">modrá</span> &nbsp;&nbsp;&nbsp;→&nbsp; smíchá: <span style="background:#27ae60;color:#fff;padding:1px 8px;border-radius:3px">zelená</span> &nbsp;&nbsp;→&nbsp; pošle Alici
+  <br><br>
+  <b>Alice</b> přidá svou <span style="background:#e74c3c;color:#fff;padding:1px 8px;border-radius:3px">červenou</span> k přijaté <span style="background:#27ae60;color:#fff;padding:1px 8px;border-radius:3px">zelené</span> &nbsp;→&nbsp; <span style="background:#6d4c41;color:#fff;padding:1px 8px;border-radius:3px">hnědá</span><br>
+  <b>Bob</b> &nbsp;&nbsp;přidá svou <span style="background:#2980b9;color:#fff;padding:1px 8px;border-radius:3px">modrou</span> k přijaté <span style="background:#e67e22;color:#fff;padding:1px 8px;border-radius:3px">oranžové</span> &nbsp;→&nbsp; <span style="background:#6d4c41;color:#fff;padding:1px 8px;border-radius:3px">hnědá</span>
+  <br><br>
+  <span style="color:#888">Útočník vidí: <span style="background:#f5c518;color:#000;padding:1px 8px;border-radius:3px">žlutá</span> + <span style="background:#e67e22;color:#fff;padding:1px 8px;border-radius:3px">oranžová</span> + <span style="background:#27ae60;color:#fff;padding:1px 8px;border-radius:3px">zelená</span> — bez tajných barev <span style="background:#6d4c41;color:#fff;padding:1px 8px;border-radius:3px">hnědou</span> nezíská</span>
+</div>
+
+Sdílený klíč (hnědá) vznikl na obou stranách stejný — aniž by ho někdo přenesl po síti.
 
 ### VPN (Virtual Private Network)
 Šifrovaný tunel přes internet — umožňuje bezpečné připojení do vzdálené sítě (firemní síť z domova).
