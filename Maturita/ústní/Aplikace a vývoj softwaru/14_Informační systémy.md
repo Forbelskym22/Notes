@@ -44,6 +44,14 @@ Modelování dat je součástí návrhu IS — každý IS potřebuje datový mod
 
 Sada pravidel pro odstranění redundancí a nekonzistencí — aby se stejná data neukládala vícekrát a oprava na jednom místě stačila. V praxi se používají 3 normální formy, každá vyšší zahrnuje tu předchozí.
 
+Sloupce závisí na PK = podle PK poznáš všechny ostatní hodnoty řádku:
+
+| id | jmeno | vek |
+|---|---|---|
+| 1 | Martin | 18 |
+
+Když znáš `id = 1`, víš že je to Martin a je mu 18 → `jmeno` i `vek` závisí na `id`. 
+
 - **1. NF** — každá hodnota musí být atomická (dále nedělitelná) a nesmí existovat opakující se skupiny sloupců. Prostě: *"jeden sloupec = jedna věc."*
   - adresa jako jeden řetězec porušuje 1NF → rozdělit na `Ulice`, `Čp.`, `Město`, `PSČ`
   - sloupce `Zboží1`, `Zboží2`, `Zboží3`… porušují 1NF → udělat zvláštní tabulku položek
@@ -51,9 +59,18 @@ Sada pravidel pro odstranění redundancí a nekonzistencí — aby se stejná d
 - **2. NF** — každý atribut musí záviset na **celém** primárním klíči, ne jen na jeho části. Prostě: *"pokud se něco opakuje pořád dokola, patří to jinam."*
   - datum faktury se opakuje u každé položky → oddělit tabulku `Faktury` od `PoložkyFaktury`
 
-- **3. NF** — žádný atribut nesmí záviset na jiném neklíčovém atributu, odvozené hodnoty se neukládají. Prostě: *"co se dá dopočítat, to neukládej."*
-  - sloupec `Celkem = Ks × Cena` → zbytečný, stačí dopočítat při dotazu
-  - `Základní plat` závisí na `Platové třídě`, ne na ID pracovníka → oddělit číselník platových tříd
+- **3. NF** — žádný atribut nesmí záviset na jiném neklíčovém atributu. Prostě: *"pokud sloupec závisí na jiném sloupci (ne na PK), patří do vlastní tabulky."*
+
+  Špatně — `mesto` závisí na `psc`, ne na `id`:
+
+  | id | jmeno | psc | mesto |
+  |---|---|---|---|
+  | 1 | Martin | 10000 | Praha |
+  | 2 | Jana | 10000 | Praha |
+
+  Správně — rozdělit:
+
+  **osoby:** `id, jmeno, psc` → **mesta:** `psc, mesto`
 
 ---
 

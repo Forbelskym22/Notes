@@ -6,7 +6,10 @@
   {"q": "Co je MIS a k čemu slouží?", "a": "Management Information System — bere data z TPS a dělá reporty a přehledy pro střední management. Odpovídá: Co se děje?"},
   {"q": "Co je EIS/ESS?", "a": "Executive Information/Support System — strategické analýzy, trendy a prognózy pro vrcholový management. Odpovídá: Kam míříme?"},
   {"q": "Co je ER diagram?", "a": "Entity-Relationship diagram — grafické znázornění entit (tabulek), jejich atributů a vzájemných vazeb v databázi."},
-  {"q": "Jaké jsou tři normální formy (NF)?", "a": "1NF: atomické hodnoty, PK. 2NF: závislost na celém klíči (ne jen části). 3NF: žádný atribut nezávisí na jiném neklíčovém atributu."},
+  {"q": "Co znamená že sloupce závisí na primárním klíči?", "a": "Podle PK poznáš všechny ostatní hodnoty řádku. Příklad: znáš id=1 → víš že je to Martin, vek=18. jmeno i vek závisí na id."},
+  {"q": "Co říká 1. normální forma (1NF)?", "a": "Každá hodnota musí být atomická — jeden sloupec = jedna věc. Příklad: adresa jako jeden řetězec → rozdělit na Ulice, Město, PSČ. Žádné sloupce Zbozi1, Zbozi2..."},
+  {"q": "Co říká 2. normální forma (2NF)?", "a": "Každý atribut musí záviset na celém primárním klíči, ne jen na jeho části. Pokud se něco opakuje pořád dokola, patří do vlastní tabulky."},
+  {"q": "Co říká 3. normální forma (3NF)?", "a": "Žádný sloupec nesmí záviset na jiném neklíčovém sloupci (jen na PK). Příklad: mesto závisí na psc, ne na id zákazníka → oddělit tabulku mest."},
   {"q": "Co je ERP systém?", "a": "Enterprise Resource Planning — software pro řízení podnikových procesů (účetnictví, nákup, sklad, HR). Příklady: SAP, Helios, Oracle."},
   {"q": "Co je CRM systém?", "a": "Customer Relationship Management — systém pro správu vztahů se zákazníky, sledování nákupů, cílený marketing a zákaznickou péči."}
 ]
