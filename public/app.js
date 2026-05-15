@@ -90,6 +90,7 @@ async function navigateTo(subject, file) {
 async function showNote(subject, file, title, fetchUrl, skipHash) {
   const data = await fetchJSON(fetchUrl)
   document.getElementById('welcome').classList.add('hidden')
+  document.getElementById('flashcard-view').classList.add('hidden')
   document.getElementById('note-view').classList.remove('hidden')
   document.getElementById('mobile-title').textContent = title
   document.getElementById('note-title').textContent = title
