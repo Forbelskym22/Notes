@@ -71,9 +71,9 @@ Při odesílání dat každá vrstva přidá svou **hlavičku** (případně pat
 
 ```
 Aplikační data
-    ↓ + TCP/UDP hlavička → Segment
-    ↓ + IP hlavička      → Paket
-    ↓ + Ethernet hlavička + patička → Rámec
+    ↓ + TCP/UDP hlavička → Segment  (adresace: port — identifikuje aplikaci)
+    ↓ + IP hlavička      → Paket    (adresace: IP adresa — identifikuje zařízení v síti)
+    ↓ + Ethernet hlavička + patička → Rámec  (adresace: MAC adresa — identifikuje zařízení v LAN)
     ↓ převod na bity     → Bity
 ```
 
