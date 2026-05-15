@@ -37,6 +37,14 @@ Priorita + VLAN ID dohromady tvoří 16bitové pole zvané **Bridge Priority**. 
 3. Výchozí priorita = 32768; lze ručně snížit pro preferovaný switch
 4. Zvolený switch = **Root Bridge** – všechny jeho porty jsou Designated (přeposílají)
 
+### Role portů STP
+
+| Role | Popis |
+| ---- | ----- |
+| **Root Port** | Nejlepší cesta z daného switche k Root Bridge — vždy jen jeden na switch |
+| **Designated Port** | Přeposílá provoz na daný síťový segment — jeden na každý segment |
+| **Blocked Port** | Blokovaný port bránící smyčce — nepřeposílá data |
+
 ### Stavy portů STP
 
 | Stav | Popis |
