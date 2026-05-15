@@ -5,7 +5,7 @@ Dynamické protokoly umožňují routerům **automaticky sdílet informace o sí
 
 ## Rozdělení dynamických protokolů
 
-![[routing_protokoly.svg|697]]
+![routing protokoly](routing_protokoly.svg)
 
 ### Podle oblasti působení
 
