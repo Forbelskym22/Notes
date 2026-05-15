@@ -113,10 +113,16 @@ Jednosměrná funkce — ze vstupu vytvoří otisk pevné délky (hash). Nelze z
 - Příklady: **SHA-256**, MD5 (zastaralý)
 - Použití: ukládání hesel, ověření integrity souborů
 
-### TLS / HTTPS
-TLS (Transport Layer Security) — šifrování komunikace mezi prohlížečem a serverem.
-- Kombinuje asymetrické šifrování (výměna klíče) a symetrické (přenos dat)
-- Certifikát vydává **CA** (Certificate Authority) — ověřuje identitu serveru
+### Diffie-Hellman výměna klíčů
+Způsob jak si dvě strany bezpečně dohodnou sdílený klíč přes nezabezpečený kanál — bez toho aby klíč někdy přenášely.
+
+Princip (zjednodušeně):
+1. Obě strany se dohodnou na veřejných parametrech (velké prvočíslo)
+2. Každá strana si vygeneruje soukromé číslo a z něj vypočítá veřejnou hodnotu
+3. Veřejné hodnoty si vymění (může je vidět kdokoliv)
+4. Každá strana zkombinuje svou soukromou hodnotu s veřejnou hodnotou druhé strany → výsledek je na obou stranách stejný sdílený klíč
+
+Útočník vidí veřejné hodnoty, ale bez soukromých čísel sdílený klíč nedokáže odvodit (diskrétní logaritmus je výpočetně neřešitelný pro dostatečně velká čísla).
 
 ### VPN (Virtual Private Network)
 Šifrovaný tunel přes internet — umožňuje bezpečné připojení do vzdálené sítě (firemní síť z domova).
