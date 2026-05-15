@@ -89,6 +89,11 @@ Obrana: antivirus, pravidelné aktualizace, neotevírat podezřelé přílohy, z
 
 **VLAN** — logické oddělení sítě, omezuje dosah útoku (kompromitovaný počítač nevidí zbytek sítě).
 
+**Port security** — funkce switche která omezuje které MAC adresy se mohou připojit na daný port.
+- Lze nastavit maximální počet MAC adres na port
+- Při připojení neznámé MAC adresy switch port zablokuje, pošle alert nebo zahodí paket
+- Obrana proti MAC flooding útokům a neoprávněnému připojení zařízení
+
 **Aktualizace** — záplatování zranitelností v OS a síťových prvcích.
 
 **Silná hesla + 2FA** — ochrana přístupu ke správě zařízení.
