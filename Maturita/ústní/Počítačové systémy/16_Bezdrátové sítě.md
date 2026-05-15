@@ -23,7 +23,7 @@ Bezdrátové sítě přenášejí data pomocí **elektromagnetických vln** (rá
 - Větší dosah, lepší průchod zdmi
 - Více rušení (mikrovlnky, Bluetooth, sousední sítě)
 - V ČR dostupné kanály **1–13**, šířka kanálu 20 MHz (nebo 40 MHz u 802.11n+)
-- Kanály jsou rozestupy 5 MHz a překrývají se – nepřekrývající se jsou pouze **1, 6, 11**
+- Kanály jsou rozestupy 5 MHz a překrývají se – nepřekrývající se jsou pouze **1, 7, 13**
 
 | Kanál | Střední frekvence |
 | ----- | ----------------- |
@@ -90,7 +90,7 @@ Bezdrátové sítě přenášejí data pomocí **elektromagnetických vln** (rá
 ## Interference a rušení
 
 - **Ko-kanálová interference** – více AP na stejném kanálu v dosahu
-- **Sousední kanálová interference** – překrývající se kanály (proto kanály 1, 6, 11 na 2,4 GHz)
+- **Sousední kanálová interference** – překrývající se kanály (proto kanály 1, 7, 13 na 2,4 GHz)
 - **Fyzické překážky** – zdi, kovy, sklo zeslabují signál
 - **Řešení:** správné rozmístění AP, plánování kanálů, 5 GHz pásmo
 
