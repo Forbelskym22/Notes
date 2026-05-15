@@ -89,8 +89,6 @@ Obrana: antivirus, pravidelné aktualizace, neotevírat podezřelé přílohy, z
 
 **VLAN** — logické oddělení sítě, omezuje dosah útoku (kompromitovaný počítač nevidí zbytek sítě).
 
-**NAT** (Network Address Translation) — skrývá interní IP adresy za veřejnou IP routeru — pasivní ochrana.
-
 **Aktualizace** — záplatování zranitelností v OS a síťových prvcích.
 
 **Silná hesla + 2FA** — ochrana přístupu ke správě zařízení.
