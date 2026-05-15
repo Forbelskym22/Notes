@@ -65,9 +65,9 @@ Když znáš `id = 1`, víš že je to Martin a je mu 18 → `jmeno` i `vek` zá
   | 1 | 5 | 2 | Tužka |
   | 1 | 8 | 1 | Sešit |
 
-  `mnozstvi` závisí na obou sloupcích PK ✅ — kolik kusů produktu 5 je v objednávce 1.
+  `mnozstvi` závisí na obou sloupcích PK — kolik kusů produktu 5 je v objednávce 1.
 
-  `nazev_produktu` závisí jen na `produkt_id` ❌ — název tužky nezávisí na tom v které objednávce je.
+  `nazev_produktu` závisí jen na `produkt_id` — název tužky nezávisí na tom v které objednávce je.
 
   Správně — `nazev_produktu` do vlastní tabulky produktů.
 
