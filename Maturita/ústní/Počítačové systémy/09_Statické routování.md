@@ -88,6 +88,28 @@ ping 10.0.0.1              ! test dosažitelnosti
 traceroute 10.0.0.1        ! trasa paketu
 ```
 
+### Příklad směrovací tabulky (`show ip route`)
+
+```
+Codes: C - connected, S - static, O - OSPF, L - local
+
+Gateway of last resort is 0.0.0.0 to network 0.0.0.0
+
+C    192.168.1.0/24 is directly connected, GigabitEthernet0/0
+L    192.168.1.1/32 is directly connected, GigabitEthernet0/0
+C    10.0.0.0/30 is directly connected, Serial0/0/0
+L    10.0.0.1/32 is directly connected, Serial0/0/0
+S    172.16.0.0/24 [1/0] via 10.0.0.2
+O    172.17.0.0/24 [110/65] via 10.0.0.2, Serial0/0/0
+S*   0.0.0.0/0 [1/0] via 10.0.0.2
+```
+
+- **C** — přímo připojená síť
+- **L** — lokální adresa rozhraní (host route /32)
+- **S** — statická trasa; `[1/0]` = AD 1 / metrika 0
+- **O** — OSPF trasa; `[110/65]` = AD 110 / cost 65
+- **S\*** — výchozí statická trasa (default route)
+
 ---
 
 ## Práce routeru se směrovací tabulkou
