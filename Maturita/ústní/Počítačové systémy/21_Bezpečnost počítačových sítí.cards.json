@@ -1,0 +1,19 @@
+[
+  {"q": "Co je hrozba, zranitelnost a riziko?", "a": "Hrozba = potenciální nebezpečí. Zranitelnost = slabina kterou hrozba zneužije. Riziko = hrozba × zranitelnost — pravděpodobnost že k útoku dojde."},
+  {"q": "Co je CIA triáda?", "a": "Confidentiality (důvěrnost) — data vidí jen oprávnění. Integrity (integrita) — data nebyla změněna. Availability (dostupnost) — systém funguje když ho potřebuješ."},
+  {"q": "Co patří do fyzické bezpečnosti sítě?", "a": "Zamčená serverovna s kamerou a biometrikou, uzamčený rack, UPS (záložní napájení), fyzicky oddělená kabeláž."},
+  {"q": "Co je sniffing a jak se bránit?", "a": "Zachytávání síťového provozu (Wireshark). Obrana: šifrování — HTTPS, VPN."},
+  {"q": "Co je DoS a DDoS?", "a": "Denial of Service — zahlcení serveru požadavky. DoS = jeden útočník, DDoS = tisíce zařízení (botnet). Obrana: firewall, rate limiting, CDN."},
+  {"q": "Co je Man-in-the-Middle útok?", "a": "Útočník se vloží mezi dvě strany a odposlouchává nebo mění provoz. Obrana: HTTPS, certifikáty, VPN."},
+  {"q": "Co je spoofing?", "a": "Podvržení identity — IP spoofing, MAC spoofing, DNS spoofing. DNS spoofing přesměruje uživatele na falešnou stránku podvržením odpovědi DNS serveru."},
+  {"q": "Co je SQL injection?", "a": "Vložení SQL kódu do vstupu aplikace — útočník manipuluje s databází. Příklad: ' OR 1=1 --. Obrana: parametrizované dotazy, validace vstupu."},
+  {"q": "Jaký je rozdíl mezi virem, červem a trojským koněm?", "a": "Virus = připojí se k souboru, šíří se spuštěním. Worm (červ) = šíří se sám po síti bez interakce. Trojan = tváří se jako legitimní program, skrytě škodí."},
+  {"q": "Co je ransomware?", "a": "Malware který zašifruje data a požaduje výkupné za dešifrování. Příklad: WannaCry (2017)."},
+  {"q": "Co je firewall a jaký je rozdíl mezi stavovým a NGFW?", "a": "Filtruje provoz podle pravidel. Stavový sleduje stav spojení. NGFW (Next-Generation) provádí inspekci obsahu paketů a detekci aplikací."},
+  {"q": "Jaký je rozdíl mezi IDS a IPS?", "a": "IDS (Detection) — detekuje podezřelý provoz a upozorní admina. IPS (Prevention) — detekuje a aktivně blokuje."},
+  {"q": "Co je DMZ?", "a": "Demilitarizovaná zóna — oddělená síťová zóna pro veřejně přístupné servery (web, mail), odděluje je od interní sítě."},
+  {"q": "Jaký je rozdíl mezi symetrickým a asymetrickým šifrováním?", "a": "Symetrické = stejný klíč pro šifrování i dešifrování, rychlé (AES). Asymetrické = dvojice veřejný/soukromý klíč, bezpečná výměna klíče (RSA)."},
+  {"q": "Co je hašování a k čemu se používá?", "a": "Jednosměrná funkce — ze vstupu vytvoří otisk pevné délky. Nelze zpětně získat data. Použití: ukládání hesel, ověření integrity. Příklady: SHA-256, MD5."},
+  {"q": "Jak funguje Diffie-Hellman výměna klíčů?", "a": "Obě strany si vymění veřejné hodnoty a každá zkombinuje svou soukromou hodnotu s veřejnou hodnotou druhé strany — výsledkem je stejný sdílený klíč, aniž by ho kdy přenášely. Útočník klíč bez soukromých čísel neodvodí."},
+  {"q": "Co je VPN?", "a": "Virtual Private Network — šifrovaný tunel přes internet. Umožňuje bezpečné připojení do vzdálené sítě (firemní síť z domova)."}
+]
