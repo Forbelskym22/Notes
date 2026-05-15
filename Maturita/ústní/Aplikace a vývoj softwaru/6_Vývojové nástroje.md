@@ -98,9 +98,7 @@ Zaznamenávání změn v souborech v průběhu času — umožňuje vrátit se k
 
 **Git** — vytvořil Linus Torvalds v roce 2005 pro vývoj Linuxu. Správu předal Junio Hamano který ho vede dodnes.
 
-Typy:
-- **Git** — distribuovaný — každý vývojář má kompletní historii u sebe
-- **SVN** — centralizovaný — historie pouze na serveru
+**Git** — distribuovaný — každý vývojář má kompletní historii u sebe
 
 Hostingové služby: GitHub (open-source), GitLab (DevOps, CI/CD), Bitbucket (firemní)
 
