@@ -90,6 +90,14 @@ interface GigabitEthernet0/1
 
 **EtherChannel** – sdružuje více fyzických linek do jednoho logického kanálu; zvyšuje šířku pásma a redundanci. STP vidí kanál jako jeden port → žádné blokování.
 
+**Podmínky pro vytvoření EtherChannel** — všechny porty v kanálu musí mít shodné:
+- **Rychlost** — např. všechny 1 Gb/s
+- **Duplex** — všechny full-duplex
+- **Typ portu** — access nebo trunk (nelze míchat)
+- **VLAN konfigurace** — stejné povolené VLANy
+
+**Maximum linek:** 8 fyzických portů na jeden EtherChannel (dle IEEE 802.3ad / LACP)
+
 ### Protokoly EtherChannel
 
 **PAgP – Port Aggregation Protocol**
