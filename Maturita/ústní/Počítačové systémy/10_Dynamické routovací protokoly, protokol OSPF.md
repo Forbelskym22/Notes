@@ -159,4 +159,10 @@ GigabitEthernet (1 Gb/s): 10⁸ / 1 000 000 000 = 0,1 → zaokrouhlí se na 1
 Serial (1,544 Mb/s):      10⁸ / 1 544 000 = 64
 ```
 
-> Na GigabitEthernet a rychlejší se cost ručně upravuje příkazem `auto-cost reference-bandwidth`
+Hodnota 10⁸ (100 Mbps) se nazývá **reference bandwidth** — jde ji změnit příkazem `auto-cost reference-bandwidth`. Doporučuje se nastavit na nejvyšší rychlost linek v síti (např. 1000 pro Gigabit, 10000 pro 10 Gigabit), aby měly rychlejší linky smysluplně nižší cost než pomalejší.
+
+```
+Router(config-router)# auto-cost reference-bandwidth 1000   ! nastaví základ na 1 Gb/s
+```
+
+> Musí být nastaveno stejně na všech routerech v OSPF doméně, jinak dojde k neshodě v výpočtu cest.
