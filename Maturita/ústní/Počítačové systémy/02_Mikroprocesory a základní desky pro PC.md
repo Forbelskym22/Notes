@@ -35,6 +35,8 @@ Milník: v roce **2000** byl poprvé překonán 1 GHz (AMD Athlon a Intel Pentiu
 - **TDP (Thermal Design Power)** – W; tepelný výkon, který musí chladit chladič
 - **Výrobní proces (lithografie)** – nm (nanometry); menší = nižší spotřeba, vyšší hustota tranzistorů
 - **Patice (socket)** – fyzické rozhraní pro připojení k základní desce; musí souhlasit (např. LGA1700, AM5)
+  - **LGA** (Land Grid Array) – piny jsou na základní desce, CPU má jen plošky (Intel, AMD AM5)
+  - **PGA** (Pin Grid Array) – piny jsou na CPU (AMD AM4 a starší)
 - **Integrovaná grafika (iGPU)** – někteří procesory obsahují GPU přímo na čipu (Intel UHD, AMD Radeon)
 - **Paměťový řadič** – integrovaný v CPU; podporované typy a frekvence RAM
 - **Počet paměťových kanálů** – dual channel (běžné spotřebitelské CPU), quad channel (HEDT – Intel X-series, AMD Threadripper), 8-channel (serverové Xeon/EPYC); více kanálů = vyšší propustnost RAM
