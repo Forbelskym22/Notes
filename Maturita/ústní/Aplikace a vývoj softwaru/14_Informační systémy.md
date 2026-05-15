@@ -56,8 +56,20 @@ Když znáš `id = 1`, víš že je to Martin a je mu 18 → `jmeno` i `vek` zá
   - adresa jako jeden řetězec porušuje 1NF → rozdělit na `Ulice`, `Čp.`, `Město`, `PSČ`
   - sloupce `Zboží1`, `Zboží2`, `Zboží3`… porušují 1NF → udělat zvláštní tabulku položek
 
-- **2. NF** — každý atribut musí záviset na **celém** primárním klíči, ne jen na jeho části. Prostě: *"pokud se něco opakuje pořád dokola, patří to jinam."*
-  - datum faktury se opakuje u každé položky → oddělit tabulku `Faktury` od `PoložkyFaktury`
+- **2. NF** — každý atribut musí záviset na **celém** primárním klíči, ne jen na jeho části. Řeší se jen když máš složený PK (z více sloupců).
+
+  Příklad — PK je `objednavka_id + produkt_id` dohromady:
+
+  | objednavka_id | produkt_id | mnozstvi | nazev_produktu |
+  |---|---|---|---|
+  | 1 | 5 | 2 | Tužka |
+  | 1 | 8 | 1 | Sešit |
+
+  `mnozstvi` závisí na obou sloupcích PK ✅ — kolik kusů produktu 5 je v objednávce 1.
+
+  `nazev_produktu` závisí jen na `produkt_id` ❌ — název tužky nezávisí na tom v které objednávce je.
+
+  Správně — `nazev_produktu` do vlastní tabulky produktů.
 
 - **3. NF** — žádný atribut nesmí záviset na jiném neklíčovém atributu. Prostě: *"pokud sloupec závisí na jiném sloupci (ne na PK), patří do vlastní tabulky."*
 
