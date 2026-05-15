@@ -12,6 +12,7 @@ Vývoj Windows probíhal dvěma větvemi, které se spojily v XP:
 | Windows 3.11 | 1992 |
 | Windows 95 | 1995 |
 | Windows 98 | 1998 |
+| Windows Me | 2000 |
 
 **Serverová / firemní větev (NT):**
 
