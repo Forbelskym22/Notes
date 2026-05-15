@@ -87,6 +87,7 @@ Umožňují užívat dílo bez individuálního souhlasu autora — za podmínek
 | **Creative Commons (CC)** | autor si vybere kombinaci podmínek (uvést autora, neměnit, nekomerčně…) |
 | **GNU GPL** | open-source licence pro SW — kód je volně dostupný, odvozená díla musí být také GPL |
 | **MIT licence** | volná licence pro SW, téměř bez omezení |
+| **Apache licence** | volná licence pro SW — povoluje komerční užití i uzavřený kód, ale vyžaduje uvést autora a zachovat text licence |
 
 **Creative Commons podmínky** (lze kombinovat):
 - **BY** — uveďte autora
