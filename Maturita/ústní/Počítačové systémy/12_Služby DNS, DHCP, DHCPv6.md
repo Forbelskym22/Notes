@@ -22,11 +22,13 @@ Hierarchický distribuovaný systém pro překlad doménových jmen na IP adresy
 
 ### Průběh DNS dotazu
 
-1. Klient se ptá **rekurzivního resolveru** (ISP nebo 8.8.8.8)
-2. Resolver se ptá **root serveru** → dostane adresu TLD serveru
-3. Resolver se ptá **TLD serveru** → dostane adresu autoritativního serveru
-4. Resolver se ptá **autoritativního serveru** → dostane IP adresu
-5. Resolver vrátí odpověď klientovi a uloží do **cache** (po dobu TTL)
+1. Klient zkontroluje **vlastní cache** (hosts soubor + dříve přeložené záznamy) → pokud nalezeno, hotovo
+2. Klient se ptá **rekurzivního resolveru** (ISP nebo 8.8.8.8)
+3. Resolver zkontroluje **svou cache** → pokud nalezeno, vrátí odpověď
+4. Resolver se ptá **root serveru** → dostane adresu TLD serveru
+5. Resolver se ptá **TLD serveru** → dostane adresu autoritativního serveru
+6. Resolver se ptá **autoritativního serveru** → dostane IP adresu
+7. Resolver vrátí odpověď klientovi a uloží do **cache** (po dobu TTL)
 
 ### Typy DNS záznamů
 
