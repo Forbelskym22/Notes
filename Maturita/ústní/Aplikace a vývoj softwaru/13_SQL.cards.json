@@ -8,5 +8,9 @@
   {"q": "Co je poddotaz (subquery) v SQL?", "a": "SELECT uvnitř jiného SELECT. Např. WHERE plat > (SELECT AVG(plat) FROM osoby) — zaměstnanci s platem nad průměrem."},
   {"q": "Co dělá ORDER BY?", "a": "Seřadí výsledky podle sloupce. ASC = vzestupně (výchozí), DESC = sestupně."},
   {"q": "Co dělá DISTINCT v SQL?", "a": "Vrátí pouze jedinečné řádky — odstraní duplicity z výsledku."},
-  {"q": "Co dělá klauzule WITH (CTE)?", "a": "Vytvoří pojmenovaný dočasný výsledek pro přehlednější zápis složitých dotazů — ekvivalent poddotazu, ale čitelnější."}
+  {"q": "Co dělá klauzule WITH (CTE)?", "a": "Vytvoří pojmenovaný dočasný výsledek pro přehlednější zápis složitých dotazů — ekvivalent poddotazu, ale čitelnější."},
+  {"q": "Jak vypadá CREATE TABLE se všemi klíči?", "a": "CREATE TABLE t (id INT PRIMARY KEY, col VARCHAR(50) NOT NULL, fk INT, FOREIGN KEY (fk) REFERENCES jina(id)). AUTO_INCREMENT (MySQL) nebo IDENTITY(1,1) (MS SQL) pro automatické ID."},
+  {"q": "Jak přidat / odebrat sloupec přes ALTER TABLE?", "a": "ALTER TABLE t ADD email VARCHAR(100) — přidání. ALTER TABLE t DROP COLUMN email — odebrání. ALTER TABLE t MODIFY/ALTER COLUMN plat FLOAT — změna typu."},
+  {"q": "Jak přidat cizí klíč přes ALTER TABLE?", "a": "ALTER TABLE zamestnanci ADD FOREIGN KEY (oddeleni) REFERENCES oddeleni(id). Odebrat: ALTER TABLE zamestnanci DROP FOREIGN KEY fk_nazev."},
+  {"q": "Co dělá DROP TABLE vs DELETE?", "a": "DROP TABLE smaže celou tabulku včetně struktury. DELETE odstraní záznamy ale tabulka zůstane. DROP DATABASE smaže celou databázi."}
 ]
