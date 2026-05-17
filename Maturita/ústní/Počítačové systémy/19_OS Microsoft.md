@@ -54,9 +54,9 @@ Vývoj Windows probíhal dvěma větvemi, které se spojily v XP:
 > nerozběhnete
 ### Průběh instalace
 
-**1. Boot z média** – bootování z USB / DVD nebo **PXE** (síťová instalace přes DHCP + TFTP); změna boot pořadí v UEFI/BIOS
+**1. Boot z média** – bootování z USB / DVD nebo **PXE** (síťová instalace přes DHCP + TFTP); výběr jazyka, edice, přijetí EULA
 
-**2. Windows PE (WinPE)** – minimální prostředí; načte `setup.exe`, výběr jazyka, edice, přijetí EULA, rozdělení disku (GPT/MBR), kopírování souborů (`install.wim`)
+**2. Windows PE (WinPE)** – minimální prostředí; rozdělení disku (GPT/MBR), kopírování souborů (`install.wim`)
 
 **3. Specializace** – instalace ovladačů, přiřazení unikátního SID, přizpůsobení HW; několik automatických restartů
 
