@@ -68,6 +68,8 @@ Hlavní řetězce:
 - **OUTPUT** — provoz odesílaný z tohoto zařízení
 - **FORWARD** — provoz procházející přes toto zařízení (router)
 
+![iptables chains|697](iptables_chains.svg)
+
 ```bash
 # Syntaxe:
 iptables -A <řetězec> -p <protokol> --dport <port> -j <akce>
