@@ -54,42 +54,13 @@ Vývoj Windows probíhal dvěma větvemi, které se spojily v XP:
 > nerozběhnete
 ### Průběh instalace
 
-1. **Boot z média** – načtení instalátoru (USB, DVD, PXE)
-2. **Windows PE** – minimální prostředí; rozdělení disků, kopírování souborů
-3. **Specializace** – instalace ovladačů, přiřazení unikátního SID, přizpůsobení HW
-4. **OOBE** – jazyk, region, časové pásmo, vytvoření účtu
+**1. Boot z média** – bootování z USB / DVD nebo **PXE** (síťová instalace přes DHCP + TFTP); změna boot pořadí v UEFI/BIOS
 
----
+**2. Windows PE (WinPE)** – minimální prostředí; načte `setup.exe`, výběr jazyka, edice, přijetí EULA, rozdělení disku (GPT/MBR), kopírování souborů (`install.wim`)
 
-**Podrobněji:**
+**3. Specializace** – instalace ovladačů, přiřazení unikátního SID, přizpůsobení HW; několik automatických restartů
 
-**1. fáze – Boot**
-- Bootování z USB / DVD nebo **PXE** (Pre-boot Execution Environment – síťová instalace přes DHCP + TFTP)
-- Změna boot pořadí v UEFI/BIOS
-
-**2. fáze – Windows PE (WinPE)**
-- Minimální prostředí pro spuštění instalátoru
-- Načte `setup.exe` z instalačního média
-
-**3. fáze – Předinstalace (Setup)**
-- Výběr jazyka, klávesnice
-- Zadání product key nebo přeskočení
-- Výběr edice (Home / Pro), přijetí EULA
-
-**4. fáze – Příprava disku (Disk Partitioning)**
-- Výběr cílového oddílu nebo rozdělení disku (GPT/MBR)
-- Clean install = smazání stávajících oddílů; vytvoří se systémové oddíly (EFI, MSR, Windows)
-
-**5. fáze – Instalace (Expanding / Applying Image)**
-- Rozbalení `install.wim` / `install.esd` na disk
-- Instalace funkcí, ovladačů, aktualizací
-- Několik automatických restartů
-
-**6. fáze – OOBE** (Out-of-Box Experience)
-- Nastavení regionu, klávesnice
-- Připojení k síti
-- Přihlášení / vytvoření Microsoft účtu nebo lokálního účtu
-- Nastavení PINu, soukromí, OneDrive
+**4. OOBE** (Out-of-Box Experience) – region, časové pásmo, připojení k síti, vytvoření účtu (Microsoft nebo lokální), PIN, soukromí
 
 ### Typy instalace
 - **Clean install** – čistá instalace, smaže vše
