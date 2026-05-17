@@ -46,6 +46,18 @@ Linux používá **jeden strom adresářů** začínající v **rootu** (`/`) �
 
 ---
 
+## Průběh instalace
+
+1. **Boot z média** — načtení bootloaderu z USB/ISO/PXE
+2. **Live prostředí / instalátor** — grafický nebo TUI instalátor (Debian, Ubuntu, Arch)
+3. **Rozdělení disku** — výběr oddílů (EFI, /, swap, /home)
+4. **Kopírování systému** — rozbalení base systému na disk
+5. **Konfigurace** — hostname, uživatel, heslo, časové pásmo, jazyk
+6. **Instalace bootloaderu** — GRUB se nainstaluje na EFI oddíl
+7. **Restart** — boot z disku místo média
+
+---
+
 ## Rozdělení disku – oddíly
 
 Při instalaci Linuxu je potřeba disk rozdělit na oddíly. Povinné minimum:
