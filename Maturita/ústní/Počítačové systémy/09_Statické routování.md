@@ -64,7 +64,7 @@ Router(config-if)# exit
 ### Přidání statické trasy
 
 ```
-ip route <cílová síť> <maska> <next-hop IP nebo výstupní rozhraní>
+ip route <cílová síť> <maska> <next-hop IP | výstupní rozhraní> [AD]
 ```
 
 Příklady:
@@ -72,7 +72,7 @@ Příklady:
 ! Přes next-hop IP:
 ip route 10.0.0.0 255.255.255.0 192.168.1.2
 
-! Přes výstupní rozhraní:
+! Přes výstupní rozhraní (pouze pro sériové linky – na Ethernetu způsobuje opakované ARP dotazy):
 ip route 10.0.0.0 255.255.255.0 GigabitEthernet0/1
 
 ! Výchozí trasa (default route):
