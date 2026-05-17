@@ -135,10 +135,14 @@ app.get('/api/note/:subject/:file', (req, res) => {
   res.json({ content, subtopics: subtopicsMap[req.params.file] || null })
 })
 
+let pdfBusy = false
+
 async function generatePdf(filePath, title, res) {
+  if (pdfBusy) return res.status(503).send('PDF se právě generuje, zkus to za chvíli.')
+  pdfBusy = true
   const content = fs.readFileSync(filePath, 'utf8')
   const html = buildPdfHtml(title, content)
-  const browser = await puppeteer.launch({ executablePath: CHROMIUM_PATH, args: ['--no-sandbox'] })
+  const browser = await puppeteer.launch({ executablePath: CHROMIUM_PATH, args: ['--no-sandbox', '--disable-dev-shm-usage'] })
   try {
     const page = await browser.newPage()
     await page.setContent(html, { waitUntil: 'networkidle0' })
@@ -149,6 +153,7 @@ async function generatePdf(filePath, title, res) {
     res.send(pdf)
   } finally {
     await browser.close()
+    pdfBusy = false
   }
 }
 
