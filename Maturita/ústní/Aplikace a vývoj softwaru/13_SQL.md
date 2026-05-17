@@ -120,6 +120,45 @@ DELETE FROM osoby WHERE id=80;
 
 ---
 
+## Definice struktur (DDL)
+
+```sql
+-- CREATE TABLE — vytvoření tabulky
+CREATE TABLE zamestnanci (
+    id        INT           PRIMARY KEY,
+    jmeno     VARCHAR(50)   NOT NULL,
+    prijmeni  VARCHAR(50)   NOT NULL,
+    oddeleni  INT,
+    plat      DECIMAL(10,2) DEFAULT 0,
+    FOREIGN KEY (oddeleni) REFERENCES oddeleni(id)
+);
+
+-- AUTO INCREMENT (MySQL) / IDENTITY (MS SQL)
+id INT PRIMARY KEY AUTO_INCREMENT          -- MySQL
+id INT PRIMARY KEY IDENTITY(1,1)           -- MS SQL
+
+-- Složený primární klíč
+PRIMARY KEY (objednavka_id, produkt_id)
+
+-- ALTER TABLE — úprava struktury tabulky
+ALTER TABLE zamestnanci ADD email VARCHAR(100);       -- přidání sloupce
+ALTER TABLE zamestnanci DROP COLUMN email;            -- odebrání sloupce
+ALTER TABLE zamestnanci ALTER COLUMN plat FLOAT;      -- změna typu (MS SQL)
+ALTER TABLE zamestnanci MODIFY plat FLOAT;            -- změna typu (MySQL)
+
+-- Přidání / odebrání klíčů přes ALTER
+ALTER TABLE zamestnanci ADD PRIMARY KEY (id);
+ALTER TABLE zamestnanci ADD FOREIGN KEY (oddeleni) REFERENCES oddeleni(id);
+ALTER TABLE zamestnanci DROP PRIMARY KEY;
+ALTER TABLE zamestnanci DROP FOREIGN KEY fk_oddeleni;
+
+-- DROP — smazání tabulky / databáze
+DROP TABLE zamestnanci;
+DROP DATABASE firma;
+```
+
+---
+
 ## Spojování tabulek (JOIN)
 
 ```sql
