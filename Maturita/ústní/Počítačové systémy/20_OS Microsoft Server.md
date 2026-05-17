@@ -25,6 +25,13 @@ Windows Server je serverový operační systém od Microsoftu určený pro sprá
 | **Datacenter** | Velké firmy, datacentra; neomezené VM |
 | **Essentials** | Až 25 uživatelů, 50 zařízení; zjednodušená správa |
 
+### Průběh instalace
+
+1. **Boot z média** – načtení instalátoru (USB, ISO, PXE)
+2. **Windows PE** – minimální prostředí; rozdělení disků, kopírování souborů
+3. **Specializace** – instalace ovladačů, přiřazení unikátního SID, přizpůsobení HW
+4. **OOBE** – jazyk, region, časové pásmo, vytvoření účtu, připojení k doméně
+
 ### Typy instalace
 - **Server with Desktop Experience** – plné GUI (jako Windows 10)
 - **Server Core** – pouze CLI, bez GUI; menší plocha útoku, nižší nároky na HW
